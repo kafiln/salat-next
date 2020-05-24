@@ -1,10 +1,10 @@
-import Head from 'next/head'
-import Link from 'next/link'
-import App from '../src/components/App';
+import React, { useContext } from "react";
+import { AppContext } from "../src/context/AppContext";
 
-const Home = () => (
-  <App/>
-);
-  
+function Home() {
+  const state = useContext(AppContext);
+  console.log(state);
+  return <div>Home works</div>;
+}
 
-export default Home
+export default Home;

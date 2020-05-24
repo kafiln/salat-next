@@ -1,22 +1,22 @@
-import moment from 'moment';
-import React, { useContext, useEffect, useState } from 'react';
-import Spinner from '../../common/spinner';
-import { AppContext } from '../../context/AppContext';
-import usePrayers from '../../hooks/usePrayers';
-import { DEFAULT_TIME_FORMAT } from '../../settings';
-import { parseTime } from '../../utils/dates';
-import { Difference, Li, Name, Time, Ul } from './styles';
-import {REFRESH_TIME} from '../../context/types'
+import moment from "moment";
+import React, { useContext, useEffect, useState } from "react";
+import Spinner from "../../common/spinner";
+import { AppContext } from "../../context/AppContext";
+import { CHANGE_THEME, REFRESH_TIME } from "../../context/types";
+import usePrayers from "../../hooks/usePrayers";
+import { DEFAULT_TIME_FORMAT } from "../../settings";
+import { parseTime } from "../../utils/dates";
+import { Difference, Li, Name, Time, Ul } from "./styles";
 
-const NAMES = require('../../data/prayers.json');
+const NAMES = require("../../data/prayers.json");
 
 const Daily = () => {
-  const { time, lang, dispatch, id } = useContext(AppContext);
+  const { time, lang, dispatch, id, theme } = useContext(AppContext);
   const prayers = usePrayers(id, true);
   let prayer = (prayers || [])[0];
 
-  let [diff, setDifference] = useState('');
-  let [next, setNextOne] = useState('');
+  let [diff, setDifference] = useState("");
+  let [next, setNextOne] = useState("");
 
   useEffect(() => {
     if (prayer) {
@@ -46,13 +46,21 @@ const Daily = () => {
     <Ul>
       {Object.keys(NAMES).map((name) => {
         return (
-          <Li key={name} lang={lang} className={name === next ? 'next' : ''}>
+          <Li key={name} lang={lang} className={name === next ? "next" : ""}>
             <Name>{NAMES[name][lang]}</Name>
             {name === next && <Difference>{diff}</Difference>}
             <Time>{parseTime(prayer[name])}</Time>
           </Li>
         );
       })}
+      <button
+        onClick={() => {
+          console.log("changing theme", theme);
+          dispatch({ type: CHANGE_THEME });
+        }}
+      >
+        Change theme
+      </button>
     </Ul>
   ) : (
     <Spinner />

@@ -17,5 +17,8 @@
     "react-select": "^3.1.0",
     "react-switch": "^5.0.1",
     "styled-components": "^5.1.0"
+  },
+  "devDependencies": {
+    "babel-plugin-styled-components": "^1.10.7"
   }
 }

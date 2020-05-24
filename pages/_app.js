@@ -5,6 +5,7 @@ import { AppContext, initialState } from "../src/context/AppContext";
 import AppReducer from "../src/context/AppReducer";
 import { I18nProvider } from "../src/i18n";
 import { dark, GlobalStyles, light } from "../src/themes";
+import "../styles/main.css";
 
 export default class MyApp extends App {
   state = { ...initialState };

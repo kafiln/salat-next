@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "build:prod": "NODE_ENV=production npm run  build"
   },
   "dependencies": {
     "axios": "^0.19.2",

@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 import Spinner from "../../common/spinner";
 import { AppContext } from "../../context/AppContext";
 import { CHANGE_THEME, REFRESH_TIME } from "../../context/types";
+import useInterval from "../../hooks/useInterval";
 import usePrayers from "../../hooks/usePrayers";
 import { DEFAULT_TIME_FORMAT } from "../../settings";
 import { parseTime } from "../../utils/dates";
@@ -10,37 +11,33 @@ import { Difference, Li, Name, Time, Ul } from "./styles";
 
 const NAMES = require("../../data/prayers.json");
 
-const Daily = () => {
-  const { time, lang, dispatch, id, theme } = useContext(AppContext);
+const Daily = ({ id }) => {
+  const { time, lang, dispatch } = useContext(AppContext);
   const prayers = usePrayers(id, true);
   let prayer = (prayers || [])[0];
 
-  let [diff, setDifference] = useState("");
-  let [next, setNextOne] = useState("");
+  let [state, setState] = useState({});
+
+  const thick = () => {
+    dispatch({ type: REFRESH_TIME });
+  };
 
   useEffect(() => {
     if (prayer) {
       const nextOnes = Object.keys(prayer).filter((t) =>
-        time.isBefore(prayer[t])
+        time.isBefore(moment(prayer[t]))
       );
       const next = nextOnes.length === 0 ? Object.keys(NAMES)[0] : nextOnes[0];
-      setNextOne(next);
       const diff = moment(moment(prayer[next]).diff(time)).format(
         DEFAULT_TIME_FORMAT
       );
-      setDifference(diff);
+      setState({ next, diff });
     }
-  }, [time, prayer]);
+  }, [prayer, time]);
 
-  useEffect(() => {
-    const timeout = setTimeout(
-      () => dispatch({ type: REFRESH_TIME, payload: null }),
-      1000
-    );
-    return () => {
-      clearTimeout(timeout);
-    };
-  });
+  useInterval(thick, 1000);
+
+  const { next, diff } = state;
 
   return prayer ? (
     <Ul>
@@ -55,7 +52,6 @@ const Daily = () => {
       })}
       <button
         onClick={() => {
-          console.log("changing theme", theme);
           dispatch({ type: CHANGE_THEME });
         }}
       >

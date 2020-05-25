@@ -1,18 +1,18 @@
-import React, { useContext } from 'react';
-import { FormattedDate, FormattedMessage } from 'react-intl';
-import Spinner from '../../common/spinner';
-import { AppContext } from '../../context/AppContext';
-import usePrayers from '../../hooks/usePrayers';
-import { KEYS } from '../../i18n';
-import { parseTime } from '../../utils/dates';
-import { Table, Tbody, Td, Thead, Tr } from './styles';
+import React, { useContext } from "react";
+import { FormattedDate, FormattedMessage } from "react-intl";
+import Spinner from "../../common/spinner";
+import { AppContext } from "../../context/AppContext";
+import usePrayers from "../../hooks/usePrayers";
+import { KEYS } from "../../i18n";
+import { parseTime } from "../../utils/dates";
+import { Table, Tbody, Td, Thead, Tr } from "./styles";
 
-const NAMES = require('../../data/prayers.json');
+const NAMES = require("../../data/prayers.json");
 
 const NAMES_FR = Object.keys(NAMES).map((e) => e);
 
-const Monthly = () => {
-  const { lang, id, theme } = useContext(AppContext);
+const Monthly = ({ id }) => {
+  const { lang, theme } = useContext(AppContext);
   const today = new Date().getDate();
 
   let prayers = usePrayers(id);
@@ -20,7 +20,7 @@ const Monthly = () => {
   const table = (
     <>
       {/* TODO: Add an i18n title */}
-      <Table dark={theme === 'dark'} striped>
+      <Table dark={theme === "dark"} striped>
         <Thead>
           <Tr lang={lang} className="header">
             <Td className="first">
@@ -39,7 +39,7 @@ const Monthly = () => {
                 lang={lang}
                 key={i}
                 className={`${
-                  new Date(prayer.day).getDate() === today ? 'today' : ''
+                  new Date(prayer.day).getDate() === today ? "today" : ""
                 }`}
               >
                 <Td className="first">

@@ -40,14 +40,12 @@ const reducer = (state, action) => {
       };
     case CHANGE_THEME:
       const theme = state.theme === "light" ? "dark" : "light";
-      console.log(theme);
       localStorage.setItem("theme", theme);
       return {
         ...withTime(state),
         theme,
       };
     case REFRESH_TIME:
-      // console.log('refreshing time');
       return {
         ...withTime(state),
       };

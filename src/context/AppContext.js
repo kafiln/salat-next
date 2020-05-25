@@ -1,6 +1,6 @@
 import moment from "moment";
 import React from "react";
-import cities from "../data/cities.json";
+import cities from "../../public/data/cities.json";
 import { TIME_OFFSET } from "../settings";
 
 export const initialState = {

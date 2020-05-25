@@ -9,7 +9,7 @@ import { DEFAULT_TIME_FORMAT } from "../../settings";
 import { parseTime } from "../../utils/dates";
 import { Difference, Li, Name, Time, Ul } from "./styles";
 
-const NAMES = require("../../data/prayers.json");
+const NAMES = require("../../../public/data/prayers.json");
 
 const Daily = ({ id }) => {
   const { time, lang, dispatch } = useContext(AppContext);

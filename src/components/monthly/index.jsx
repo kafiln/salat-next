@@ -7,7 +7,7 @@ import { KEYS } from "../../i18n";
 import { parseTime } from "../../utils/dates";
 import { Table, Tbody, Td, Thead, Tr } from "./styles";
 
-const NAMES = require("../../data/prayers.json");
+const NAMES = require("../../../public/data/prayers.json");
 
 const NAMES_FR = Object.keys(NAMES).map((e) => e);
 

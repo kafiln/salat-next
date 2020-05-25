@@ -26,7 +26,6 @@ const reducer = (state, action) => {
         id: action.payload,
       };
     case INITIAL_INIT:
-      console.log("Initial values", action.payload);
       return {
         ...withTime(state),
         ...action.payload,

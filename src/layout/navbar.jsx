@@ -9,24 +9,29 @@ function Navbar() {
 
   const { id, lang, theme, periodicity, dispatch } = useContext(AppContext);
 
-  const active = "font-bold underline";
+  const active = "font-bold underline capitalize";
 
-  const isActive = (router, path) =>
-    router.pathname.startsWith(`/${path}`) ? active : "";
+  const periods = ["daily", "monthly"];
+
+  const isActive = (router, path) => {
+    return router.asPath.startsWith(`/${path}`) ? active : "";
+  };
 
   return (
-    <div>
-      <Link href="/monthly/[id]" as={`/monthly/${id}`}>
-        <a className={isActive(router, "monthly")}>Monthly</a>
-      </Link>
-      <Link href="/daily/[id]" as={`/daily/${id}`}>
-        <a className={isActive(router, "daily")}>Daily</a>
-      </Link>
-
-      <button onClick={() => dispatch({ type: CHANGE_THEME })}>Theme</button>
-      <button onClick={() => dispatch({ type: CHANGE_LANGUAGE })}>
-        Languge
-      </button>
+    <div className="flex justify-evenly">
+      <div className="flex justify-evenly flex-1">
+        {periods.map((p) => (
+          <Link key={p} href="/[periodicity]/[id]" as={`/${p}/${id}`}>
+            <a className={isActive(router, p)}>{p}</a>
+          </Link>
+        ))}
+      </div>
+      <div className="flex justify-evenly flex-1">
+        <button onClick={() => dispatch({ type: CHANGE_THEME })}>Theme</button>
+        <button onClick={() => dispatch({ type: CHANGE_LANGUAGE })}>
+          Languge
+        </button>
+      </div>
     </div>
   );
 }

@@ -1,14 +1,15 @@
 import { useRouter } from "next/router";
 import { useContext, useEffect } from "react";
-import { Spinner } from "../src/common/spinner/styles";
-import { AppContext } from "../src/context/AppContext";
+import { Spinner } from "../../src/common/spinner/styles";
+import { AppContext } from "../../src/context/AppContext";
 
-const Index = () => {
-  const { id, periodicity } = useContext(AppContext);
+export default () => {
+  const { id } = useContext(AppContext);
   const router = useRouter();
+  const { periodicity } = router.query;
 
   useEffect(() => {
-    if (periodicity && id) {
+    if (periodicity) {
       const redirect = `/${periodicity}/${id}`;
       router.push(`/[periodicity]/[id]`, redirect);
     }
@@ -16,5 +17,3 @@ const Index = () => {
 
   return <Spinner></Spinner>;
 };
-
-export default Index;

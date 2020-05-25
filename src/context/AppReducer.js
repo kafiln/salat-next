@@ -20,6 +20,7 @@ const withTime = (state) => {
 const reducer = (state, action) => {
   switch (action.type) {
     case CHANGE_CITY:
+      console.log(action.payload);
       localStorage.setItem("id", action.payload);
       return {
         ...withTime(state),
@@ -38,7 +39,7 @@ const reducer = (state, action) => {
         lang,
       };
     case CHANGE_PERIOD:
-      const periodicity = state.periodicity === "daily" ? "monthly" : "daily";
+      const periodicity = action.payload;
       localStorage.setItem("periodicity", periodicity);
       return {
         ...withTime(state),

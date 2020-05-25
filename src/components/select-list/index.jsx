@@ -1,9 +1,7 @@
-import React from 'react';
-import { Container, Select } from './styles';
+import React from "react";
+import { Container, Select } from "./styles";
 
-
-const byLabel = (a, b) =>
-  a.label > b.label ? 1 : b.label > a.label ? -1 : 0;
+const byLabel = (a, b) => (a.label > b.label ? 1 : b.label > a.label ? -1 : 0);
 
 const SelectList = ({ onChange, cities, id, lang }) => {
   const options = cities
@@ -15,22 +13,23 @@ const SelectList = ({ onChange, cities, id, lang }) => {
         .sort(byLabel)
     : [];
 
-  const value = options.find((e) => e.value === id);
+  const value = options.find((e) => e.value == id);
 
   const customStyles = {
     singleValue: (provided) => {
-      const padding = '20px 10px';
-      const textAlign = 'center';
-      return { ...provided, padding, width: '100%', textAlign };
+      const padding = "20px 10px";
+      const textAlign = "center";
+      return { ...provided, padding, width: "100%", textAlign };
     },
   };
 
   return (
     <Container>
       <Select
+        instanceId={id}
         styles={customStyles}
         options={options}
-        menuPlacement={'top'}
+        menuPlacement={"top"}
         value={value}
         onChange={onChange}
       />

@@ -2,7 +2,7 @@ import moment from "moment";
 import React, { useContext, useEffect, useState } from "react";
 import Spinner from "../../common/spinner";
 import { AppContext } from "../../context/AppContext";
-import { CHANGE_THEME, REFRESH_TIME } from "../../context/types";
+import { CHANGE_PERIOD, REFRESH_TIME } from "../../context/types";
 import useInterval from "../../hooks/useInterval";
 import usePrayers from "../../hooks/usePrayers";
 import { DEFAULT_TIME_FORMAT } from "../../settings";
@@ -36,6 +36,7 @@ const Daily = ({ id }) => {
   }, [prayer, time]);
 
   useInterval(thick, 1000);
+  useEffect(() => dispatch({ type: CHANGE_PERIOD }), []);
 
   const { next, diff } = state;
 
@@ -50,13 +51,6 @@ const Daily = ({ id }) => {
           </Li>
         );
       })}
-      <button
-        onClick={() => {
-          dispatch({ type: CHANGE_THEME });
-        }}
-      >
-        Change theme
-      </button>
     </Ul>
   ) : (
     <Spinner />

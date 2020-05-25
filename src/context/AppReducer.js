@@ -5,6 +5,7 @@ import {
   CHANGE_LANGUAGE,
   CHANGE_PERIOD,
   CHANGE_THEME,
+  INITIAL_INIT,
   REFRESH_TIME,
 } from "./types";
 
@@ -23,6 +24,12 @@ const reducer = (state, action) => {
       return {
         ...withTime(state),
         id: action.payload,
+      };
+    case INITIAL_INIT:
+      console.log("Initial values", action.payload);
+      return {
+        ...withTime(state),
+        ...action.payload,
       };
     case CHANGE_LANGUAGE:
       const lang = state.lang === "fr-fr" ? "ar-ma" : "fr-fr";

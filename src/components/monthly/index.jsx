@@ -1,7 +1,8 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { FormattedDate, FormattedMessage } from "react-intl";
 import Spinner from "../../common/spinner";
 import { AppContext } from "../../context/AppContext";
+import { CHANGE_PERIOD } from "../../context/types";
 import usePrayers from "../../hooks/usePrayers";
 import { KEYS } from "../../i18n";
 import { parseTime } from "../../utils/dates";
@@ -12,15 +13,17 @@ const NAMES = require("../../data/prayers.json");
 const NAMES_FR = Object.keys(NAMES).map((e) => e);
 
 const Monthly = ({ id }) => {
-  const { lang, theme } = useContext(AppContext);
+  const { lang, dispatch } = useContext(AppContext);
   const today = new Date().getDate();
 
   let prayers = usePrayers(id);
 
+  useEffect(() => dispatch({ type: CHANGE_PERIOD }), []);
+
   const table = (
     <>
       {/* TODO: Add an i18n title */}
-      <Table dark={theme === "dark"} striped>
+      <Table>
         <Thead>
           <Tr lang={lang} className="header">
             <Td className="first">

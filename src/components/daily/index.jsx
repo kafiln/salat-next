@@ -10,6 +10,7 @@ import { parseTime } from "../../utils/dates";
 import { Difference, Li, Name, Time, Ul } from "./styles";
 
 const NAMES = require("../../../public/data/prayers.json");
+const cities = require("../../../public/data/cities.json");
 
 const Daily = ({ id }) => {
   const { time, lang, dispatch } = useContext(AppContext);

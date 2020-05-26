@@ -7,7 +7,7 @@ import Monthly from "../../src/components/monthly";
 import { AppContext } from "../../src/context/AppContext";
 import { API_URL } from "../../src/settings";
 
-const PeriodicitySwitch = () => {
+const PeriodicitySwitch = ({ prayers }) => {
   const router = useRouter();
 
   let { periodicity, id } = router.query;
@@ -23,7 +23,11 @@ const PeriodicitySwitch = () => {
 
   useEffect(() => {}, []);
 
-  return periodicity === "daily" ? <Daily id={id} /> : <Monthly id={id} />;
+  return periodicity === "daily" ? (
+    <Daily id={id} prayers={prayers} />
+  ) : (
+    <Monthly id={id} prayers={prayers} />
+  );
 };
 
 //
@@ -60,7 +64,7 @@ const getPrayers = async (id, daily) => {
   // Load initial values from API
   const prayers = (await axios.get(URL)).data;
 
-  return daily ? prayers[0] : prayers;
+  return prayers;
 };
 
 export async function getStaticProps({ params }) {

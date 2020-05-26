@@ -4,7 +4,6 @@ import Spinner from "../../common/spinner";
 import { AppContext } from "../../context/AppContext";
 import { REFRESH_TIME } from "../../context/types";
 import useInterval from "../../hooks/useInterval";
-import usePrayers from "../../hooks/usePrayers";
 import { DEFAULT_TIME_FORMAT } from "../../settings";
 import { parseTime } from "../../utils/dates";
 import { Difference, Li, Name, Time, Ul } from "./styles";
@@ -12,9 +11,8 @@ import { Difference, Li, Name, Time, Ul } from "./styles";
 const NAMES = require("../../../public/data/prayers.json");
 const cities = require("../../../public/data/cities.json");
 
-const Daily = ({ id }) => {
+const Daily = ({ id, prayers }) => {
   const { time, lang, dispatch } = useContext(AppContext);
-  const prayers = usePrayers(id, true);
   let prayer = (prayers || [])[0];
 
   let [state, setState] = useState({});

@@ -20,7 +20,6 @@ const withTime = (state) => {
 const reducer = (state, action) => {
   switch (action.type) {
     case CHANGE_CITY:
-      console.log(action.payload);
       localStorage.setItem("id", action.payload);
       return {
         ...withTime(state),

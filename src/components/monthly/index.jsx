@@ -22,7 +22,7 @@ const Monthly = ({ prayers }) => {
       <h1 style={{ textAlign: "center" }}>
         Prayers for month&nbsp;
         <span style={{ textDecoration: "underline" }}>
-          {moment.utc(prayers[0].day).format("MMM YYYY")}
+          {prayers && moment.utc(prayers[0].day).format("MMM YYYY")}
         </span>
       </h1>
       <Clock />

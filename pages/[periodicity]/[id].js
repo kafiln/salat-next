@@ -46,7 +46,7 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: false,
+    fallback: true,
   };
 }
 
@@ -59,7 +59,7 @@ const getPrayers = async (id, daily) => {
   if (daily) {
     URL += `&day=${new Date().getUTCDate()}`;
   }
-
+  console.log("Getting new data", URL);
   // Load initial values from API
   const prayers = (await axios.get(URL)).data;
 
@@ -72,7 +72,7 @@ export async function getStaticProps({ params }) {
     params.periodicity === "daily"
   );
 
-  return { props: { prayers } };
+  return { unstable_revalidate: 1, props: { prayers } };
 }
 
 export default PeriodicitySwitch;

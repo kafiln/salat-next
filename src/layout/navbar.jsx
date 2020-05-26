@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useContext } from "react";
+import Clock from "../components/clock";
 import SelectList from "../components/select-list";
 import { AppContext } from "../context/AppContext";
 import { CHANGE_LANGUAGE, CHANGE_THEME } from "../context/types";
@@ -50,6 +51,7 @@ function Navbar() {
           />
         </div>
       )}
+      <Clock displayClock={periodicity === "daily"} />
     </div>
   );
 }

@@ -1,8 +1,8 @@
-import React, { Fragment } from 'react';
-import { IntlProvider } from 'react-intl';
-import messages from './messages';
+import React, { Fragment } from "react";
+import { IntlProvider } from "react-intl";
+import messages from "./messages";
 
-const Provider = ({ children, locale = 'fr' }) => {
+const Provider = ({ children, locale = "ar-ma" }) => {
   return (
     <IntlProvider
       textComponent={Fragment}

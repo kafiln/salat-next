@@ -4,6 +4,7 @@ import { useContext, useEffect } from "react";
 import cities from "../../public/data/cities.json";
 import Daily from "../../src/components/daily";
 import Monthly from "../../src/components/monthly";
+import { updateCity, updatePeriodicity } from "../../src/context/actions";
 import { AppContext } from "../../src/context/AppContext";
 import { API_URL } from "../../src/settings";
 
@@ -11,17 +12,15 @@ const PeriodicitySwitch = ({ prayers }) => {
   const router = useRouter();
 
   let { periodicity, id } = router.query;
-  const { dispatch, id: contextID } = useContext(AppContext);
+  const { dispatch } = useContext(AppContext);
 
   useEffect(() => {
-    if (periodicity) {
-      if (!id) id = contextID;
-      const redirect = `/${periodicity}/${id}`;
-      router.push(`/[periodicity]/[id]`, redirect);
-    }
-  }, [periodicity]);
+    updateCity(dispatch, id);
+  }, [id]);
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    updatePeriodicity(dispatch, periodicity);
+  }, [periodicity]);
 
   return periodicity === "daily" ? (
     <Daily id={id} prayers={prayers} />

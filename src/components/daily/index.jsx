@@ -6,6 +6,7 @@ import { REFRESH_TIME } from "../../context/types";
 import useInterval from "../../hooks/useInterval";
 import { DEFAULT_TIME_FORMAT } from "../../settings";
 import { parseTime } from "../../utils/dates";
+import Clock from "../clock";
 import { Difference, Li, Name, Time, Ul } from "./styles";
 
 const NAMES = require("../../../public/data/prayers.json");
@@ -39,17 +40,20 @@ const Daily = ({ id, prayers }) => {
   const { next, diff } = state;
 
   return prayer ? (
-    <Ul>
-      {Object.keys(NAMES).map((name) => {
-        return (
-          <Li key={name} lang={lang} className={name === next ? "next" : ""}>
-            <Name>{NAMES[name][lang]}</Name>
-            {name === next && <Difference>{diff}</Difference>}
-            <Time>{parseTime(prayer[name])}</Time>
-          </Li>
-        );
-      })}
-    </Ul>
+    <>
+      <Clock displayClock time={time} day={prayer.day} />
+      <Ul>
+        {Object.keys(NAMES).map((name) => {
+          return (
+            <Li key={name} lang={lang} className={name === next ? "next" : ""}>
+              <Name>{NAMES[name][lang]}</Name>
+              {name === next && <Difference>{diff}</Difference>}
+              <Time>{parseTime(prayer[name])}</Time>
+            </Li>
+          );
+        })}
+      </Ul>
+    </>
   ) : (
     <Spinner />
   );

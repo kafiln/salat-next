@@ -10,9 +10,8 @@ import Clock from "../clock";
 import { Difference, Li, Name, Time, Ul } from "./styles";
 
 const NAMES = require("../../../public/data/prayers.json");
-const cities = require("../../../public/data/cities.json");
 
-const Daily = ({ id, prayers }) => {
+const Daily = ({ prayers }) => {
   const { time, lang, dispatch } = useContext(AppContext);
   let prayer = (prayers || [])[0];
 
@@ -41,7 +40,7 @@ const Daily = ({ id, prayers }) => {
 
   return prayer ? (
     <>
-      <Clock displayClock time={time} day={prayer.day} />
+      <Clock displayTime time={time} day={prayer.day} />
       <Ul>
         {Object.keys(NAMES).map((name) => {
           return (

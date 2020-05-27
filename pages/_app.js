@@ -26,7 +26,7 @@ export default class MyApp extends App {
           dispatch: this.dispatch,
         }}
       >
-        <ThemeProvider theme={this.state.theme === "light" ? light : dark}>
+        <ThemeProvider theme={this.state.theme === "dark" ? dark : light}>
           <GlobalStyles />
           <I18nProvider locale={this.state.lang}>
             <DefaultLayout>

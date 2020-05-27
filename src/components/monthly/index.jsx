@@ -1,22 +1,31 @@
+import moment from "moment";
 import React, { useContext } from "react";
 import { FormattedDate, FormattedMessage } from "react-intl";
 import Spinner from "../../common/spinner";
 import { AppContext } from "../../context/AppContext";
 import { KEYS } from "../../i18n";
 import { parseTime } from "../../utils/dates";
+import Clock from "../clock";
 import { Table, Tbody, Td, Thead, Tr } from "./styles";
 
 const NAMES = require("../../../public/data/prayers.json");
 
 const NAMES_FR = Object.keys(NAMES).map((e) => e);
 
-const Monthly = ({ id, prayers }) => {
+const Monthly = ({ prayers }) => {
   const { lang } = useContext(AppContext);
   const today = new Date().getDate();
 
   const table = (
     <>
-      {/* TODO: Add an i18n title */}
+      {/* //TODO:  Intl this 👇👇 and remove inline style */}
+      <h1 style={{ textAlign: "center" }}>
+        Prayers for month&nbsp;
+        <span style={{ textDecoration: "underline" }}>
+          {moment.utc(prayers[0].day).format("MMM YYYY")}
+        </span>
+      </h1>
+      <Clock />
       <Table>
         <Thead>
           <Tr lang={lang} className="header">

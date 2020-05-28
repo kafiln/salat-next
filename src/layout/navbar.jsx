@@ -21,7 +21,7 @@ function Navbar() {
   };
 
   return (
-    <header className="text-gray-700 body-font">
+    <header className="text-gray-700 body-font ">
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
         <a className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
           <svg
@@ -59,20 +59,21 @@ function Navbar() {
         >
           Language
         </button>
-        {id && (
-          <div className="flex justify-evenly">
-            <SelectList
-              cities={cities}
-              id={id}
-              lang={lang}
-              onChange={({ value }) => {
-                const redirect = `/${periodicity}/${value}`;
-                router.push(`/[periodicity]/[id]`, redirect);
-              }}
-            />
-          </div>
-        )}
       </div>
+
+      {id && (
+        <div className="w-full mx-auto sm:w-1/2 md:w-1/4 flex justify-evenly">
+          <SelectList
+            cities={cities}
+            id={id}
+            lang={lang}
+            onChange={({ value }) => {
+              const redirect = `/${periodicity}/${value}`;
+              router.push(`/[periodicity]/[id]`, redirect);
+            }}
+          />
+        </div>
+      )}
     </header>
   );
 }

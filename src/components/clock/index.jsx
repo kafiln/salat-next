@@ -9,7 +9,7 @@ const Clock = ({ displayTime = false, day, time }) => {
           value={day}
           year="numeric"
           month="long"
-          timeZone="UTC"
+          timeZone="Africa/Casablanca"
           day="numeric"
           weekday="long"
         ></FormattedDate>
@@ -21,7 +21,7 @@ const Clock = ({ displayTime = false, day, time }) => {
             hour="numeric"
             minute="numeric"
             second="numeric"
-            timeZone="UTC"
+            timeZone="Africa/Casablanca"
           ></FormattedDate>
         </H3>
       )}

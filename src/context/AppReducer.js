@@ -28,7 +28,10 @@ const reducer = (state, action) => {
     case INITIAL_INIT:
       return {
         ...withTime(state),
-        ...action.payload,
+        id: action.payload.id || state.id,
+        theme: action.payload.theme || state.theme,
+        lang: action.payload.lang || state.lang,
+        periodicity: action.payload.periodicity || state.periodicity,
       };
     case CHANGE_LANGUAGE:
       const lang = state.lang === "fr-fr" ? "ar-ma" : "fr-fr";

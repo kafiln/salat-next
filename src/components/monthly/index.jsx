@@ -51,7 +51,11 @@ const Monthly = ({ prayers }) => {
               <FormattedMessage id={KEYS.DAY} />
             </Td>
             {Object.keys(NAMES).map((name, i) => {
-              return <Td key={i}>{NAMES[name][lang]}</Td>;
+              return (
+                <Td key={i}>
+                  {NAMES[name][lang === "ar-ma" ? "ar-ma" : "fr-fr"]}
+                </Td>
+              );
             })}
           </Tr>
         </Thead>

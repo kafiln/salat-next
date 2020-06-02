@@ -8,7 +8,7 @@ const SelectList = ({ onChange, cities, id, lang }) => {
     ? cities
         .map((e) => ({
           value: e.id,
-          label: e.names[lang],
+          label: e.names[lang === "ar-ma" ? "ar-ma" : "fr-fr"],
         }))
         .sort(byLabel)
     : [];

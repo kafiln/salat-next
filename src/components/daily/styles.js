@@ -28,6 +28,6 @@ export const Li = styled.li`
   justify-content: space-between;
   width: 100%;
   flex-direction: ${(props) =>
-    props.lang === "fr-fr" ? "row" : "row-reverse"};
+    props.lang === "ar-ma" ? "row-reverse" : "row"};
   ${(props) => (props.className === "next" ? Next : "")}
 `;

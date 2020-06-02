@@ -10,8 +10,8 @@ export const Tr = styled.tr`
   display: flex;
   justify-content: space-around;
   flex-direction: ${(props) =>
-    props.lang === "fr-fr" ? "row" : "row-reverse"};
-  text-align: ${(props) => (props.lang === "fr-fr" ? "left" : "right")};
+    props.lang === "ar-ma" ? "row-reverse" : "row"};
+  text-align: ${(props) => (props.lang === "ar-ma" ? "right" : "left")};
   border-bottom: ${(props) => `1px solid ${props.theme.color}`};
 
   &.today {
@@ -35,6 +35,5 @@ export const Thead = styled.thead`
   & tr {
     background-color: grey;
     color: white;
-    /* font-weight: bold; */
   }
 `;

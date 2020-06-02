@@ -63,7 +63,7 @@ const Daily = ({ prayers }) => {
         {Object.keys(NAMES).map((name) => {
           return (
             <Li key={name} lang={lang} className={name === next ? "next" : ""}>
-              <Name>{NAMES[name][lang]}</Name>
+              <Name>{NAMES[name][lang === "ar-ma" ? "ar-ma" : "fr-fr"]}</Name>
               {name === next && <Difference>{diff}</Difference>}
               <Time>{parseTime(prayer[name])}</Time>
             </Li>

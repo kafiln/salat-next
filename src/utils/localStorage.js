@@ -1,8 +1,8 @@
 //TODO: Remove axios dependency from this projet
 // TODO: create an api to handle requests
 
-import axios from 'axios';
-import { NEVER_REMOVE_FROM_STORAGE } from '../settings';
+import fetch from "node-fetch";
+import { NEVER_REMOVE_FROM_STORAGE } from "../settings";
 
 /**
 *Fetch a value either from localStorage identified by name,
@@ -15,12 +15,12 @@ import { NEVER_REMOVE_FROM_STORAGE } from '../settings';
  */
 export const getFromLocalStorageOrApi = async (name, url) => {
   if (!localStorage.getItem(name)) {
-    const value = (await axios.get(url)).data;
+    const value = await fetch(url).then((res) => res.json());
     localStorage.setItem(name, JSON.stringify(value));
     return value;
   }
 
-  return JSON.parse(localStorage.getItem(name) || '');
+  return JSON.parse(localStorage.getItem(name) || "");
 };
 
 /**
@@ -36,11 +36,11 @@ export const getFromLocalStorageOrApi = async (name, url) => {
  */
 export const cleanLocalStorage = (cityId) => {
   const rest = [...NEVER_REMOVE_FROM_STORAGE];
-  const dailyKey = getStorageKey(cityId, true).split('_').slice(0, 3).join('_');
+  const dailyKey = getStorageKey(cityId, true).split("_").slice(0, 3).join("_");
   const monthlyKey = getStorageKey(cityId, false)
-    .split('_')
+    .split("_")
     .slice(0, 2)
-    .join('_');
+    .join("_");
 
   Object.keys({ ...localStorage })
     .filter((e) => !e.startsWith(dailyKey))

@@ -1,5 +1,5 @@
-import axios from "axios";
 import { useRouter } from "next/router";
+import fetch from "node-fetch";
 import { useContext, useEffect } from "react";
 import cities from "../../public/data/cities.json";
 import Daily from "../../src/components/daily";
@@ -61,7 +61,7 @@ const getPrayers = async (id, daily) => {
   }
   console.log("Getting new data", URL);
   // Load initial values from API
-  const prayers = (await axios.get(URL)).data;
+  const prayers = await fetch(URL).then((res) => res.json());
 
   return prayers;
 };

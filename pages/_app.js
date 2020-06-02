@@ -1,4 +1,7 @@
 import App from "next/app";
+import Router from "next/router";
+import NProgress from "nprogress"; //nprogress module
+import "nprogress/nprogress.css"; //styles of nprogress
 import React from "react";
 import { ThemeProvider } from "styled-components";
 import { initState } from "../src/context/actions";
@@ -8,6 +11,11 @@ import { I18nProvider } from "../src/i18n";
 import DefaultLayout from "../src/layout/defaultLayout";
 import { dark, GlobalStyles, light } from "../src/themes";
 import "../styles/main.css";
+
+//Binding events.
+Router.events.on("routeChangeStart", () => NProgress.start());
+Router.events.on("routeChangeComplete", () => NProgress.done());
+Router.events.on("routeChangeError", () => NProgress.done());
 
 export default class MyApp extends App {
   state = { ...initialState };

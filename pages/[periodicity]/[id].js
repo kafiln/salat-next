@@ -1,12 +1,11 @@
 import { useRouter } from "next/router";
-import fetch from "node-fetch";
 import { useContext, useEffect } from "react";
 import cities from "../../public/data/cities.json";
 import Daily from "../../src/components/daily";
 import Monthly from "../../src/components/monthly";
 import { updateCity, updatePeriodicity } from "../../src/context/actions";
 import { AppContext } from "../../src/context/AppContext";
-import { API_URL } from "../../src/settings";
+import { getPrayers } from "../../src/utils/dataService";
 
 const PeriodicitySwitch = ({ prayers }) => {
   const router = useRouter();
@@ -50,26 +49,11 @@ export async function getStaticPaths() {
   };
 }
 
-const getPrayers = async (id, daily) => {
-  // Form the URL
-  let URL = `${API_URL}prayer?cityId=${id}&month=${
-    new Date().getUTCMonth() + 1
-  }`;
-
-  if (daily) {
-    URL += `&day=${new Date().getUTCDate()}`;
-  }
-  console.log("Getting new data", URL);
-  // Load initial values from API
-  const prayers = await fetch(URL).then((res) => res.json());
-
-  return prayers;
-};
-
 export async function getStaticProps({ params }) {
-  const prayers = await getPrayers(
+  const prayers = getPrayers(
     parseInt(params.id),
-    params.periodicity === "daily"
+    new Date().getUTCMonth(),
+    params.periodicity === "daily" ? new Date().getUTCDate() : null
   );
 
   return { unstable_revalidate: 1, props: { prayers } };

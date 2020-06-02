@@ -9,7 +9,7 @@ import { parseTime } from "../../utils/dates";
 import Clock from "../clock";
 import SelectList from "../select-list";
 import { Table, Tbody, Td, Thead, Tr } from "./styles";
-const NAMES = require("../../../public/data/prayers.json");
+const NAMES = require("../../../public/data/prayerNames.json");
 
 const NAMES_FR = Object.keys(NAMES).map((e) => e);
 

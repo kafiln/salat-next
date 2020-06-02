@@ -11,7 +11,7 @@ import Clock from "../clock";
 import SelectList from "../select-list";
 import { Difference, Li, Name, Time, Ul } from "./styles";
 
-const NAMES = require("../../../public/data/prayers.json");
+const NAMES = require("../../../public/data/prayerNames.json");
 
 const Daily = ({ prayers }) => {
   const { time, lang, dispatch, id, cities, periodicity } = useContext(

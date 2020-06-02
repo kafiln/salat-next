@@ -52,7 +52,7 @@ export async function getStaticPaths() {
 
 const getPrayers = async (id, daily) => {
   // Form the URL
-  let URL = `${API_URL}prayer?lang=fr-fr&cityId=${id}&month=${
+  let URL = `${API_URL}prayer?cityId=${id}&month=${
     new Date().getUTCMonth() + 1
   }`;
 

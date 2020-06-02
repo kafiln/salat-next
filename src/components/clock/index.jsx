@@ -15,7 +15,7 @@ const Clock = ({ displayTime = false, day, time }) => {
         ></FormattedDate>
       </H2>
       {displayTime && (
-        <H3>
+        <H3 suppressHydrationWarning>
           <FormattedDate
             value={time}
             hour="numeric"

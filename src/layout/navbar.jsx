@@ -1,13 +1,13 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useContext } from "react";
+import Languages from "../common/languages";
 import { AppContext } from "../context/AppContext";
-import { CHANGE_LANGUAGE } from "../context/types";
 
 function Navbar() {
   const router = useRouter();
 
-  const { id, cities, lang, periodicity, dispatch } = useContext(AppContext);
+  const { id } = useContext(AppContext);
 
   const active = "font-bold underline";
 
@@ -57,12 +57,7 @@ function Navbar() {
           </Link>
         </nav>
 
-        <button
-          className="inline-flex items-center bg-gray-200 border-0 py-1 px-3 focus:outline-none hover:bg-gray-300 rounded text-base mt-4 md:mt-0"
-          onClick={() => dispatch({ type: CHANGE_LANGUAGE })}
-        >
-          Language
-        </button>
+        <Languages />
       </div>
     </header>
   );

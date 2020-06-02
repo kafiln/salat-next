@@ -34,7 +34,7 @@ const reducer = (state, action) => {
         periodicity: action.payload.periodicity || state.periodicity,
       };
     case CHANGE_LANGUAGE:
-      const lang = state.lang === "fr-fr" ? "ar-ma" : "fr-fr";
+      const lang = action.payload;
       localStorage.setItem("lang", lang);
       return {
         ...withTime(state),

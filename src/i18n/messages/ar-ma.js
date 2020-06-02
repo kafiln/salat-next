@@ -1,11 +1,11 @@
-import LOCALES from '../locales';
-import keys from './keys';
+import LOCALES from "../locales";
+import keys from "./keys";
 export default {
-  [LOCALES.ARABIC]: {
-    [keys.MONTH]: 'الشهر',
-    [keys.DAY]: 'اليوم',
-    [keys.LIGHT]: 'لون فاتح',
-    [keys.DARK]: 'لون غامق',
-    [keys.SPINNER_LOADING]: '... جار التحميل',
+  [LOCALES.ARABIC.id]: {
+    [keys.MONTH]: "الشهر",
+    [keys.DAY]: "اليوم",
+    [keys.LIGHT]: "لون فاتح",
+    [keys.DARK]: "لون غامق",
+    [keys.SPINNER_LOADING]: "... جار التحميل",
   },
 };

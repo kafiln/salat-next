@@ -1,11 +1,8 @@
-import React from 'react'
+import Contact from "../src/components/contact";
 
-function contact() {
-    return (
-        <div>
-            Contact page
-        </div>
-    )
+function ContactPage() {
+  //TODO: Implement this feature : i18n, captcha, validation, serverless, etc ...
+  return <Contact></Contact>;
 }
 
-export default contact
+export default ContactPage;

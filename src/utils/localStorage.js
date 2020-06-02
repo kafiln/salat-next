@@ -1,4 +1,3 @@
-//TODO: Remove axios dependency from this projet
 // TODO: create an api to handle requests
 
 import fetch from "node-fetch";

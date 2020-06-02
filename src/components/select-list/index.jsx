@@ -18,8 +18,8 @@ const SelectList = ({ onChange, cities, id, lang }) => {
   const customStyles = {
     singleValue: (provided) => {
       const padding = "20px 10px";
-      const textAlign = "center";
-      return { ...provided, padding, width: "100%", textAlign };
+      // const textAlign = "center";
+      return { ...provided, padding, width: "100%" };
     },
   };
 
@@ -29,8 +29,9 @@ const SelectList = ({ onChange, cities, id, lang }) => {
         instanceId={id}
         styles={customStyles}
         options={options}
-        menuPlacement={"top"}
+        // menuPlacement={"top"}
         value={value}
+        isRtl={lang === "ar-ma"}
         onChange={onChange}
       />
     </Container>

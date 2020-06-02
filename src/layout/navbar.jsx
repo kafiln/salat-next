@@ -1,22 +1,19 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useContext } from "react";
-import SelectList from "../components/select-list";
 import { AppContext } from "../context/AppContext";
 import { CHANGE_LANGUAGE } from "../context/types";
 
 function Navbar() {
   const router = useRouter();
 
-  const { id, cities, lang, periodicity, dispatch, theme } = useContext(
-    AppContext
-  );
+  const { id, cities, lang, periodicity, dispatch } = useContext(AppContext);
 
   const active = "font-bold underline";
 
   const periods = ["daily", "monthly"];
 
-  const isActive = (router, path) => {
+  const isActive = (path) => {
     return router.asPath.startsWith(`/${path}`) ? active : "";
   };
 
@@ -24,6 +21,7 @@ function Navbar() {
     <header className="text-gray-700 body-font ">
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
         <a className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+          {/* //TODO: Refactor this to a react component */}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -42,15 +40,21 @@ function Navbar() {
           {periods.map((p) => (
             <Link key={p} href="/[periodicity]/[id]" as={`/${p}/${id}`}>
               <a
-                className={`mr-5 hover:text-gray-900 capitalize ${isActive(
-                  router,
-                  p
-                )}`}
+                className={`mr-5 hover:text-gray-900 capitalize ${isActive(p)}`}
               >
                 {p}
               </a>
             </Link>
           ))}
+          <Link href="/contact">
+            <a
+              className={`mr-5 hover:text-gray-900 capitalize ${isActive(
+                "contact"
+              )}`}
+            >
+              Contact
+            </a>
+          </Link>
         </nav>
 
         <button
@@ -60,20 +64,6 @@ function Navbar() {
           Language
         </button>
       </div>
-
-      {id && (
-        <div className="w-full mx-auto sm:w-1/2 md:w-1/4 flex justify-evenly">
-          <SelectList
-            cities={cities}
-            id={id}
-            lang={lang}
-            onChange={({ value }) => {
-              const redirect = `/${periodicity}/${value}`;
-              router.push(`/[periodicity]/[id]`, redirect);
-            }}
-          />
-        </div>
-      )}
     </header>
   );
 }

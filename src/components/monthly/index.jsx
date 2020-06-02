@@ -1,4 +1,5 @@
 import moment from "moment";
+import { useRouter } from "next/router";
 import React, { useContext } from "react";
 import { FormattedDate, FormattedMessage } from "react-intl";
 import Spinner from "../../common/spinner";
@@ -6,14 +7,17 @@ import { AppContext } from "../../context/AppContext";
 import { KEYS } from "../../i18n";
 import { parseTime } from "../../utils/dates";
 import Clock from "../clock";
+import SelectList from "../select-list";
 import { Table, Tbody, Td, Thead, Tr } from "./styles";
-
 const NAMES = require("../../../public/data/prayers.json");
 
 const NAMES_FR = Object.keys(NAMES).map((e) => e);
 
 const Monthly = ({ prayers }) => {
-  const { lang } = useContext(AppContext);
+  const { time, lang, dispatch, id, cities, periodicity } = useContext(
+    AppContext
+  );
+  const router = useRouter();
   const today = new Date().getDate();
 
   const table = (
@@ -25,6 +29,20 @@ const Monthly = ({ prayers }) => {
           {prayers && moment.utc(prayers[0].day).format("MMM YYYY")}
         </span>
       </h1>
+
+      {id && (
+        <div className="w-full mx-auto sm:w-1/2 md:w-1/4 flex justify-evenly">
+          <SelectList
+            cities={cities}
+            id={id}
+            lang={lang}
+            onChange={({ value }) => {
+              const redirect = `/${periodicity}/${value}`;
+              router.push(`/[periodicity]/[id]`, redirect);
+            }}
+          />
+        </div>
+      )}
       <Clock />
       <Table>
         <Thead>

@@ -1,4 +1,5 @@
 import moment from "moment";
+import { useRouter } from "next/router";
 import React, { useContext, useEffect, useState } from "react";
 import Spinner from "../../common/spinner";
 import { AppContext } from "../../context/AppContext";
@@ -7,12 +8,16 @@ import useInterval from "../../hooks/useInterval";
 import { DEFAULT_TIME_FORMAT } from "../../settings";
 import { parseTime } from "../../utils/dates";
 import Clock from "../clock";
+import SelectList from "../select-list";
 import { Difference, Li, Name, Time, Ul } from "./styles";
 
 const NAMES = require("../../../public/data/prayers.json");
 
 const Daily = ({ prayers }) => {
-  const { time, lang, dispatch } = useContext(AppContext);
+  const { time, lang, dispatch, id, cities, periodicity } = useContext(
+    AppContext
+  );
+  const router = useRouter();
   let prayer = (prayers || [])[0];
 
   let [state, setState] = useState({});
@@ -40,6 +45,19 @@ const Daily = ({ prayers }) => {
 
   return prayer ? (
     <>
+      {id && (
+        <div className="w-full mx-auto sm:w-1/2 md:w-1/4 flex justify-evenly">
+          <SelectList
+            cities={cities}
+            id={id}
+            lang={lang}
+            onChange={({ value }) => {
+              const redirect = `/${periodicity}/${value}`;
+              router.push(`/[periodicity]/[id]`, redirect);
+            }}
+          />
+        </div>
+      )}
       <Clock displayTime time={time} day={prayer.day} />
       <Ul>
         {Object.keys(NAMES).map((name) => {

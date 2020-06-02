@@ -3,6 +3,7 @@ function Footer() {
     <footer className="text-gray-700 body-font">
       <div className="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
         <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+          {/* //TODO: Refactor this to a react component */}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -30,6 +31,7 @@ function Footer() {
         </p>
         <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
           <a className="text-gray-500">
+            {/* //TODO: Refactor this to a react component */}
             <svg
               fill="currentColor"
               strokeLinecap="round"
@@ -42,6 +44,7 @@ function Footer() {
             </svg>
           </a>
           <a className="ml-3 text-gray-500">
+            {/* //TODO: Refactor this to a react component */}
             <svg
               fill="currentColor"
               strokeLinecap="round"
@@ -54,6 +57,7 @@ function Footer() {
             </svg>
           </a>
           <a className="ml-3 text-gray-500">
+            {/* //TODO: Refactor this to a react component */}
             <svg
               fill="none"
               stroke="currentColor"
@@ -68,6 +72,7 @@ function Footer() {
             </svg>
           </a>
           <a className="ml-3 text-gray-500">
+            {/* //TODO: Refactor this to a react component */}
             <svg
               fill="currentColor"
               stroke="currentColor"

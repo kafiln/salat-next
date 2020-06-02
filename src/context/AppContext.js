@@ -4,8 +4,8 @@ import cities from "../../public/data/cities.json";
 import { TIME_OFFSET } from "../settings";
 
 export const initialState = {
-  cities,
-  languages: ["ar-ma", "fr-fr"], //TODO: This should not be here
+  cities, //FIXME: This should not be here
+  languages: ["ar-ma", "fr-fr"], //FIXME: This should not be here
   time: moment().utcOffset(TIME_OFFSET),
   lang: "ar-ma",
   theme: "light",

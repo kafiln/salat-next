@@ -1,12 +1,12 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from "styled-components";
 
 export const Wrapper = styled.div`
-  margin: 1rem 0;
+  margin: 0.5rem 0;
 `;
 
 const StyledH = css`
   text-align: center;
-  padding: 1rem;
+  padding: 0.5rem;
 `;
 
 export const H2 = styled.h2`

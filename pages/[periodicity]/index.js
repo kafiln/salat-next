@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { useContext, useEffect } from "react";
-import { Spinner } from "../../src/common/spinner/styles";
+import Spinner from "../../src/common/spinner";
 import { AppContext } from "../../src/context/AppContext";
 
 export default () => {
@@ -15,5 +15,5 @@ export default () => {
     }
   }, [periodicity, id]);
 
-  return <Spinner></Spinner>;
+  return <Spinner />;
 };

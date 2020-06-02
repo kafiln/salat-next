@@ -4,6 +4,7 @@ export const Ul = styled.ul`
   margin: 0 auto;
   flex-direction: column;
   justify-content: space-between;
+  width: 100%;
 `;
 
 export const Name = styled.div`

@@ -23,9 +23,9 @@ const PeriodicitySwitch = ({ prayers }) => {
   }, [periodicity]);
 
   return periodicity === "daily" ? (
-    <Daily id={id} prayers={prayers} />
+    <Daily prayers={prayers} />
   ) : (
-    <Monthly id={id} prayers={prayers} />
+    <Monthly prayers={prayers} />
   );
 };
 

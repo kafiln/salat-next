@@ -22,14 +22,6 @@ const Monthly = ({ prayers }) => {
 
   const table = (
     <>
-      {/* //TODO:  Intl this 👇👇 and remove inline style */}
-      <h1 style={{ textAlign: "center" }}>
-        Prayers for month&nbsp;
-        <span style={{ textDecoration: "underline" }}>
-          {prayers && moment.utc(prayers[0].day).format("MMM YYYY")}
-        </span>
-      </h1>
-
       {id && (
         <div className="w-full mx-auto sm:w-1/2 md:w-1/4 flex justify-evenly">
           <SelectList
@@ -44,6 +36,14 @@ const Monthly = ({ prayers }) => {
         </div>
       )}
       <Clock />
+      {/* //TODO:  Intl this 👇👇 and remove inline style */}
+      <h1 style={{ textAlign: "center", margin: "0.5rem 0" }}>
+        Prayers for month&nbsp;
+        <span style={{ textDecoration: "underline" }}>
+          {prayers && moment.utc(prayers[0].day).format("MMM YYYY")}
+        </span>
+      </h1>
+
       <Table>
         <Thead>
           <Tr lang={lang} className="header">

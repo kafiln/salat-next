@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes } from "styled-components";
 export const spin = keyframes`
   0% {
     transform: rotate(0deg);
@@ -11,10 +11,8 @@ export const spin = keyframes`
 export const Spinner = styled.div`
   width: 64px;
   height: 64px;
-  margin-bottom: 1rem;
-  flex: 1;
   &:after {
-    content: '';
+    content: "";
     display: block;
     width: 46px;
     height: 46px;
@@ -28,12 +26,6 @@ export const Spinner = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-`;
-
-export const Container = styled(Wrapper)`
-  height: 50vh;
+  background-color: red;
+  height: 100%;
 `;

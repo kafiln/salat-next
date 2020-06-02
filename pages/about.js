@@ -1,7 +1,7 @@
 export default function about() {
   return (
     <section className="text-gray-700 body-font">
-      <div className="container px-5 py-24 mx-auto">
+      <div className="container p-4 mx-auto">
         <div className="text-center mb-20">
           <h1 className="sm:text-3xl text-2xl font-medium text-center title-font text-gray-900 mb-4">
             Raw Denim Heirloom Man Braid

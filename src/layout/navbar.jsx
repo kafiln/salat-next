@@ -8,7 +8,7 @@ import { DAILY, MONTHLY } from "../context/types";
 function Navbar() {
   const router = useRouter();
 
-  const { id } = useContext(AppContext);
+  const { slug } = useContext(AppContext);
 
   const active = "font-bold underline";
 
@@ -39,7 +39,7 @@ function Navbar() {
         </a>
         <nav className="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-base justify-center">
           {periods.map((p) => (
-            <Link key={p} href="/[periodicity]/[id]" as={`/${p}/${id}`}>
+            <Link key={p} href="/[periodicity]/[slug]" as={`/${p}/${slug}`}>
               <a
                 className={`mr-5 hover:text-gray-900 capitalize ${isActive(p)}`}
               >

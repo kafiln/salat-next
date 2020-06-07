@@ -3,17 +3,17 @@ import { Container, Select } from "./styles";
 
 const byLabel = (a, b) => (a.label > b.label ? 1 : b.label > a.label ? -1 : 0);
 
-const SelectList = ({ onChange, cities, id, lang }) => {
+const SelectList = ({ onChange, cities, slug, lang }) => {
   const options = cities
     ? cities
         .map((e) => ({
-          value: e.id,
+          value: e.slug,
           label: e.names[lang === "ar-ma" ? "ar-ma" : "fr-fr"],
         }))
         .sort(byLabel)
     : [];
 
-  const value = options.find((e) => e.value == id);
+  const value = options.find((e) => e.value == slug);
 
   const customStyles = {
     singleValue: (provided) => {
@@ -26,7 +26,7 @@ const SelectList = ({ onChange, cities, id, lang }) => {
   return (
     <Container>
       <Select
-        instanceId={id}
+        instanceId={slug}
         styles={customStyles}
         options={options}
         // menuPlacement={"top"}

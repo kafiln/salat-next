@@ -4,13 +4,13 @@ import Spinner from "../src/common/spinner";
 import { AppContext } from "../src/context/AppContext";
 
 const Index = () => {
-  const { id, periodicity } = useContext(AppContext);
+  const { slug, periodicity } = useContext(AppContext);
   const router = useRouter();
 
   useEffect(() => {
-    const redirect = `/${periodicity}/${id}`;
-    router.push(`/[periodicity]/[id]`, redirect);
-  }, [periodicity, id]);
+    const redirect = `/${periodicity}/${slug}`;
+    router.push(`/[periodicity]/[slug]`, redirect);
+  }, [periodicity, slug]);
 
   return <Spinner />;
 };

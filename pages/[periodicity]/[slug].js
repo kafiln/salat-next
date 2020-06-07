@@ -5,23 +5,23 @@ import Daily from "../../src/components/daily";
 import Monthly from "../../src/components/monthly";
 import { initState } from "../../src/context/actions";
 import { AppContext } from "../../src/context/AppContext";
-import { DAILY, ID, MONTHLY, PERIODICITY } from "../../src/context/types";
+import { DAILY, MONTHLY, PERIODICITY, SLUG } from "../../src/context/types";
 import { getPrayers } from "../../src/utils/dataService";
 
 const PeriodicitySwitch = ({ prayers }) => {
   const router = useRouter();
 
-  let { periodicity, id } = router.query;
+  let { periodicity, slug } = router.query;
   const {dispatch} = useContext(AppContext)
 
   
   useEffect(() => {
     localStorage.setItem(PERIODICITY, periodicity)
-    localStorage.setItem(ID, id)
+    localStorage.setItem(SLUG, slug)
     initState(dispatch);
-    const redirect = `/${periodicity}/${id}`;
-    router.push(`/[periodicity]/[id]`, redirect);
-  }, [periodicity,id]);
+    const redirect = `/${periodicity}/${slug}`;
+    router.push(`/[periodicity]/[slug]`, redirect);
+  }, [periodicity,slug]);
 
   return periodicity === DAILY ? (
     <Daily prayers={prayers} />
@@ -36,7 +36,7 @@ export async function getStaticPaths() {
     cities.forEach((c) => {
       paths.push({
         params: {
-          id: `${c.id}`,
+          slug: c.slug,
           periodicity: p,
         },
       });
@@ -45,19 +45,18 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: true,
+    fallback: false,
   };
 }
 
 export async function getStaticProps({ params }) {
   const prayers = getPrayers(
-    parseInt(params.id),
+    params.slug,
     new Date().getUTCMonth(),
     params.periodicity === DAILY ? new Date().getUTCDate() : null
   );
 
   return {
-    unstable_revalidate: 1,
     props: {
       prayers,
     },

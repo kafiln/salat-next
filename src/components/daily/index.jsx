@@ -14,7 +14,7 @@ import { Difference, Li, Name, Time, Ul } from "./styles";
 const NAMES = require("../../../public/data/prayerNames.json");
 
 const Daily = ({ prayers }) => {
-  const { time, lang, dispatch, id, cities, periodicity } = useContext(
+  const { time, lang, dispatch, slug, cities, periodicity } = useContext(
     AppContext
   );
   const router = useRouter();
@@ -45,15 +45,15 @@ const Daily = ({ prayers }) => {
 
   return prayer ? (
     <>
-      {id && (
+      {slug && (
         <div className="w-full mx-auto sm:w-1/2 md:w-1/4 flex justify-evenly">
           <SelectList
             cities={cities}
-            id={id}
+            slug={slug}
             lang={lang}
             onChange={({ value }) => {
               const redirect = `/${periodicity}/${value}`;
-              router.push(`/[periodicity]/[id]`, redirect);
+              router.push(`/[periodicity]/[slug]`, redirect);
             }}
           />
         </div>

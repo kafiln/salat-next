@@ -9,7 +9,7 @@ export const CHANGE_LANGUAGE = "CHANGE_LANGUAGE";
 export const INITIAL_INIT = "INITIAL_INIT";
 
 // Global state values
-export const ID = "ID";
+export const SLUG = "SLUG";
 export const THEME = "THEME";
 export const LANG = "LANG";
 export const PERIODICITY = "PERIODICITY";

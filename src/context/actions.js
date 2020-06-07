@@ -1,14 +1,14 @@
-import { CHANGE_CITY, CHANGE_PERIOD, ID, INITIAL_INIT, LANG, PERIODICITY, THEME } from "./types";
+import { CHANGE_CITY, CHANGE_PERIOD, INITIAL_INIT, LANG, PERIODICITY, SLUG, THEME } from "./types";
 
 export const initState = (dispatch) => {
-  const id = localStorage.getItem(ID);
+  const slug = localStorage.getItem(SLUG);
   const theme = localStorage.getItem(THEME);
   const lang = localStorage.getItem(LANG);
   const periodicity = localStorage.getItem(PERIODICITY);
   dispatch({
     type: INITIAL_INIT,
     payload: {
-      id,
+      slug,
       theme,
       lang,
       periodicity,
@@ -22,10 +22,10 @@ export const updateRoutes = (dispatch, payload) => {
     payload,
   });
 };
-export const updateCity = (dispatch, id) => {
+export const updateCity = (dispatch, slug) => {
   dispatch({
     type: CHANGE_CITY,
-    payload: id
+    payload: slug
   });
 };
 

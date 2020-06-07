@@ -11,7 +11,7 @@ export const initialState = {
   lang: "ar-ma",
   theme: LIGHT,
   periodicity: DAILY,
-  id: 80,
+  slug: "casablanca",
 };
 
 export const AppContext = React.createContext(initialState);

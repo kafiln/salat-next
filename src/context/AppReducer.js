@@ -1,6 +1,6 @@
 import moment from "moment";
 import { TIME_OFFSET } from "../settings";
-import { CHANGE_CITY, CHANGE_LANGUAGE, CHANGE_PERIOD, CHANGE_THEME, DARK, ID, INITIAL_INIT, LANG, LIGHT, PERIODICITY, REFRESH_TIME, THEME } from "./types";
+import { CHANGE_CITY, CHANGE_LANGUAGE, CHANGE_PERIOD, CHANGE_THEME, DARK, INITIAL_INIT, LANG, LIGHT, PERIODICITY, REFRESH_TIME, SLUG, THEME } from "./types";
 
 const withTime = (state) => {
   const time = moment.utc().utcOffset(TIME_OFFSET);
@@ -13,15 +13,15 @@ const withTime = (state) => {
 const reducer = (state, action) => {
   switch (action.type) {
     case CHANGE_CITY:
-      localStorage.setItem(ID, action.payload);
+      localStorage.setItem(SLUG, action.payload);
       return {
         ...withTime(state),
-        id: action.payload,
+        slug: action.payload,
       };
     case INITIAL_INIT:
       return {
         ...withTime(state),
-        id: action.payload.id || state.id,
+        slug: action.payload.slug || state.slug,
         theme: action.payload.theme || state.theme,
         lang: action.payload.lang || state.lang,
         periodicity: action.payload.periodicity || state.periodicity,

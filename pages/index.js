@@ -8,10 +8,8 @@ const Index = () => {
   const router = useRouter();
 
   useEffect(() => {
-    if (periodicity && id) {
-      const redirect = `/${periodicity}/${id}`;
-      router.push(`/[periodicity]/[id]`, redirect);
-    }
+    const redirect = `/${periodicity}/${id}`;
+    router.push(`/[periodicity]/[id]`, redirect);
   }, [periodicity, id]);
 
   return <Spinner />;

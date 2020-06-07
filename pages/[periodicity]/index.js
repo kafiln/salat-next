@@ -9,11 +9,9 @@ export default () => {
   const { periodicity } = router.query;
 
   useEffect(() => {
-    if (periodicity) {
-      const redirect = `/${periodicity}/${id}`;
-      router.push(`/[periodicity]/[id]`, redirect);
-    }
-  }, [periodicity, id]);
+    const redirect = `/${periodicity}/${id}`;
+    router.push(`/[periodicity]/[id]`, redirect);
+  }, [periodicity]);
 
   return <Spinner />;
 };

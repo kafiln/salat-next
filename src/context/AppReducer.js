@@ -1,13 +1,6 @@
 import moment from "moment";
 import { TIME_OFFSET } from "../settings";
-import {
-  CHANGE_CITY,
-  CHANGE_LANGUAGE,
-  CHANGE_PERIOD,
-  CHANGE_THEME,
-  INITIAL_INIT,
-  REFRESH_TIME,
-} from "./types";
+import { CHANGE_CITY, CHANGE_LANGUAGE, CHANGE_PERIOD, CHANGE_THEME, DARK, ID, INITIAL_INIT, LANG, LIGHT, PERIODICITY, REFRESH_TIME, THEME } from "./types";
 
 const withTime = (state) => {
   const time = moment.utc().utcOffset(TIME_OFFSET);
@@ -20,7 +13,7 @@ const withTime = (state) => {
 const reducer = (state, action) => {
   switch (action.type) {
     case CHANGE_CITY:
-      localStorage.setItem("id", action.payload);
+      localStorage.setItem(ID, action.payload);
       return {
         ...withTime(state),
         id: action.payload,
@@ -35,21 +28,21 @@ const reducer = (state, action) => {
       };
     case CHANGE_LANGUAGE:
       const lang = action.payload;
-      localStorage.setItem("lang", lang);
+      localStorage.setItem(LANG, lang);
       return {
         ...withTime(state),
         lang,
       };
     case CHANGE_PERIOD:
       const periodicity = action.payload;
-      localStorage.setItem("periodicity", periodicity);
+      localStorage.setItem(PERIODICITY, periodicity);
       return {
         ...withTime(state),
         periodicity,
       };
     case CHANGE_THEME:
-      const theme = state.theme === "light" ? "dark" : "light";
-      localStorage.setItem("theme", theme);
+      const theme = state.theme === LIGHT ? DARK : LIGHT;
+      localStorage.setItem(THEME, theme);
       return {
         ...withTime(state),
         theme,

@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { useContext } from "react";
 import Languages from "../common/languages";
 import { AppContext } from "../context/AppContext";
+import { DAILY, MONTHLY } from "../context/types";
 
 function Navbar() {
   const router = useRouter();
@@ -11,7 +12,7 @@ function Navbar() {
 
   const active = "font-bold underline";
 
-  const periods = ["daily", "monthly"];
+  const periods = [DAILY, MONTHLY];
 
   const isActive = (path) => {
     return router.asPath.startsWith(`/${path}`) ? active : "";

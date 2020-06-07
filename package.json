@@ -5,12 +5,12 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "build:prod": "NODE_ENV=production npm run  build"
+    "start": "next start"
   },
   "dependencies": {
     "dayjs": "^1.8.28",
     "moment": "^2.26.0",
+    "moment-timezone": "^0.5.31",
     "next": "^9.3.3",
     "node-fetch": "^2.6.0",
     "nprogress": "^0.2.0",

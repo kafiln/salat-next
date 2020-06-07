@@ -1,737 +1,842 @@
 [
-  {
-    "id": 1,
-    "names": {
-      "fr-fr": "Feguig",
-      "ar-ma": "فكيك"
+    {
+        "id": 1,
+        "names": {
+            "fr-fr": "Feguig",
+            "ar-ma": "فكيك"
+        },
+        "slug": "feguig"
+    },
+    {
+        "id": 2,
+        "names": {
+            "fr-fr": "Oujda",
+            "ar-ma": "وجدة"
+        },
+        "slug": "oujda"
+    },
+    {
+        "id": 3,
+        "names": {
+            "fr-fr": "Bouaarfa",
+            "ar-ma": "بوعرفة"
+        },
+        "slug": "bouaarfa"
+    },
+    {
+        "id": 4,
+        "names": {
+            "fr-fr": "Jrada",
+            "ar-ma": "جرادة"
+        },
+        "slug": "jrada"
+    },
+    {
+        "id": 5,
+        "names": {
+            "fr-fr": "Berkane",
+            "ar-ma": "بركان"
+        },
+        "slug": "berkane"
+    },
+    {
+        "id": 6,
+        "names": {
+            "fr-fr": "Ain Chair",
+            "ar-ma": "عين الشعير"
+        },
+        "slug": "ain_chair"
+    },
+    {
+        "id": 7,
+        "names": {
+            "fr-fr": "Taourirt",
+            "ar-ma": "تاوريرت"
+        },
+        "slug": "taourirt"
+    },
+    {
+        "id": 8,
+        "names": {
+            "fr-fr": "Nador",
+            "ar-ma": "الناظور"
+        },
+        "slug": "nador"
+    },
+    {
+        "id": 9,
+        "names": {
+            "fr-fr": "Melilla",
+            "ar-ma": "مليلية"
+        },
+        "slug": "melilla"
+    },
+    {
+        "id": 10,
+        "names": {
+            "fr-fr": "Bouanane",
+            "ar-ma": "بوعنان"
+        },
+        "slug": "bouanane"
+    },
+    {
+        "id": 11,
+        "names": {
+            "fr-fr": "Guersif",
+            "ar-ma": "كرسيف"
+        },
+        "slug": "guersif"
+    },
+    {
+        "id": 12,
+        "names": {
+            "fr-fr": "Boutagit",
+            "ar-ma": "بوتاجيت"
+        },
+        "slug": "boutagit"
+    },
+    {
+        "id": 13,
+        "names": {
+            "fr-fr": "Tandit",
+            "ar-ma": "تانديت"
+        },
+        "slug": "tandit"
+    },
+    {
+        "id": 14,
+        "names": {
+            "fr-fr": "Aknoul",
+            "ar-ma": "أكنول"
+        },
+        "slug": "aknoul"
+    },
+    {
+        "id": 15,
+        "names": {
+            "fr-fr": "El Hoceima",
+            "ar-ma": "الحسيمة"
+        },
+        "slug": "el_hoceima"
+    },
+    {
+        "id": 16,
+        "names": {
+            "fr-fr": "Missour",
+            "ar-ma": "ميسور"
+        },
+        "slug": "missour"
+    },
+    {
+        "id": 17,
+        "names": {
+            "fr-fr": "Taza",
+            "ar-ma": "تازة"
+        },
+        "slug": "taza"
+    },
+    {
+        "id": 18,
+        "names": {
+            "fr-fr": "Bourd",
+            "ar-ma": "بورد"
+        },
+        "slug": "bourd"
+    },
+    {
+        "id": 19,
+        "names": {
+            "fr-fr": "Arfoud",
+            "ar-ma": "أرفود"
+        },
+        "slug": "arfoud"
+    },
+    {
+        "id": 20,
+        "names": {
+            "fr-fr": "Rissani",
+            "ar-ma": "الريصاني"
+        },
+        "slug": "rissani"
+    },
+    {
+        "id": 21,
+        "names": {
+            "fr-fr": "Oued Amlil",
+            "ar-ma": "واد أمليل"
+        },
+        "slug": "oued_amlil"
+    },
+    {
+        "id": 22,
+        "names": {
+            "fr-fr": "Tehla",
+            "ar-ma": "تاهلة"
+        },
+        "slug": "tehla"
+    },
+    {
+        "id": 23,
+        "names": {
+            "fr-fr": "Errachidia",
+            "ar-ma": "الراشدية"
+        },
+        "slug": "errachidia"
+    },
+    {
+        "id": 24,
+        "names": {
+            "fr-fr": "Rich",
+            "ar-ma": "الريش"
+        },
+        "slug": "rich"
+    },
+    {
+        "id": 25,
+        "names": {
+            "fr-fr": "Menzal Beni Yazgha",
+            "ar-ma": "المنزل بني يازغة"
+        },
+        "slug": "menzal_beni_yazgha"
+    },
+    {
+        "id": 26,
+        "names": {
+            "fr-fr": "Taounat",
+            "ar-ma": "تاونات"
+        },
+        "slug": "taounat"
+    },
+    {
+        "id": 27,
+        "names": {
+            "fr-fr": "Tissa",
+            "ar-ma": "تيسة"
+        },
+        "slug": "tissa"
+    },
+    {
+        "id": 28,
+        "names": {
+            "fr-fr": "Boulemane",
+            "ar-ma": "بولمان"
+        },
+        "slug": "boulemane"
+    },
+    {
+        "id": 29,
+        "names": {
+            "fr-fr": "Midelet",
+            "ar-ma": "ميدلت"
+        },
+        "slug": "midelet"
+    },
+    {
+        "id": 30,
+        "names": {
+            "fr-fr": "Sefrou",
+            "ar-ma": "صفرو"
+        },
+        "slug": "sefrou"
+    },
+    {
+        "id": 31,
+        "names": {
+            "fr-fr": "Guelmima",
+            "ar-ma": "كلميمة"
+        },
+        "slug": "guelmima"
+    },
+    {
+        "id": 32,
+        "names": {
+            "fr-fr": "Fes",
+            "ar-ma": "فاس"
+        },
+        "slug": "fes"
+    },
+    {
+        "id": 33,
+        "names": {
+            "fr-fr": "Imouzar Kandar",
+            "ar-ma": "إموزار كندر"
+        },
+        "slug": "imouzar_kandar"
+    },
+    {
+        "id": 34,
+        "names": {
+            "fr-fr": "Tinjdad",
+            "ar-ma": "تنجداد"
+        },
+        "slug": "tinjdad"
+    },
+    {
+        "id": 35,
+        "names": {
+            "fr-fr": "Ifrane",
+            "ar-ma": "إفران"
+        },
+        "slug": "ifrane"
+    },
+    {
+        "id": 36,
+        "names": {
+            "fr-fr": "Moulay Yaacoub",
+            "ar-ma": "مولاي يعقوب"
+        },
+        "slug": "moulay_yaacoub"
+    },
+    {
+        "id": 37,
+        "names": {
+            "fr-fr": "Azrou",
+            "ar-ma": "آزرو"
+        },
+        "slug": "azrou"
+    },
+    {
+        "id": 38,
+        "names": {
+            "fr-fr": "Chefchaouan",
+            "ar-ma": "شفشاون"
+        },
+        "slug": "chefchaouan"
+    },
+    {
+        "id": 39,
+        "names": {
+            "fr-fr": "Sebta",
+            "ar-ma": "سبتة"
+        },
+        "slug": "sebta"
+    },
+    {
+        "id": 40,
+        "names": {
+            "fr-fr": "Tetouan",
+            "ar-ma": "تطوان"
+        },
+        "slug": "tetouan"
+    },
+    {
+        "id": 41,
+        "names": {
+            "fr-fr": "El Hajeb",
+            "ar-ma": "الحاجب"
+        },
+        "slug": "el_hajeb"
+    },
+    {
+        "id": 42,
+        "names": {
+            "fr-fr": "Zerhoune",
+            "ar-ma": "زرهون"
+        },
+        "slug": "zerhoune"
+    },
+    {
+        "id": 43,
+        "names": {
+            "fr-fr": "Meknes",
+            "ar-ma": "مكناس"
+        },
+        "slug": "meknes"
+    },
+    {
+        "id": 44,
+        "names": {
+            "fr-fr": "Ouazzane",
+            "ar-ma": "وزان"
+        },
+        "slug": "ouazzane"
+    },
+    {
+        "id": 45,
+        "names": {
+            "fr-fr": "Khenifra",
+            "ar-ma": "خنيفرة"
+        },
+        "slug": "khenifra"
+    },
+    {
+        "id": 46,
+        "names": {
+            "fr-fr": "Sidi Kacem",
+            "ar-ma": "سيدي قاسم"
+        },
+        "slug": "sidi_kacem"
+    },
+    {
+        "id": 47,
+        "names": {
+            "fr-fr": "Tizi Ousli",
+            "ar-ma": "تيزي وسلي"
+        },
+        "slug": "tizi_ousli"
+    },
+    {
+        "id": 48,
+        "names": {
+            "fr-fr": "Tanger",
+            "ar-ma": "طنجة"
+        },
+        "slug": "tanger"
+    },
+    {
+        "id": 49,
+        "names": {
+            "fr-fr": "Zagoura",
+            "ar-ma": "زاكورة"
+        },
+        "slug": "zagoura"
+    },
+    {
+        "id": 50,
+        "names": {
+            "fr-fr": "Laksar Lakbire",
+            "ar-ma": "القصر الكبير"
+        },
+        "slug": "laksar_lakbire"
+    },
+    {
+        "id": 51,
+        "names": {
+            "fr-fr": "Arbaoua",
+            "ar-ma": "عرباوة"
+        },
+        "slug": "arbaoua"
+    },
+    {
+        "id": 52,
+        "names": {
+            "fr-fr": "Sidi Slimane",
+            "ar-ma": "سيدي سليمان"
+        },
+        "slug": "sidi_slimane"
+    },
+    {
+        "id": 53,
+        "names": {
+            "fr-fr": "Souq Arbia Gharb",
+            "ar-ma": "سوق أربعاء الغرب"
+        },
+        "slug": "souq_arbia_gharb"
+    },
+    {
+        "id": 54,
+        "names": {
+            "fr-fr": "Assila",
+            "ar-ma": "أصيلا"
+        },
+        "slug": "assila"
+    },
+    {
+        "id": 55,
+        "names": {
+            "fr-fr": "Khemissat",
+            "ar-ma": "الخميسات"
+        },
+        "slug": "khemissat"
+    },
+    {
+        "id": 56,
+        "names": {
+            "fr-fr": "Kalaa Megouna ",
+            "ar-ma": "قلعة مكونة"
+        },
+        "slug": "kalaa_megouna_"
+    },
+    {
+        "id": 57,
+        "names": {
+            "fr-fr": "Araich",
+            "ar-ma": "العرائش"
+        },
+        "slug": "araich"
+    },
+    {
+        "id": 58,
+        "names": {
+            "fr-fr": "Moulay Bouaaza",
+            "ar-ma": "مولاي بوعزة"
+        },
+        "slug": "moulay_bouaaza"
+    },
+    {
+        "id": 59,
+        "names": {
+            "fr-fr": "Kesbat Tadla",
+            "ar-ma": "قصبة تادل"
+        },
+        "slug": "kesbat_tadla"
+    },
+    {
+        "id": 60,
+        "names": {
+            "fr-fr": "Sidi Yahya Lgharb",
+            "ar-ma": "سيدي يحيى الغرب"
+        },
+        "slug": "sidi_yahya_lgharb"
+    },
+    {
+        "id": 61,
+        "names": {
+            "fr-fr": "Tiflet",
+            "ar-ma": "تيفلت"
+        },
+        "slug": "tiflet"
+    },
+    {
+        "id": 62,
+        "names": {
+            "fr-fr": "Beni Mellal",
+            "ar-ma": "بني ملال"
+        },
+        "slug": "beni_mellal"
+    },
+    {
+        "id": 63,
+        "names": {
+            "fr-fr": "Meskoura",
+            "ar-ma": "هسكورة"
+        },
+        "slug": "meskoura"
+    },
+    {
+        "id": 64,
+        "names": {
+            "fr-fr": "Oued Zem",
+            "ar-ma": "واد زم"
+        },
+        "slug": "oued_zem"
+    },
+    {
+        "id": 65,
+        "names": {
+            "fr-fr": "Azilal",
+            "ar-ma": "أزيلال"
+        },
+        "slug": "azilal"
+    },
+    {
+        "id": 67,
+        "names": {
+            "fr-fr": "Kenitra",
+            "ar-ma": "القنيطرة"
+        },
+        "slug": "kenitra"
+    },
+    {
+        "id": 68,
+        "names": {
+            "fr-fr": "Remani",
+            "ar-ma": "الرماني"
+        },
+        "slug": "remani"
+    },
+    {
+        "id": 69,
+        "names": {
+            "fr-fr": "Rabat Sale",
+            "ar-ma": "الرباط وسلا"
+        },
+        "slug": "rabat_sale"
+    },
+    {
+        "id": 70,
+        "names": {
+            "fr-fr": "Khouribga",
+            "ar-ma": "خريبكة"
+        },
+        "slug": "khouribga"
+    },
+    {
+        "id": 71,
+        "names": {
+            "fr-fr": "Ouarzazate",
+            "ar-ma": "ورزازات"
+        },
+        "slug": "ouarzazate"
+    },
+    {
+        "id": 72,
+        "names": {
+            "fr-fr": "Demnat",
+            "ar-ma": "دمنات"
+        },
+        "slug": "demnat"
+    },
+    {
+        "id": 73,
+        "names": {
+            "fr-fr": "Ben Slimane",
+            "ar-ma": "بن سليمان"
+        },
+        "slug": "ben_slimane"
+    },
+    {
+        "id": 74,
+        "names": {
+            "fr-fr": "Bouznika",
+            "ar-ma": "بوزنيقة"
+        },
+        "slug": "bouznika"
+    },
+    {
+        "id": 75,
+        "names": {
+            "fr-fr": "Lgara",
+            "ar-ma": "الكارة"
+        },
+        "slug": "lgara"
+    },
+    {
+        "id": 76,
+        "names": {
+            "fr-fr": "Mohammedia",
+            "ar-ma": "المحمدية"
+        },
+        "slug": "mohammedia"
+    },
+    {
+        "id": 77,
+        "names": {
+            "fr-fr": "Kelaat Esraghna",
+            "ar-ma": "قلعة السراغنة"
+        },
+        "slug": "kelaat_esraghna"
+    },
+    {
+        "id": 78,
+        "names": {
+            "fr-fr": "Berrchid",
+            "ar-ma": "برشيد"
+        },
+        "slug": "berrchid"
+    },
+    {
+        "id": 79,
+        "names": {
+            "fr-fr": "Settat",
+            "ar-ma": "سطات"
+        },
+        "slug": "settat"
+    },
+    {
+        "id": 80,
+        "names": {
+            "fr-fr": "Casablanca",
+            "ar-ma": "الدار البيضاء"
+        },
+        "slug": "casablanca"
+    },
+    {
+        "id": 81,
+        "names": {
+            "fr-fr": "Talouine",
+            "ar-ma": "تالوين"
+        },
+        "slug": "talouine"
+    },
+    {
+        "id": 82,
+        "names": {
+            "fr-fr": "Bengrire",
+            "ar-ma": "بنكرير"
+        },
+        "slug": "bengrire"
+    },
+    {
+        "id": 83,
+        "names": {
+            "fr-fr": "Tata",
+            "ar-ma": "طاطا"
+        },
+        "slug": "tata"
+    },
+    {
+        "id": 84,
+        "names": {
+            "fr-fr": "Marrakech",
+            "ar-ma": "مراكش"
+        },
+        "slug": "marrakech"
+    },
+    {
+        "id": 85,
+        "names": {
+            "fr-fr": "Akka",
+            "ar-ma": "أقا"
+        },
+        "slug": "akka"
+    },
+    {
+        "id": 86,
+        "names": {
+            "fr-fr": "Azemour",
+            "ar-ma": "آزمور"
+        },
+        "slug": "azemour"
+    },
+    {
+        "id": 87,
+        "names": {
+            "fr-fr": "Aghram",
+            "ar-ma": "اغرام"
+        },
+        "slug": "aghram"
+    },
+    {
+        "id": 88,
+        "names": {
+            "fr-fr": "El Jadida",
+            "ar-ma": "الجديدة"
+        },
+        "slug": "el_jadida"
+    },
+    {
+        "id": 89,
+        "names": {
+            "fr-fr": "Youssoufia",
+            "ar-ma": "اليوسفبة"
+        },
+        "slug": "youssoufia"
+    },
+    {
+        "id": 90,
+        "names": {
+            "fr-fr": "Taroudant",
+            "ar-ma": "تارودانت"
+        },
+        "slug": "taroudant"
+    },
+    {
+        "id": 91,
+        "names": {
+            "fr-fr": "Tafraout",
+            "ar-ma": "تافراوت"
+        },
+        "slug": "tafraout"
+    },
+    {
+        "id": 92,
+        "names": {
+            "fr-fr": "Safi",
+            "ar-ma": "آسفي"
+        },
+        "slug": "safi"
+    },
+    {
+        "id": 93,
+        "names": {
+            "fr-fr": "Zag",
+            "ar-ma": "الزاك"
+        },
+        "slug": "zag"
+    },
+    {
+        "id": 94,
+        "names": {
+            "fr-fr": "Assa",
+            "ar-ma": "أسا"
+        },
+        "slug": "assa"
+    },
+    {
+        "id": 95,
+        "names": {
+            "fr-fr": "Agadir",
+            "ar-ma": "أكادير"
+        },
+        "slug": "agadir"
+    },
+    {
+        "id": 96,
+        "names": {
+            "fr-fr": "Tiznit",
+            "ar-ma": "تزنيت"
+        },
+        "slug": "tiznit"
+    },
+    {
+        "id": 97,
+        "names": {
+            "fr-fr": "Essaouira",
+            "ar-ma": "الصويرة"
+        },
+        "slug": "essaouira"
+    },
+    {
+        "id": 98,
+        "names": {
+            "fr-fr": "Guelmim",
+            "ar-ma": "كلميم"
+        },
+        "slug": "guelmim"
+    },
+    {
+        "id": 99,
+        "names": {
+            "fr-fr": "Sidi Ifni",
+            "ar-ma": "سيدي إفني"
+        },
+        "slug": "sidi_ifni"
+    },
+    {
+        "id": 100,
+        "names": {
+            "fr-fr": "Tantan",
+            "ar-ma": "طانطان"
+        },
+        "slug": "tantan"
+    },
+    {
+        "id": 101,
+        "names": {
+            "fr-fr": "Smara",
+            "ar-ma": "السمارة"
+        },
+        "slug": "smara"
+    },
+    {
+        "id": 102,
+        "names": {
+            "fr-fr": "Terfaya",
+            "ar-ma": "طرفاية"
+        },
+        "slug": "terfaya"
+    },
+    {
+        "id": 103,
+        "names": {
+            "fr-fr": "Laayoune",
+            "ar-ma": "العيون"
+        },
+        "slug": "laayoune"
+    },
+    {
+        "id": 104,
+        "names": {
+            "fr-fr": "Boujdour",
+            "ar-ma": "بوجدور"
+        },
+        "slug": "boujdour"
+    },
+    {
+        "id": 105,
+        "names": {
+            "fr-fr": "Dakhla",
+            "ar-ma": "الداخلة"
+        },
+        "slug": "dakhla"
+    },
+    {
+        "id": 106,
+        "names": {
+            "fr-fr": "Lagouira",
+            "ar-ma": "الكويرة"
+        },
+        "slug": "lagouira"
     }
-  },
-  {
-    "id": 2,
-    "names": {
-      "fr-fr": "Oujda",
-      "ar-ma": "وجدة"
-    }
-  },
-  {
-    "id": 3,
-    "names": {
-      "fr-fr": "Bouaarfa",
-      "ar-ma": "بوعرفة"
-    }
-  },
-  {
-    "id": 4,
-    "names": {
-      "fr-fr": "Jrada",
-      "ar-ma": "جرادة"
-    }
-  },
-  {
-    "id": 5,
-    "names": {
-      "fr-fr": "Berkane",
-      "ar-ma": "بركان"
-    }
-  },
-  {
-    "id": 6,
-    "names": {
-      "fr-fr": "Ain Chair",
-      "ar-ma": "عين الشعير"
-    }
-  },
-  {
-    "id": 7,
-    "names": {
-      "fr-fr": "Taourirt",
-      "ar-ma": "تاوريرت"
-    }
-  },
-  {
-    "id": 8,
-    "names": {
-      "fr-fr": "Nador",
-      "ar-ma": "الناظور"
-    }
-  },
-  {
-    "id": 9,
-    "names": {
-      "fr-fr": "Melilla",
-      "ar-ma": "مليلية"
-    }
-  },
-  {
-    "id": 10,
-    "names": {
-      "fr-fr": "Bouanane",
-      "ar-ma": "بوعنان"
-    }
-  },
-  {
-    "id": 11,
-    "names": {
-      "fr-fr": "Guersif",
-      "ar-ma": "كرسيف"
-    }
-  },
-  {
-    "id": 12,
-    "names": {
-      "fr-fr": "Boutagit",
-      "ar-ma": "بوتاجيت"
-    }
-  },
-  {
-    "id": 13,
-    "names": {
-      "fr-fr": "Tandit",
-      "ar-ma": "تانديت"
-    }
-  },
-  {
-    "id": 14,
-    "names": {
-      "fr-fr": "Aknoul",
-      "ar-ma": "أكنول"
-    }
-  },
-  {
-    "id": 15,
-    "names": {
-      "fr-fr": "El Hoceima",
-      "ar-ma": "الحسيمة"
-    }
-  },
-  {
-    "id": 16,
-    "names": {
-      "fr-fr": "Missour",
-      "ar-ma": "ميسور"
-    }
-  },
-  {
-    "id": 17,
-    "names": {
-      "fr-fr": "Taza",
-      "ar-ma": "تازة"
-    }
-  },
-  {
-    "id": 18,
-    "names": {
-      "fr-fr": "Bourd",
-      "ar-ma": "بورد"
-    }
-  },
-  {
-    "id": 19,
-    "names": {
-      "fr-fr": "Arfoud",
-      "ar-ma": "أرفود"
-    }
-  },
-  {
-    "id": 20,
-    "names": {
-      "fr-fr": "Rissani",
-      "ar-ma": "الريصاني"
-    }
-  },
-  {
-    "id": 21,
-    "names": {
-      "fr-fr": "Oued Amlil",
-      "ar-ma": "واد أمليل"
-    }
-  },
-  {
-    "id": 22,
-    "names": {
-      "fr-fr": "Tehla",
-      "ar-ma": "تاهلة"
-    }
-  },
-  {
-    "id": 23,
-    "names": {
-      "fr-fr": "Errachidia",
-      "ar-ma": "الراشدية"
-    }
-  },
-  {
-    "id": 24,
-    "names": {
-      "fr-fr": "Rich",
-      "ar-ma": "الريش"
-    }
-  },
-  {
-    "id": 25,
-    "names": {
-      "fr-fr": "Menzal Beni Yazgha",
-      "ar-ma": "المنزل بني يازغة"
-    }
-  },
-  {
-    "id": 26,
-    "names": {
-      "fr-fr": "Taounat",
-      "ar-ma": "تاونات"
-    }
-  },
-  {
-    "id": 27,
-    "names": {
-      "fr-fr": "Tissa",
-      "ar-ma": "تيسة"
-    }
-  },
-  {
-    "id": 28,
-    "names": {
-      "fr-fr": "Boulemane",
-      "ar-ma": "بولمان"
-    }
-  },
-  {
-    "id": 29,
-    "names": {
-      "fr-fr": "Midelet",
-      "ar-ma": "ميدلت"
-    }
-  },
-  {
-    "id": 30,
-    "names": {
-      "fr-fr": "Sefrou",
-      "ar-ma": "صفرو"
-    }
-  },
-  {
-    "id": 31,
-    "names": {
-      "fr-fr": "Guelmima",
-      "ar-ma": "كلميمة"
-    }
-  },
-  {
-    "id": 32,
-    "names": {
-      "fr-fr": "Fes",
-      "ar-ma": "فاس"
-    }
-  },
-  {
-    "id": 33,
-    "names": {
-      "fr-fr": "Imouzar Kandar",
-      "ar-ma": "إموزار كندر"
-    }
-  },
-  {
-    "id": 34,
-    "names": {
-      "fr-fr": "Tinjdad",
-      "ar-ma": "تنجداد"
-    }
-  },
-  {
-    "id": 35,
-    "names": {
-      "fr-fr": "Ifrane",
-      "ar-ma": "إفران"
-    }
-  },
-  {
-    "id": 36,
-    "names": {
-      "fr-fr": "Moulay Yaacoub",
-      "ar-ma": "مولاي يعقوب"
-    }
-  },
-  {
-    "id": 37,
-    "names": {
-      "fr-fr": "Azrou",
-      "ar-ma": "آزرو"
-    }
-  },
-  {
-    "id": 38,
-    "names": {
-      "fr-fr": "Chefchaouan",
-      "ar-ma": "شفشاون"
-    }
-  },
-  {
-    "id": 39,
-    "names": {
-      "fr-fr": "Sebta",
-      "ar-ma": "سبتة"
-    }
-  },
-  {
-    "id": 40,
-    "names": {
-      "fr-fr": "Tetouan",
-      "ar-ma": "تطوان"
-    }
-  },
-  {
-    "id": 41,
-    "names": {
-      "fr-fr": "El Hajeb",
-      "ar-ma": "الحاجب"
-    }
-  },
-  {
-    "id": 42,
-    "names": {
-      "fr-fr": "Zerhoune",
-      "ar-ma": "زرهون"
-    }
-  },
-  {
-    "id": 43,
-    "names": {
-      "fr-fr": "Meknes",
-      "ar-ma": "مكناس"
-    }
-  },
-  {
-    "id": 44,
-    "names": {
-      "fr-fr": "Ouazzane",
-      "ar-ma": "وزان"
-    }
-  },
-  {
-    "id": 45,
-    "names": {
-      "fr-fr": "Khenifra",
-      "ar-ma": "خنيفرة"
-    }
-  },
-  {
-    "id": 46,
-    "names": {
-      "fr-fr": "Sidi Kacem",
-      "ar-ma": "سيدي قاسم"
-    }
-  },
-  {
-    "id": 47,
-    "names": {
-      "fr-fr": "Tizi Ousli",
-      "ar-ma": "تيزي وسلي"
-    }
-  },
-  {
-    "id": 48,
-    "names": {
-      "fr-fr": "Tanger",
-      "ar-ma": "طنجة"
-    }
-  },
-  {
-    "id": 49,
-    "names": {
-      "fr-fr": "Zagoura",
-      "ar-ma": "زاكورة"
-    }
-  },
-  {
-    "id": 50,
-    "names": {
-      "fr-fr": "Laksar Lakbire",
-      "ar-ma": "القصر الكبير"
-    }
-  },
-  {
-    "id": 51,
-    "names": {
-      "fr-fr": "Arbaoua",
-      "ar-ma": "عرباوة"
-    }
-  },
-  {
-    "id": 52,
-    "names": {
-      "fr-fr": "Sidi Slimane",
-      "ar-ma": "سيدي سليمان"
-    }
-  },
-  {
-    "id": 53,
-    "names": {
-      "fr-fr": "Souq Arbia Gharb",
-      "ar-ma": "سوق أربعاء الغرب"
-    }
-  },
-  {
-    "id": 54,
-    "names": {
-      "fr-fr": "Assila",
-      "ar-ma": "أصيلا"
-    }
-  },
-  {
-    "id": 55,
-    "names": {
-      "fr-fr": "Khemissat",
-      "ar-ma": "الخميسات"
-    }
-  },
-  {
-    "id": 56,
-    "names": {
-      "fr-fr": "Kalaa Megouna ",
-      "ar-ma": "قلعة مكونة"
-    }
-  },
-  {
-    "id": 57,
-    "names": {
-      "fr-fr": "Araich",
-      "ar-ma": "العرائش"
-    }
-  },
-  {
-    "id": 58,
-    "names": {
-      "fr-fr": "Moulay Bouaaza",
-      "ar-ma": "مولاي بوعزة"
-    }
-  },
-  {
-    "id": 59,
-    "names": {
-      "fr-fr": "Kesbat Tadla",
-      "ar-ma": "قصبة تادل"
-    }
-  },
-  {
-    "id": 60,
-    "names": {
-      "fr-fr": "Sidi Yahya Lgharb",
-      "ar-ma": "سيدي يحيى الغرب"
-    }
-  },
-  {
-    "id": 61,
-    "names": {
-      "fr-fr": "Tiflet",
-      "ar-ma": "تيفلت"
-    }
-  },
-  {
-    "id": 62,
-    "names": {
-      "fr-fr": "Beni Mellal",
-      "ar-ma": "بني ملال"
-    }
-  },
-  {
-    "id": 63,
-    "names": {
-      "fr-fr": "Meskoura",
-      "ar-ma": "هسكورة"
-    }
-  },
-  {
-    "id": 64,
-    "names": {
-      "fr-fr": "Oued Zem",
-      "ar-ma": "واد زم"
-    }
-  },
-  {
-    "id": 65,
-    "names": {
-      "fr-fr": "Azilal",
-      "ar-ma": "أزيلال"
-    }
-  },
-  {
-    "id": 67,
-    "names": {
-      "fr-fr": "Kenitra",
-      "ar-ma": "القنيطرة"
-    }
-  },
-  {
-    "id": 68,
-    "names": {
-      "fr-fr": "Remani",
-      "ar-ma": "الرماني"
-    }
-  },
-  {
-    "id": 69,
-    "names": {
-      "fr-fr": "Rabat Sale",
-      "ar-ma": "الرباط وسلا"
-    }
-  },
-  {
-    "id": 70,
-    "names": {
-      "fr-fr": "Khouribga",
-      "ar-ma": "خريبكة"
-    }
-  },
-  {
-    "id": 71,
-    "names": {
-      "fr-fr": "Ouarzazate",
-      "ar-ma": "ورزازات"
-    }
-  },
-  {
-    "id": 72,
-    "names": {
-      "fr-fr": "Demnat",
-      "ar-ma": "دمنات"
-    }
-  },
-  {
-    "id": 73,
-    "names": {
-      "fr-fr": "Ben Slimane",
-      "ar-ma": "بن سليمان"
-    }
-  },
-  {
-    "id": 74,
-    "names": {
-      "fr-fr": "Bouznika",
-      "ar-ma": "بوزنيقة"
-    }
-  },
-  {
-    "id": 75,
-    "names": {
-      "fr-fr": "Lgara",
-      "ar-ma": "الكارة"
-    }
-  },
-  {
-    "id": 76,
-    "names": {
-      "fr-fr": "Mohammedia",
-      "ar-ma": "المحمدية"
-    }
-  },
-  {
-    "id": 77,
-    "names": {
-      "fr-fr": "Kelaat Esraghna",
-      "ar-ma": "قلعة السراغنة"
-    }
-  },
-  {
-    "id": 78,
-    "names": {
-      "fr-fr": "Berrchid",
-      "ar-ma": "برشيد"
-    }
-  },
-  {
-    "id": 79,
-    "names": {
-      "fr-fr": "Settat",
-      "ar-ma": "سطات"
-    }
-  },
-  {
-    "id": 80,
-    "names": {
-      "fr-fr": "Casablanca",
-      "ar-ma": "الدار البيضاء"
-    }
-  },
-  {
-    "id": 81,
-    "names": {
-      "fr-fr": "Talouine",
-      "ar-ma": "تالوين"
-    }
-  },
-  {
-    "id": 82,
-    "names": {
-      "fr-fr": "Bengrire",
-      "ar-ma": "بنكرير"
-    }
-  },
-  {
-    "id": 83,
-    "names": {
-      "fr-fr": "Tata",
-      "ar-ma": "طاطا"
-    }
-  },
-  {
-    "id": 84,
-    "names": {
-      "fr-fr": "Marrakech",
-      "ar-ma": "مراكش"
-    }
-  },
-  {
-    "id": 85,
-    "names": {
-      "fr-fr": "Akka",
-      "ar-ma": "أقا"
-    }
-  },
-  {
-    "id": 86,
-    "names": {
-      "fr-fr": "Azemour",
-      "ar-ma": "آزمور"
-    }
-  },
-  {
-    "id": 87,
-    "names": {
-      "fr-fr": "Aghram",
-      "ar-ma": "اغرام"
-    }
-  },
-  {
-    "id": 88,
-    "names": {
-      "fr-fr": "El Jadida",
-      "ar-ma": "الجديدة"
-    }
-  },
-  {
-    "id": 89,
-    "names": {
-      "fr-fr": "Youssoufia",
-      "ar-ma": "اليوسفبة"
-    }
-  },
-  {
-    "id": 90,
-    "names": {
-      "fr-fr": "Taroudant",
-      "ar-ma": "تارودانت"
-    }
-  },
-  {
-    "id": 91,
-    "names": {
-      "fr-fr": "Tafraout",
-      "ar-ma": "تافراوت"
-    }
-  },
-  {
-    "id": 92,
-    "names": {
-      "fr-fr": "Safi",
-      "ar-ma": "آسفي"
-    }
-  },
-  {
-    "id": 93,
-    "names": {
-      "fr-fr": "Zag",
-      "ar-ma": "الزاك"
-    }
-  },
-  {
-    "id": 94,
-    "names": {
-      "fr-fr": "Assa",
-      "ar-ma": "أسا"
-    }
-  },
-  {
-    "id": 95,
-    "names": {
-      "fr-fr": "Agadir",
-      "ar-ma": "أكادير"
-    }
-  },
-  {
-    "id": 96,
-    "names": {
-      "fr-fr": "Tiznit",
-      "ar-ma": "تزنيت"
-    }
-  },
-  {
-    "id": 97,
-    "names": {
-      "fr-fr": "Essaouira",
-      "ar-ma": "الصويرة"
-    }
-  },
-  {
-    "id": 98,
-    "names": {
-      "fr-fr": "Guelmim",
-      "ar-ma": "كلميم"
-    }
-  },
-  {
-    "id": 99,
-    "names": {
-      "fr-fr": "Sidi Ifni",
-      "ar-ma": "سيدي إفني"
-    }
-  },
-  {
-    "id": 100,
-    "names": {
-      "fr-fr": "Tantan",
-      "ar-ma": "طانطان"
-    }
-  },
-  {
-    "id": 101,
-    "names": {
-      "fr-fr": "Smara",
-      "ar-ma": "السمارة"
-    }
-  },
-  {
-    "id": 102,
-    "names": {
-      "fr-fr": "Terfaya",
-      "ar-ma": "طرفاية"
-    }
-  },
-  {
-    "id": 103,
-    "names": {
-      "fr-fr": "Laayoune",
-      "ar-ma": "العيون"
-    }
-  },
-  {
-    "id": 104,
-    "names": {
-      "fr-fr": "Boujdour",
-      "ar-ma": "بوجدور"
-    }
-  },
-  {
-    "id": 105,
-    "names": {
-      "fr-fr": "Dakhla",
-      "ar-ma": "الداخلة"
-    }
-  },
-  {
-    "id": 106,
-    "names": {
-      "fr-fr": "Lagouira",
-      "ar-ma": "الكويرة"
-    }
-  }
 ]

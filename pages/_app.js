@@ -7,6 +7,7 @@ import { ThemeProvider } from "styled-components";
 import { initState } from "../src/context/actions";
 import { AppContext, initialState } from "../src/context/AppContext";
 import AppReducer from "../src/context/AppReducer";
+import { DARK } from "../src/context/types";
 import { I18nProvider } from "../src/i18n";
 import DefaultLayout from "../src/layout/defaultLayout";
 import { dark, GlobalStyles, light } from "../src/themes";
@@ -34,7 +35,7 @@ export default class MyApp extends App {
           dispatch: this.dispatch,
         }}
       >
-        <ThemeProvider theme={this.state.theme === "dark" ? dark : light}>
+        <ThemeProvider theme={this.state.theme === DARK ? dark : light}>
           <GlobalStyles />
           <I18nProvider locale={this.state.lang}>
             <DefaultLayout>

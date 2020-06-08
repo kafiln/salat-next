@@ -56,15 +56,6 @@ function Navbar() {
               contact
             </a>
           </Link>
-          <Link href="/about">
-            <a
-              className={`mr-5 hover:text-gray-900 capitalize ${isActive(
-                "about"
-              )}`}
-            >
-              about
-            </a>
-          </Link>
         </nav>
 
         <Languages />

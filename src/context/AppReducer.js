@@ -1,9 +1,21 @@
 import moment from "moment";
-import { TIME_OFFSET } from "../settings";
-import { CHANGE_CITY, CHANGE_LANGUAGE, CHANGE_PERIOD, CHANGE_THEME, DARK, INITIAL_INIT, LANG, LIGHT, PERIODICITY, REFRESH_TIME, SLUG, THEME } from "./types";
+import {
+  CHANGE_CITY,
+  CHANGE_LANGUAGE,
+  CHANGE_PERIOD,
+  CHANGE_THEME,
+  DARK,
+  INITIAL_INIT,
+  LANG,
+  LIGHT,
+  PERIODICITY,
+  REFRESH_TIME,
+  SLUG,
+  THEME,
+} from "./types";
 
 const withTime = (state) => {
-  const time = moment.utc().utcOffset(TIME_OFFSET);
+  const time = moment();
   return {
     ...state,
     time,

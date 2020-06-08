@@ -29,12 +29,12 @@ const Daily = ({ prayers }) => {
   useEffect(() => {
     if (prayer) {
       const nextOnes = Object.keys(prayer).filter((t) =>
-        time.isBefore(moment(prayer[t]))
+        time.utc().isBefore(moment.utc(prayer[t]))
       );
       const next = nextOnes.length === 0 ? Object.keys(NAMES)[0] : nextOnes[0];
-      const diff = moment(moment(prayer[next]).diff(time)).format(
-        DEFAULT_TIME_FORMAT
-      );
+      const diff = moment
+        .utc(moment.utc(prayer[next]).diff(time.utc()))
+        .format(DEFAULT_TIME_FORMAT);
       setState({ next, diff });
     }
   }, [prayer, time]);

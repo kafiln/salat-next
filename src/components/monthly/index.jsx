@@ -14,9 +14,7 @@ const NAMES = require("../../../public/data/prayerNames.json");
 const NAMES_FR = Object.keys(NAMES).map((e) => e);
 
 const Monthly = ({ prayers }) => {
-  const { time, lang, dispatch, slug, cities, periodicity } = useContext(
-    AppContext
-  );
+  const { lang, slug, cities, periodicity } = useContext(AppContext);
   const router = useRouter();
   const today = new Date().getDate();
 

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useContext } from "react";
 import Languages from "../common/languages";
+import Theme from "../common/theme";
 import { AppContext } from "../context/AppContext";
 import { DAILY, MONTHLY } from "../context/types";
 
@@ -58,6 +59,7 @@ function Navbar() {
           </Link>
         </nav>
 
+        <Theme />
         <Languages />
       </div>
     </header>

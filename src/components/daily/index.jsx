@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 import React, { useContext, useEffect, useState } from "react";
 import Spinner from "../../common/spinner";
 import { AppContext } from "../../context/AppContext";
-import { REFRESH_TIME } from "../../context/types";
 import useInterval from "../../hooks/useInterval";
 import { DEFAULT_TIME_FORMAT } from "../../settings";
 import { parseTime } from "../../utils/dates";
@@ -14,16 +13,16 @@ import { Difference, Li, Name, Time, Ul } from "./styles";
 const NAMES = require("../../../public/data/prayerNames.json");
 
 const Daily = ({ prayers }) => {
-  const { time, lang, dispatch, slug, cities, periodicity } = useContext(
-    AppContext
-  );
+  const { lang, slug, cities, periodicity } = useContext(AppContext);
+
   const router = useRouter();
   let prayer = (prayers || [])[0];
 
-  let [state, setState] = useState({});
+  const [state, setState] = useState({});
+  const [time, setTime] = useState(moment());
 
   const thick = () => {
-    dispatch({ type: REFRESH_TIME });
+    setTime(moment());
   };
 
   useEffect(() => {

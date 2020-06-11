@@ -1,4 +1,3 @@
-import moment from "moment";
 import {
   CHANGE_CITY,
   CHANGE_LANGUAGE,
@@ -9,30 +8,21 @@ import {
   LANG,
   LIGHT,
   PERIODICITY,
-  REFRESH_TIME,
   SLUG,
   THEME,
 } from "./types";
-
-const withTime = (state) => {
-  const time = moment();
-  return {
-    ...state,
-    time,
-  };
-};
 
 const reducer = (state, action) => {
   switch (action.type) {
     case CHANGE_CITY:
       localStorage.setItem(SLUG, action.payload);
       return {
-        ...withTime(state),
+        ...state,
         slug: action.payload,
       };
     case INITIAL_INIT:
       return {
-        ...withTime(state),
+        ...state,
         slug: action.payload.slug || state.slug,
         theme: action.payload.theme || state.theme,
         lang: action.payload.lang || state.lang,
@@ -42,26 +32,22 @@ const reducer = (state, action) => {
       const lang = action.payload;
       localStorage.setItem(LANG, lang);
       return {
-        ...withTime(state),
+        ...state,
         lang,
       };
     case CHANGE_PERIOD:
       const periodicity = action.payload;
       localStorage.setItem(PERIODICITY, periodicity);
       return {
-        ...withTime(state),
+        ...state,
         periodicity,
       };
     case CHANGE_THEME:
       const theme = state.theme === LIGHT ? DARK : LIGHT;
       localStorage.setItem(THEME, theme);
       return {
-        ...withTime(state),
+        ...state,
         theme,
-      };
-    case REFRESH_TIME:
-      return {
-        ...withTime(state),
       };
     default:
       return state;

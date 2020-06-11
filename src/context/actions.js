@@ -1,4 +1,12 @@
-import { CHANGE_CITY, CHANGE_PERIOD, INITIAL_INIT, LANG, PERIODICITY, SLUG, THEME } from "./types";
+import {
+  CHANGE_CITY,
+  CHANGE_PERIOD,
+  INITIAL_INIT,
+  LANG,
+  PERIODICITY,
+  SLUG,
+  THEME,
+} from "./types";
 
 export const initState = (dispatch) => {
   const slug = localStorage.getItem(SLUG);
@@ -16,22 +24,16 @@ export const initState = (dispatch) => {
   });
 };
 
-export const updateRoutes = (dispatch, payload) => {
-  dispatch({
-    type: CHANGE_ROUTES,
-    payload,
-  });
-};
 export const updateCity = (dispatch, slug) => {
   dispatch({
     type: CHANGE_CITY,
-    payload: slug
+    payload: slug,
   });
 };
 
 export const updatePeriodicity = (dispatch, periodicity) => {
   dispatch({
     type: CHANGE_PERIOD,
-    payload: periodicity
+    payload: periodicity,
   });
 };

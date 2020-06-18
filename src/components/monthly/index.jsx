@@ -1,22 +1,35 @@
-import moment from "moment";
-import { useRouter } from "next/router";
-import React, { useContext } from "react";
-import { FormattedDate, FormattedMessage } from "react-intl";
-import Spinner from "../../common/spinner";
-import { AppContext } from "../../context/AppContext";
-import { KEYS } from "../../i18n";
-import { parseTime } from "../../utils/dates";
-import Clock from "../clock";
-import SelectList from "../select-list";
-import { Table, Tbody, Td, Thead, Tr } from "./styles";
-const NAMES = require("../../../public/data/prayerNames.json");
+import moment from 'moment';
+import { useRouter } from 'next/router';
+import React, { useContext, useEffect, useRef } from 'react';
+import { FormattedDate, FormattedMessage } from 'react-intl';
+import Spinner from '../../common/spinner';
+import { AppContext } from '../../context/AppContext';
+import { KEYS } from '../../i18n';
+import { parseTime } from '../../utils/dates';
+import Clock from '../clock';
+import SelectList from '../select-list';
+import { Table, Tbody, Td, Thead, Tr } from './styles';
+const NAMES = require('../../../public/data/prayerNames.json');
 
 const NAMES_FR = Object.keys(NAMES).map((e) => e);
 
+const scrollToRef = (ref) => ref.current.scrollIntoView({ behavior: 'smooth' });
+const addClassToRef = (ref) => (className) =>
+  ref.current.classList.add(className);
+const isToday = (prayer, today) => new Date(prayer.day).getDate() === today;
+
 const Monthly = ({ prayers }) => {
   const { lang, slug, cities, periodicity } = useContext(AppContext);
+  const todayRef = useRef(null);
   const router = useRouter();
   const today = new Date().getDate();
+
+  useEffect(() => {
+    if (todayRef.current) {
+      scrollToRef(todayRef); // Scroll to prayer for today
+      addClassToRef(todayRef)('today'); // add a specific class for that prayer
+    }
+  }, [todayRef.current]);
 
   const table = (
     <>
@@ -35,10 +48,10 @@ const Monthly = ({ prayers }) => {
       )}
       <Clock />
       {/* //TODO:  Intl this 👇👇 and remove inline style */}
-      <h1 style={{ textAlign: "center", margin: "0.5rem 0" }}>
+      <h1 style={{ textAlign: 'center', margin: '0.5rem 0' }}>
         Prayers for month&nbsp;
-        <span style={{ textDecoration: "underline" }}>
-          {prayers && moment.utc(prayers[0].day).format("MMM YYYY")}
+        <span style={{ textDecoration: 'underline' }}>
+          {prayers && moment.utc(prayers[0].day).format('MMM YYYY')}
         </span>
       </h1>
 
@@ -51,7 +64,7 @@ const Monthly = ({ prayers }) => {
             {Object.keys(NAMES).map((name, i) => {
               return (
                 <Td key={i}>
-                  {NAMES[name][lang === "ar-ma" ? "ar-ma" : "fr-fr"]}
+                  {NAMES[name][lang === 'ar-ma' ? 'ar-ma' : 'fr-fr']}
                 </Td>
               );
             })}
@@ -64,9 +77,7 @@ const Monthly = ({ prayers }) => {
               <Tr
                 lang={lang}
                 key={i}
-                className={`${
-                  new Date(prayer.day).getDate() === today ? "today" : ""
-                }`}
+                ref={isToday(prayer, today) ? todayRef : null}
               >
                 <Td className="first">
                   <FormattedDate

@@ -11,23 +11,31 @@ import SelectList from '../select-list';
 import { Table, Tbody, Td, Thead, Tr } from './styles';
 const NAMES = require('../../../public/data/prayerNames.json');
 
-const NAMES_FR = Object.keys(NAMES).map((e) => e);
+const NAMES_FR = Object.keys(NAMES);
 
-const scrollToRef = (ref) => ref.current.scrollIntoView({ behavior: 'smooth' });
+const scrollToRef = (ref) =>
+  ref.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
 const addClassToRef = (ref) => (className) =>
   ref.current.classList.add(className);
-const isToday = (prayer, today) => new Date(prayer.day).getDate() === today;
+
+const isToday = (prayer) =>
+  new Date(prayer.day).getDate() === new Date().getDate();
 
 const Monthly = ({ prayers }) => {
-  const { lang, slug, cities, periodicity } = useContext(AppContext);
+  const { lang, slug, cities } = useContext(AppContext);
   const todayRef = useRef(null);
   const router = useRouter();
-  const today = new Date().getDate();
+
+  useEffect(() => {
+    if (todayRef.current) {
+      addClassToRef(todayRef)('today'); // add a specific class for that prayer
+    }
+  }, [lang]);
 
   useEffect(() => {
     if (todayRef.current) {
       scrollToRef(todayRef); // Scroll to prayer for today
-      addClassToRef(todayRef)('today'); // add a specific class for that prayer
     }
   }, [todayRef.current]);
 
@@ -40,7 +48,7 @@ const Monthly = ({ prayers }) => {
             slug={slug}
             lang={lang}
             onChange={({ value }) => {
-              const redirect = `/${periodicity}/${value}`;
+              const redirect = `/monthly/${value}`;
               router.push(`/[periodicity]/[slug]`, redirect);
             }}
           />
@@ -74,11 +82,7 @@ const Monthly = ({ prayers }) => {
         <Tbody>
           {Object.entries(prayers || []).map(([_, prayer], i) => {
             return (
-              <Tr
-                lang={lang}
-                key={i}
-                ref={isToday(prayer, today) ? todayRef : null}
-              >
+              <Tr lang={lang} key={i} ref={isToday(prayer) ? todayRef : null}>
                 <Td className="first">
                   <FormattedDate
                     value={new Date(prayer.day)}

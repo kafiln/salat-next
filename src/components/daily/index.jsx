@@ -1,18 +1,18 @@
-import moment from "moment";
-import { useRouter } from "next/router";
-import React, { useContext, useEffect, useState } from "react";
-import Spinner from "../../common/spinner";
-import { AppContext } from "../../context/AppContext";
-import useInterval from "../../hooks/useInterval";
-import { DEFAULT_TIME_FORMAT } from "../../settings";
-import { parseTime } from "../../utils/dates";
-import Clock from "../clock";
-import SelectList from "../select-list";
-import { Difference, Li, Name, Time, Ul } from "./styles";
+import moment from 'moment';
+import { useRouter } from 'next/router';
+import React, { useContext, useEffect, useState } from 'react';
+import Spinner from '../../common/spinner';
+import { AppContext } from '../../context/AppContext';
+import useInterval from '../../hooks/useInterval';
+import { DEFAULT_TIME_FORMAT } from '../../settings';
+import { parseTime } from '../../utils/dates';
+import Clock from '../clock';
+import SelectList from '../select-list';
+import { Difference, Li, Name, Time, Ul } from './styles';
 
-const NAMES = require("../../../public/data/prayerNames.json");
+const NAMES = require('../../../public/data/prayerNames.json');
 
-const Daily = ({ prayers }) => {
+const Daily = ({ prayers, date }) => {
   const { lang, slug, cities, periodicity } = useContext(AppContext);
 
   const router = useRouter();
@@ -57,12 +57,13 @@ const Daily = ({ prayers }) => {
           />
         </div>
       )}
-      <Clock displayTime time={time} day={prayer.day} />
+      <Clock displayTime time={time} day={prayer.day} hijri={date} />
+
       <Ul>
         {Object.keys(NAMES).map((name) => {
           return (
-            <Li key={name} lang={lang} className={name === next ? "next" : ""}>
-              <Name>{NAMES[name][lang === "ar-ma" ? "ar-ma" : "fr-fr"]}</Name>
+            <Li key={name} lang={lang} className={name === next ? 'next' : ''}>
+              <Name>{NAMES[name][lang === 'ar-ma' ? 'ar-ma' : 'fr-fr']}</Name>
               {name === next && <Difference>{diff}</Difference>}
               <Time>{parseTime(prayer[name])}</Time>
             </Li>

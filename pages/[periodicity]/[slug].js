@@ -1,3 +1,4 @@
+import { getCurrentDate, getCurrentMonth } from 'hijri-ma';
 import { useRouter } from 'next/router';
 import { useContext, useEffect } from 'react';
 import cities from '../../public/data/cities.json';
@@ -6,9 +7,9 @@ import Monthly from '../../src/components/monthly';
 import { initState } from '../../src/context/actions';
 import { AppContext } from '../../src/context/AppContext';
 import { DAILY, MONTHLY, PERIODICITY, SLUG } from '../../src/context/types';
-import { getPrayers } from '../../src/utils/dataService';
+import { getPrayers, getPrayersForPeriod } from '../../src/utils/dataService';
 
-const PeriodicitySwitch = ({ prayers }) => {
+const PeriodicitySwitch = ({ prayers, date }) => {
   const router = useRouter();
 
   let { periodicity, slug } = router.query;
@@ -23,9 +24,9 @@ const PeriodicitySwitch = ({ prayers }) => {
   }, [periodicity, slug]);
 
   return periodicity === DAILY ? (
-    <Daily prayers={prayers} />
+    <Daily prayers={prayers} date={date} />
   ) : (
-    <Monthly prayers={prayers} />
+    <Monthly prayers={prayers} date={date} />
   );
 };
 
@@ -49,15 +50,32 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const prayers = getPrayers(
-    params.slug,
-    new Date().getUTCMonth(),
-    params.periodicity === DAILY ? new Date().getUTCDate() : null
-  );
+  const month = await getCurrentMonth();
+  const date = await getCurrentDate();
+
+  // const prayers = getPrayers(
+  //   params.slug,
+  //   new Date().getUTCMonth(),
+  //   params.periodicity === DAILY ? new Date().getUTCDate() : null
+  // );
+
+  const prayers =
+    params.periodicity === DAILY
+      ? getPrayers(
+          params.slug,
+          new Date().getUTCMonth(),
+          new Date().getUTCDate()
+        )
+      : getPrayersForPeriod(
+          params.slug,
+          month[0].georgianDate,
+          month[month.length - 1].georgianDate
+        );
 
   return {
     props: {
       prayers,
+      date,
     },
     unstable_revalidate: 1,
   };

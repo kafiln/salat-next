@@ -1,9 +1,10 @@
-import { FormattedDate } from "react-intl";
-import { H2, H3, Wrapper } from "./styles";
+import { FormattedDate } from 'react-intl';
+import { H2, H3, Wrapper } from './styles';
 
-const Clock = ({ displayTime = false, day, time }) => {
+const Clock = ({ displayTime = false, day, time, hijri }) => {
   return (
     <Wrapper>
+      <H2>{hijri}</H2>
       <H2>
         <FormattedDate
           value={day}

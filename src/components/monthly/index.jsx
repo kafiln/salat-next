@@ -22,7 +22,7 @@ const addClassToRef = (ref) => (className) =>
 const isToday = (prayer) =>
   new Date(prayer.day).getDate() === new Date().getDate();
 
-const Monthly = ({ prayers }) => {
+const Monthly = ({ prayers, date }) => {
   const { lang, slug, cities } = useContext(AppContext);
   const todayRef = useRef(null);
   const router = useRouter();
@@ -54,7 +54,7 @@ const Monthly = ({ prayers }) => {
           />
         </div>
       )}
-      <Clock />
+      <Clock hijri={date} />
       {/* //TODO:  Intl this 👇👇 and remove inline style */}
       <h1 style={{ textAlign: 'center', margin: '0.5rem 0' }}>
         Prayers for month&nbsp;

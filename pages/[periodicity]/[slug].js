@@ -1,3 +1,4 @@
+import fs from 'fs';
 import { getCurrentDate, getCurrentMonth } from 'hijri-ma';
 import { useRouter } from 'next/router';
 import { useContext, useEffect } from 'react';
@@ -8,7 +9,7 @@ import { initState } from '../../src/context/actions';
 import { AppContext } from '../../src/context/AppContext';
 import { DAILY, MONTHLY, PERIODICITY, SLUG } from '../../src/context/types';
 import { getPrayers, getPrayersForPeriod } from '../../src/utils/dataService';
-
+const CACHEJSON = 'cache.json';
 const PeriodicitySwitch = ({ prayers, date }) => {
   const router = useRouter();
 
@@ -31,6 +32,17 @@ const PeriodicitySwitch = ({ prayers, date }) => {
 };
 
 export async function getStaticPaths() {
+  const month = await getCurrentMonth();
+  const date = await getCurrentDate();
+
+  fs.writeFileSync(
+    CACHEJSON,
+    JSON.stringify({
+      month,
+      date,
+    })
+  );
+
   let paths = [];
   [DAILY, MONTHLY].forEach((p) =>
     cities.forEach((c) => {
@@ -50,15 +62,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const month = await getCurrentMonth();
-  const date = await getCurrentDate();
-
-  // const prayers = getPrayers(
-  //   params.slug,
-  //   new Date().getUTCMonth(),
-  //   params.periodicity === DAILY ? new Date().getUTCDate() : null
-  // );
-
+  const { month, date } = JSON.parse(fs.readFileSync(CACHEJSON));
   const prayers =
     params.periodicity === DAILY
       ? getPrayers(

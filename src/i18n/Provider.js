@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { IntlProvider } from 'react-intl';
 import messages from './messages';
 
-const Provider = ({ children, locale = 'ar-ma' }) => {
+const Provider = ({ children, locale }) => {
   return (
     <IntlProvider
       textComponent={Fragment}

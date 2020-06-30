@@ -1,3 +1,4 @@
+import { isRTL } from '../i18n';
 import {
   CHANGE_CITY,
   CHANGE_LANGUAGE,
@@ -27,6 +28,7 @@ const reducer = (state, action) => {
         theme: action.payload.theme || state.theme,
         lang: action.payload.lang || state.lang,
         periodicity: action.payload.periodicity || state.periodicity,
+        isRTL: action.payload.isRTL || state.isRTL,
       };
     case CHANGE_LANGUAGE:
       const lang = action.payload;
@@ -34,7 +36,7 @@ const reducer = (state, action) => {
       return {
         ...state,
         lang,
-        isRTL: lang === 'ar-ma',
+        isRTL: isRTL(lang),
       };
     case CHANGE_PERIOD:
       const periodicity = action.payload;

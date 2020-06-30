@@ -11,7 +11,7 @@ import Clock from '../clock';
 import { Li, Ul } from './styles';
 
 const Daily = ({ prayers, date }) => {
-  const { lang, isRTL } = useContext(AppContext);
+  const { isRTL } = useContext(AppContext);
   const theme = useContext(ThemeContext);
 
   let prayer = (prayers || [])[0];
@@ -26,7 +26,7 @@ const Daily = ({ prayers, date }) => {
       const nextOnes = Object.keys(prayer).filter((t) =>
         time.utc().isBefore(moment.utc(prayer[t]))
       );
-      const next = nextOnes.length === 0 ? Object.keys(NAMES)[0] : nextOnes[0];
+      const next = nextOnes.length === 0 ? NAMES[0] : nextOnes[0];
       const diff = moment
         .utc(moment.utc(prayer[next]).diff(time.utc()))
         .format(DEFAULT_TIME_FORMAT);
@@ -43,7 +43,11 @@ const Daily = ({ prayers, date }) => {
       <Ul>
         {NAMES.map((name) => {
           return (
-            <Li key={name} isRTL={isRTL} className={name === next ? 'next' : ''}>
+            <Li
+              key={name}
+              isRTL={isRTL}
+              className={name === next ? 'next' : ''}
+            >
               <div>
                 <FormattedMessage
                   id={`PRAYER_${name.toUpperCase()}`}

@@ -4,7 +4,6 @@ import { DAILY, LIGHT } from './types';
 
 export const initialState = {
   lang: LOCALES.ARABIC.id,
-  isRTL: true,
   theme: LIGHT,
   periodicity: DAILY,
   slug: 'casablanca',

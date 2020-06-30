@@ -1,3 +1,4 @@
+import { isRTL } from '../i18n';
 import {
   CHANGE_CITY,
   CHANGE_PERIOD,
@@ -6,7 +7,7 @@ import {
   PERIODICITY,
   SLUG,
   THEME,
-} from "./types";
+} from './types';
 
 export const initState = (dispatch) => {
   const slug = localStorage.getItem(SLUG);
@@ -20,6 +21,7 @@ export const initState = (dispatch) => {
       theme,
       lang,
       periodicity,
+      isRTL: isRTL(lang),
     },
   });
 };

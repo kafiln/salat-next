@@ -1,7 +1,14 @@
 import React, { useContext } from 'react';
 import { AppContext } from '../context/AppContext';
 import { CHANGE_THEME, DARK } from '../context/types';
-import Emoji from './Emoji';
+
+const Emoji = ({ name, icon }) => (
+  <div style={{ userSelect: 'none' }}>
+    <span role="img" aria-label={name}>
+      {icon}
+    </span>
+  </div>
+);
 
 const ThemeToggle = () => {
   const { dispatch, theme } = useContext(AppContext);

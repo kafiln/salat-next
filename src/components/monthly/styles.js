@@ -23,11 +23,14 @@ export const Td = styled.td`
   text-transform: capitalize;
   border-top: none !important;
   margin: 0 0.5rem;
-  flex: 1;
+  flex: 5;
+
+  &.single {
+    flex-basis: 0;
+    flex-grow: 1;
+  }
 
   &.first {
-    flex-basis: 0;
-    flex-grow: 2.5;
   }
 `;
 export const Thead = styled.thead`

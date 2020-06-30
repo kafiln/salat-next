@@ -1,5 +1,6 @@
 import fs from 'fs';
-import { getCurrentDate, getCurrentMonth } from 'hijri-ma';
+import { getCurrentMonth } from 'hijri-ma';
+import moment from 'moment';
 import { useRouter } from 'next/router';
 import { useContext, useEffect } from 'react';
 import cities from '../../public/data/cities.json';
@@ -9,8 +10,10 @@ import { initState } from '../../src/context/actions';
 import { AppContext } from '../../src/context/AppContext';
 import { DAILY, MONTHLY, PERIODICITY, SLUG } from '../../src/context/types';
 import { getPrayers, getPrayersForPeriod } from '../../src/utils/dataService';
+
 const CACHEJSON = 'cache.json';
-const PeriodicitySwitch = ({ prayers, date }) => {
+
+const PeriodicitySwitch = ({ prayers }) => {
   const router = useRouter();
 
   let { periodicity, slug } = router.query;
@@ -25,9 +28,9 @@ const PeriodicitySwitch = ({ prayers, date }) => {
   }, [periodicity, slug]);
 
   return periodicity === DAILY ? (
-    <Daily prayers={prayers} date={date} />
+    <Daily prayers={prayers} />
   ) : (
-    <Monthly prayers={prayers} date={date} />
+    <Monthly prayers={prayers} />
   );
 };
 
@@ -35,13 +38,11 @@ export async function getStaticPaths() {
   if (!fs.existsSync(CACHEJSON)) {
     console.log('Creating cache data');
     const month = await getCurrentMonth();
-    const date = await getCurrentDate();
 
     fs.writeFileSync(
       CACHEJSON,
       JSON.stringify({
         month,
-        date,
       })
     );
   }
@@ -65,7 +66,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const { month, date } = JSON.parse(fs.readFileSync(CACHEJSON));
+  const { month } = JSON.parse(fs.readFileSync(CACHEJSON));
   const prayers =
     params.periodicity === DAILY
       ? getPrayers(
@@ -79,10 +80,19 @@ export async function getStaticProps({ params }) {
           month[month.length - 1].georgianDate
         );
 
+  prayers.forEach((p) => {
+    //FIXME: refactor this mess
+    const hijri = month.find(
+      (e) => e.georgianDate === moment.utc(p.day).format('YYYY-MM-DD')
+    );
+    if (hijri) {
+      p.hijri = hijri;
+    }
+  });
+
   return {
     props: {
       prayers,
-      date,
     },
     unstable_revalidate: 1,
   };

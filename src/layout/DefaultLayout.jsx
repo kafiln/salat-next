@@ -1,6 +1,6 @@
-import React from "react";
-import Footer from "./footer";
-import Navbar from "./navbar";
+import React from 'react';
+import Footer from './Footer';
+import Navbar from './Navbar';
 
 function DefaultLayout({ children }) {
   return (

@@ -1,7 +1,7 @@
-import { useRouter } from "next/router";
-import { useContext, useEffect } from "react";
-import Spinner from "../src/common/spinner";
-import { AppContext } from "../src/context/AppContext";
+import { useRouter } from 'next/router';
+import { useContext, useEffect } from 'react';
+import { Spinner } from '../src/common';
+import { AppContext } from '../src/context/AppContext';
 
 const Index = () => {
   const { slug, periodicity } = useContext(AppContext);

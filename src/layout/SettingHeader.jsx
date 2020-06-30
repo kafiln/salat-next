@@ -11,7 +11,7 @@ function SettingHeader() {
   const router = useRouter();
 
   return (
-    <header>
+    <section>
       <nav className="w-full mx-auto flex items-center justify-between">
         <div className="md:w-1/5 sm:w-1/4 w-1/3">
           <SelectList
@@ -31,7 +31,7 @@ function SettingHeader() {
           <ThemeToggle />
         </div>
       </nav>
-    </header>
+    </section>
   );
 }
 

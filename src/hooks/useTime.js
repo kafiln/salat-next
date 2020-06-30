@@ -1,7 +1,7 @@
 import moment from 'moment';
 import { useEffect, useState } from 'react';
 
-export const useTime = () => {
+const useTime = () => {
   const [time, setTime] = useState(moment());
 
   useEffect(() => {
@@ -11,3 +11,5 @@ export const useTime = () => {
 
   return time;
 };
+
+export default useTime;

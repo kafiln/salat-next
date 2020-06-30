@@ -1,4 +1,4 @@
-import Logo from "../images/logo";
+import { Logo } from '../common';
 
 function Footer() {
   return (

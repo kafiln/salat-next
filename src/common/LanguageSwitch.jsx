@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { AppContext } from '../context/AppContext';
-import { CHANGE_LANGUAGE } from '../context/types';
-import languages from '../i18n/locales';
+import { CHANGE_LANGUAGE } from '../context/constants';
+import { LOCALES as languages } from '../i18n';
 
 function LanguageSwitch() {
   const { dispatch, lang } = useContext(AppContext);

@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useContext } from 'react';
+import Logo from '../common/Logo';
 import { AppContext } from '../context/AppContext';
-import { DAILY, MONTHLY } from '../context/types';
-import Logo from '../images/logo';
+import { DAILY, MONTHLY } from '../context/constants';
 
 function Navigation() {
   const router = useRouter();
@@ -19,7 +19,7 @@ function Navigation() {
   };
 
   return (
-    <header className="text-gray-700 body-font ">
+    <section className="text-gray-700 body-font ">
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
         <a className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
           <Logo />
@@ -46,7 +46,7 @@ function Navigation() {
           </Link>
         </nav>
       </div>
-    </header>
+    </section>
   );
 }
 

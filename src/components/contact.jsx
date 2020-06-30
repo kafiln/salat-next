@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-function contact() {
+function Contact() {
   return (
     <section className="flex-grow text-gray-700 body-font relative">
       <div className="container p-4 mx-auto">
@@ -47,4 +47,4 @@ function contact() {
   );
 }
 
-export default contact;
+export default Contact;

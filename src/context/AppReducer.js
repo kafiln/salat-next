@@ -11,7 +11,7 @@ import {
   PERIODICITY,
   SLUG,
   THEME,
-} from './types';
+} from './constants';
 
 const reducer = (state, action) => {
   switch (action.type) {

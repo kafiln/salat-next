@@ -7,7 +7,7 @@ import {
   PERIODICITY,
   SLUG,
   THEME,
-} from './types';
+} from './constants';
 
 export const initState = (dispatch) => {
   const slug = localStorage.getItem(SLUG);

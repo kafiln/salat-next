@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import { FormattedDate, FormattedMessage, useIntl } from 'react-intl';
-import Spinner from '../../common/spinner';
+import { Spinner } from '../../common/';
 import { AppContext } from '../../context/AppContext';
 import { KEYS } from '../../i18n';
 import { parseTime } from '../../utils/dates';
-import Clock from '../clock';
+import Clock from '../Clock';
 import { Table, Tbody, Td, Thead, Tr } from './styles';
 
 // const scrollToRef = (ref) => ref.current.scrollIntoView({ behavior: 'smooth' });
@@ -20,7 +20,7 @@ const getGeorgianMonths = (prayers, intl) => {
   prayers.forEach((prayer) =>
     results.add(intl.formatDate(prayer.day, { month: 'long' }))
   );
-  return Array.from(results).join(' - ');
+  return Array.from(results).join('/');
 };
 
 const isToday = (prayer) =>

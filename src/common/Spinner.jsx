@@ -1,7 +1,7 @@
-import React from "react";
-import { FormattedMessage } from "react-intl";
-import styled, { keyframes } from "styled-components";
-import { KEYS } from "../../i18n";
+import React from 'react';
+import { FormattedMessage } from 'react-intl';
+import styled, { keyframes } from 'styled-components';
+import { KEYS } from '../i18n';
 
 const spin = keyframes`
   0% {
@@ -17,7 +17,7 @@ const Spinner = styled.div`
   height: 64px;
   margin-bottom: 1rem;
   &:after {
-    content: " ";
+    content: ' ';
     display: block;
     width: 46px;
     height: 46px;

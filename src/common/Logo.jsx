@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-const Icon = () => {
+const Logo = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -96,4 +96,4 @@ const Icon = () => {
   );
 };
 
-export default React.memo(Icon);
+export default React.memo(Logo);

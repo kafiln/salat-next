@@ -1,6 +1,6 @@
 import React from 'react';
 import { LOCALES } from '../i18n';
-import { DAILY, LIGHT } from './types';
+import { DAILY, LIGHT } from './constants';
 
 export const initialState = {
   lang: LOCALES.ARABIC.id,

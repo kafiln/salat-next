@@ -2,12 +2,12 @@ import moment from 'moment';
 import React, { useContext, useEffect, useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { ThemeContext } from 'styled-components';
-import Spinner from '../../common/spinner';
-import { AppContext } from '../../context/AppContext';
-import { useTime } from '../../hooks/useTime';
+import { Spinner } from '../../common';
+import { AppContext } from '../../context/';
+import { useTime } from '../../hooks';
 import { DEFAULT_TIME_FORMAT } from '../../settings';
 import { parseTime } from '../../utils/dates';
-import Clock from '../clock';
+import Clock from '../Clock';
 import { Li, Ul } from './styles';
 
 const Daily = ({ prayers, date }) => {

@@ -4,11 +4,15 @@ import moment from 'moment';
 import { useRouter } from 'next/router';
 import { useContext, useEffect } from 'react';
 import cities from '../../public/data/cities.json';
-import Daily from '../../src/components/daily';
-import Monthly from '../../src/components/monthly';
-import { initState } from '../../src/context/actions';
-import { AppContext } from '../../src/context/AppContext';
-import { DAILY, MONTHLY, PERIODICITY, SLUG } from '../../src/context/types';
+import { Daily, Monthly } from '../../src/components';
+import {
+  AppContext,
+  DAILY,
+  initState,
+  MONTHLY,
+  PERIODICITY,
+  SLUG,
+} from '../../src/context';
 import { getPrayers, getPrayersForPeriod } from '../../src/utils/dataService';
 
 const CACHEJSON = 'cache.json';
@@ -45,6 +49,8 @@ export async function getStaticPaths() {
         month,
       })
     );
+
+    console.log('Done 🥳🥳');
   }
 
   let paths = [];

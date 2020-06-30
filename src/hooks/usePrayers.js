@@ -1,14 +1,14 @@
-import { useEffect, useState } from "react";
-import { API_URL } from "../settings";
+import { useEffect, useState } from 'react';
+import { API_URL } from '../settings';
 import {
   cleanLocalStorage,
   getFromLocalStorageOrApi,
   getStorageKey,
-} from "../utils/localStorage";
+} from '../utils/localStorage';
 
 const byDay = (a, b) => new Date(a.day).getDate() - new Date(b.day).getDate();
 
-export default (cityId, isDayly = false) => {
+const usePrayers = (cityId, isDayly = false) => {
   const [prayers, setPrayers] = useState(null);
 
   useEffect(() => {
@@ -41,3 +41,5 @@ export default (cityId, isDayly = false) => {
 
   return isDayly ? prayers : (prayers || []).sort(byDay);
 };
+
+export default usePrayers;

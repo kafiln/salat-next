@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 export const Ul = styled.ul`
   display: flex;
   margin: 0 auto;
@@ -7,20 +7,12 @@ export const Ul = styled.ul`
   width: 100%;
 `;
 
-export const Name = styled.div`
-  text-transform: capitalize;
-`;
-export const Difference = styled.div`
-  color: ${(props) => props.theme.differenceColor};
-`;
-export const Time = styled.div``;
-
 export const Next = css`
   font-weight: 500;
   background-color: ${(props) => props.theme.color};
   color: ${(props) => props.theme.backgroundColor};
   padding: 0.5rem;
-  border-radius: 2px;
+  border-radius: 0.25rem;
 `;
 
 export const Li = styled.li`
@@ -28,7 +20,6 @@ export const Li = styled.li`
   display: flex;
   justify-content: space-between;
   width: 100%;
-  flex-direction: ${(props) =>
-    props.lang === "ar-ma" ? "row-reverse" : "row"};
-  ${(props) => (props.className === "next" ? Next : "")}
+  flex-direction: ${(props) => (props.isRTL ? 'row-reverse' : 'row')};
+  ${(props) => (props.className === 'next' ? Next : '')}
 `;

@@ -1,29 +1,25 @@
 import moment from 'moment';
-import { useRouter } from 'next/router';
 import React, { useContext, useEffect, useState } from 'react';
+import { FormattedMessage } from 'react-intl';
+import { ThemeContext } from 'styled-components';
 import Spinner from '../../common/spinner';
 import { AppContext } from '../../context/AppContext';
-import useInterval from '../../hooks/useInterval';
+import { useTime } from '../../hooks/useTime';
 import { DEFAULT_TIME_FORMAT } from '../../settings';
 import { parseTime } from '../../utils/dates';
 import Clock from '../clock';
-import SelectList from '../select-list';
-import { Difference, Li, Name, Time, Ul } from './styles';
-
-const NAMES = require('../../../public/data/prayerNames.json');
+import { Li, Ul } from './styles';
 
 const Daily = ({ prayers, date }) => {
-  const { lang, slug, cities, periodicity } = useContext(AppContext);
+  const { lang, isRTL } = useContext(AppContext);
+  const theme = useContext(ThemeContext);
 
-  const router = useRouter();
   let prayer = (prayers || [])[0];
 
-  const [state, setState] = useState({});
-  const [time, setTime] = useState(moment());
+  const NAMES = Object.keys(prayer).splice(0, 6);
 
-  const thick = () => {
-    setTime(moment());
-  };
+  const [state, setState] = useState({});
+  const time = useTime();
 
   useEffect(() => {
     if (prayer) {
@@ -38,34 +34,25 @@ const Daily = ({ prayers, date }) => {
     }
   }, [prayer, time]);
 
-  useInterval(thick, 1000);
-
   const { next, diff } = state;
 
   return prayer ? (
     <>
-      {slug && (
-        <div className="w-full mx-auto sm:w-1/2 md:w-1/4 flex justify-evenly">
-          <SelectList
-            cities={cities}
-            slug={slug}
-            lang={lang}
-            onChange={({ value }) => {
-              const redirect = `/${periodicity}/${value}`;
-              router.push(`/[periodicity]/[slug]`, redirect);
-            }}
-          />
-        </div>
-      )}
       <Clock displayTime time={time} day={prayer.day} hijri={date} />
 
       <Ul>
-        {Object.keys(NAMES).map((name) => {
+        {NAMES.map((name) => {
           return (
-            <Li key={name} lang={lang} className={name === next ? 'next' : ''}>
-              <Name>{NAMES[name][lang === 'ar-ma' ? 'ar-ma' : 'fr-fr']}</Name>
-              {name === next && <Difference>{diff}</Difference>}
-              <Time>{parseTime(prayer[name])}</Time>
+            <Li key={name} isRTL={isRTL} className={name === next ? 'next' : ''}>
+              <div>
+                <FormattedMessage
+                  id={`PRAYER_${name.toUpperCase()}`}
+                ></FormattedMessage>
+              </div>
+              {name === next && (
+                <div className={`${theme.daily.difference}`}>{diff}</div>
+              )}
+              <div>{parseTime(prayer[name])}</div>
             </Li>
           );
         })}

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Table = styled.table`
   width: 100%;
@@ -9,9 +9,8 @@ export const Tbody = styled.tbody``;
 export const Tr = styled.tr`
   display: flex;
   justify-content: space-around;
-  flex-direction: ${(props) =>
-    props.lang === "ar-ma" ? "row-reverse" : "row"};
-  text-align: ${(props) => (props.lang === "ar-ma" ? "right" : "left")};
+  flex-direction: ${(props) => (props.isRTL ? 'row-reverse' : 'row')};
+  text-align: ${(props) => (props.isRTL ? 'right' : 'left')};
   border-bottom: ${(props) => `1px solid ${props.theme.color}`};
 
   &.today {

@@ -1,9 +1,9 @@
-import React, { useContext } from "react";
-import { AppContext } from "../context/AppContext";
-import { CHANGE_LANGUAGE } from "../context/types";
-import languages from "../i18n/locales";
+import React, { useContext } from 'react';
+import { AppContext } from '../context/AppContext';
+import { CHANGE_LANGUAGE } from '../context/types';
+import languages from '../i18n/locales';
 
-function Languages() {
+function LanguageSwitch() {
   const { dispatch, lang } = useContext(AppContext);
   const otherLanguages = Object.values(languages).filter((e) => e.id !== lang);
 
@@ -20,4 +20,4 @@ function Languages() {
   return <nav className="inline-flex items-center "> {buttons}</nav>;
 }
 
-export default Languages;
+export default LanguageSwitch;

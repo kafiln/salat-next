@@ -32,16 +32,19 @@ const PeriodicitySwitch = ({ prayers, date }) => {
 };
 
 export async function getStaticPaths() {
-  const month = await getCurrentMonth();
-  const date = await getCurrentDate();
+  if (!fs.existsSync(CACHEJSON)) {
+    console.log('Creating cache data');
+    const month = await getCurrentMonth();
+    const date = await getCurrentDate();
 
-  fs.writeFileSync(
-    CACHEJSON,
-    JSON.stringify({
-      month,
-      date,
-    })
-  );
+    fs.writeFileSync(
+      CACHEJSON,
+      JSON.stringify({
+        month,
+        date,
+      })
+    );
+  }
 
   let paths = [];
   [DAILY, MONTHLY].forEach((p) =>

@@ -1,14 +1,14 @@
-import React from "react";
-import { Container, Select } from "./styles";
+import React from 'react';
+import { Container, Select } from './styles';
 
 const byLabel = (a, b) => (a.label > b.label ? 1 : b.label > a.label ? -1 : 0);
 
-const SelectList = ({ onChange, cities, slug, lang }) => {
+const SelectList = React.memo(({ onChange, cities, slug, lang }) => {
   const options = cities
     ? cities
         .map((e) => ({
           value: e.slug,
-          label: e.names[lang === "ar-ma" ? "ar-ma" : "fr-fr"],
+          label: e.names[lang === 'ar-ma' ? 'ar-ma' : 'fr-fr'],
         }))
         .sort(byLabel)
     : [];
@@ -17,9 +17,8 @@ const SelectList = ({ onChange, cities, slug, lang }) => {
 
   const customStyles = {
     singleValue: (provided) => {
-      const padding = "20px 10px";
-      // const textAlign = "center";
-      return { ...provided, padding, width: "100%" };
+      const padding = '20px 10px';
+      return { ...provided, padding, width: '100%' };
     },
   };
 
@@ -29,13 +28,12 @@ const SelectList = ({ onChange, cities, slug, lang }) => {
         instanceId={slug}
         styles={customStyles}
         options={options}
-        // menuPlacement={"top"}
         value={value}
-        isRtl={lang === "ar-ma"}
+        isRtl={lang === 'ar-ma'}
         onChange={onChange}
       />
     </Container>
   );
-};
+});
 
-export default React.memo(SelectList);
+export default SelectList;

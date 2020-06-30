@@ -1,7 +1,13 @@
 export default {
-  MONTH: 'month',
-  DAY: 'day',
-  LIGHT: 'light',
-  DARK: 'dark',
-  SPINNER_LOADING: 'spinner.loading.message',
+  MONTH: 'MONTH',
+  DAY: 'DAY',
+  LIGHT: 'LIGHT',
+  DARK: 'DARK',
+  SPINNER_LOADING: 'SPINNER_LOADING',
+  PRAYER_FAJR: 'PRAYER_FAJR',
+  PRAYER_CHOROUQ: 'PRAYER_CHOROUQ',
+  PRAYER_DHUHR: 'PRAYER_DHUHR',
+  PRAYER_ASR: 'PRAYER_ASR',
+  PRAYER_MAGHRIB: 'PRAYER_MAGHRIB',
+  PRAYER_ISHAE: 'PRAYER_ISHAE',
 };

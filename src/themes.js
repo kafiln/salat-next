@@ -19,11 +19,15 @@ body {
 export const dark = {
   color: 'white',
   backgroundColor: 'black',
-  differenceColor: '#f32222',
+  daily: {
+    difference: 'text-red-600',
+  },
 };
 
 export const light = {
   color: 'black',
   backgroundColor: 'white',
-  differenceColor: '#ec8b8b',
+  daily: {
+    difference: 'text-red-500',
+  },
 };

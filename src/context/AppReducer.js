@@ -10,7 +10,7 @@ import {
   PERIODICITY,
   SLUG,
   THEME,
-} from "./types";
+} from './types';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -34,6 +34,7 @@ const reducer = (state, action) => {
       return {
         ...state,
         lang,
+        isRTL: lang === 'ar-ma',
       };
     case CHANGE_PERIOD:
       const periodicity = action.payload;

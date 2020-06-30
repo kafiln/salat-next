@@ -1,15 +1,15 @@
 import React, { useContext } from 'react';
 import { AppContext } from '../context/AppContext';
 import { CHANGE_THEME, DARK } from '../context/types';
-import Emoji from './emoji';
+import Emoji from './Emoji';
 
-const Theme = () => {
+const ThemeToggle = () => {
   const { dispatch, theme } = useContext(AppContext);
 
   const toggleTheme = () => dispatch({ type: CHANGE_THEME });
   return (
-    <div
-      className="bg-gray-200 rounded-full cursor-pointer border-0 mx-2 py-1 px-3 focus:outline-none hover:bg-gray-300  text-base mt-4 md:mt-0"
+    <button
+      className="bg-gray-200 rounded-full cursor-pointer p-2 border-0 focus:outline-none hover:bg-gray-300"
       onClick={toggleTheme}
     >
       {theme === DARK ? (
@@ -17,8 +17,8 @@ const Theme = () => {
       ) : (
         <Emoji name="moon" icon="🌙" />
       )}
-    </div>
+    </button>
   );
 };
 
-export default Theme;
+export default ThemeToggle;

@@ -1,10 +1,30 @@
 import moment from 'moment';
 import cities from '../../public/data/cities.json';
 import prayers from '../../public/data/prayers.json';
+import { LOCALES } from '../i18n';
 
 const utcMonth = (day) => new Date(day).getUTCMonth();
 const utcDate = (day) => new Date(day).getUTCDate();
 
+/**
+ *
+ *
+ * @param {*} slug
+ * @param {*} isRTL
+ */
+export const getCity = (slug, isRTL) => {
+  const locale = isRTL ? LOCALES.ARABIC.id : LOCALES.FRENCH.id;
+  return cities.find((e) => e.slug === slug).names[locale];
+};
+
+/**
+ *
+ *
+ * @param {*} slug
+ * @param {*} first
+ * @param {*} last
+ * @returns
+ */
 export const getPrayersForPeriod = (slug, first, last) => {
   const results = [];
   const firstDay = moment.utc(first);
@@ -19,6 +39,14 @@ export const getPrayersForPeriod = (slug, first, last) => {
   return results;
 };
 
+/**
+ *
+ *
+ * @param {*} slug
+ * @param {*} month
+ * @param {*} day
+ * @returns
+ */
 export const getPrayers = (slug, month, day) => {
   let result = [...prayers];
 
@@ -34,4 +62,9 @@ export const getPrayers = (slug, month, day) => {
   return result;
 };
 
+/**
+ *
+ *
+ * @param {*} slug
+ */
 export const idFromSlug = (slug) => cities.find((c) => c.slug === slug).id;

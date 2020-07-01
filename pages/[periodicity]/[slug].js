@@ -14,6 +14,7 @@ import {
   SLUG,
 } from '../../src/context';
 import { getPrayers, getPrayersForPeriod } from '../../src/utils/dataService';
+import { isToday } from '../../src/utils/dates';
 
 const CACHEJSON = 'cache.json';
 
@@ -82,18 +83,22 @@ export async function getStaticProps({ params }) {
         )
       : getPrayersForPeriod(
           params.slug,
-          month[0].georgianDate,
-          month[month.length - 1].georgianDate
+          month[0].gregorianDate,
+          month[month.length - 1].gregorianDate
         );
 
   prayers.forEach((p) => {
     //FIXME: refactor this mess
+    // Add hijri field
     const hijri = month.find(
-      (e) => e.georgianDate === moment.utc(p.day).format('YYYY-MM-DD')
+      (e) => e.gregorianDate === moment.utc(p.day).format('YYYY-MM-DD')
     );
     if (hijri) {
       p.hijri = hijri;
     }
+
+    //add isToday boolean
+    if (isToday(p.day)) p.isToday = true;
   });
 
   return {

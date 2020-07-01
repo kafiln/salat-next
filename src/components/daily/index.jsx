@@ -38,7 +38,7 @@ const Daily = ({ prayers, date }) => {
 
   return prayer ? (
     <>
-      <Clock displayTime time={time} day={prayer.day} hijri={date} />
+      <Clock displayTime time={time} today={prayer} />
 
       <Ul>
         {NAMES.map((name) => {

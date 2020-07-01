@@ -1,34 +1,36 @@
 import LOCALES from '../locales';
-import keys from './keys';
+import KEYS from './keys';
 export default {
   [LOCALES.ENGLISH.id]: {
     // Settings
-    [keys.MONTH]: 'Month',
-    [keys.DAY]: 'Day',
-    [keys.LIGHT]: 'Light',
-    [keys.DARK]: 'Dark',
-    [keys.SPINNER_LOADING]: 'Loading ...',
+    [KEYS.MONTH]: 'Month',
+    [KEYS.DAY]: 'Day',
+    [KEYS.LIGHT]: 'Light',
+    [KEYS.DARK]: 'Dark',
+    [KEYS.SPINNER_LOADING]: 'Loading ...',
 
     // Prayer names
-    [keys.PRAYER_FAJR]: 'Fajr',
-    [keys.PRAYER_CHOROUQ]: 'Chorouq',
-    [keys.PRAYER_DHUHR]: 'Dhuhr',
-    [keys.PRAYER_ASR]: 'Asr',
-    [keys.PRAYER_MAGHRIB]: 'Maghrib',
-    [keys.PRAYER_ISHAE]: 'Ishae',
+    [KEYS.PRAYER_FAJR]: 'Fajr',
+    [KEYS.PRAYER_CHOROUQ]: 'Chorouq',
+    [KEYS.PRAYER_DHUHR]: 'Dhuhr',
+    [KEYS.PRAYER_ASR]: 'Asr',
+    [KEYS.PRAYER_MAGHRIB]: 'Maghrib',
+    [KEYS.PRAYER_ISHAE]: 'Ishae',
 
     // Hijri Months names
-    [keys.HIJRI_MONTH_1]: 'Mouharram',
-    [keys.HIJRI_MONTH_2]: 'Safar',
-    [keys.HIJRI_MONTH_3]: 'Rabiâ Al Awwal',
-    [keys.HIJRI_MONTH_4]: 'Rabiâ Atthani',
-    [keys.HIJRI_MONTH_5]: 'Joumada Al Oulah',
-    [keys.HIJRI_MONTH_6]: 'Joumada Atthaniah',
-    [keys.HIJRI_MONTH_7]: 'Rajab',
-    [keys.HIJRI_MONTH_8]: 'Shaâban',
-    [keys.HIJRI_MONTH_9]: 'Ramadan',
-    [keys.HIJRI_MONTH_10]: 'Shawwal',
-    [keys.HIJRI_MONTH_11]: 'Thul Qiâdah',
-    [keys.HIJRI_MONTH_12]: 'Thul Hijjah',
+    [KEYS.HIJRI_MONTH_1]: 'Mouharram',
+    [KEYS.HIJRI_MONTH_2]: 'Safar',
+    [KEYS.HIJRI_MONTH_3]: 'Rabiâ Al Awwal',
+    [KEYS.HIJRI_MONTH_4]: 'Rabiâ Atthani',
+    [KEYS.HIJRI_MONTH_5]: 'Joumada Al Oulah',
+    [KEYS.HIJRI_MONTH_6]: 'Joumada Atthaniah',
+    [KEYS.HIJRI_MONTH_7]: 'Rajab',
+    [KEYS.HIJRI_MONTH_8]: 'Shaâban',
+    [KEYS.HIJRI_MONTH_9]: 'Ramadan',
+    [KEYS.HIJRI_MONTH_10]: 'Shawwal',
+    [KEYS.HIJRI_MONTH_11]: 'Thul Qiâdah',
+    [KEYS.HIJRI_MONTH_12]: 'Thul Hijjah',
+    [KEYS.MONTHLY_TITLE]:
+      'Prayers times for {month} in {city} according to the Moroccan ministry of Habous and Islamic Affairs',
   },
 };

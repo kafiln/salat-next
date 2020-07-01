@@ -9,7 +9,7 @@ const ThemeToggle = () => {
   const toggleTheme = () => dispatch({ type: CHANGE_THEME });
   return (
     <button
-      className="bg-gray-200 rounded-full cursor-pointer p-2 border-0 focus:outline-none hover:bg-gray-300"
+      className="bg-gray-200 rounded-full cursor-pointer px-2 border-0 focus:outline-none hover:bg-gray-300"
       onClick={toggleTheme}
     >
       {theme === DARK ? (

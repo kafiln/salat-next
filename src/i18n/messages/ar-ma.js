@@ -36,5 +36,8 @@ export default {
     [keys.HIJRI_MONTH_10]: 'شوّال',
     [keys.HIJRI_MONTH_11]: 'ذو القعدة',
     [keys.HIJRI_MONTH_12]: 'ذو الحجة',
+
+    [keys.MONTHLY_TITLE]:
+      'مواقيت الصلاة لشهر {month} لمدينة {city} حسب توقيت وزارة الاوقاف والشؤون الاسلامية بالمغرب',
   },
 };

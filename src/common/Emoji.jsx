@@ -1,6 +1,6 @@
 const Emoji = ({ name, icon }) => (
   <div style={{ userSelect: 'none' }}>
-    <span role="img" aria-label={name}>
+    <span className="text-center text-2xl" role="img" aria-label={name}>
       {icon}
     </span>
   </div>

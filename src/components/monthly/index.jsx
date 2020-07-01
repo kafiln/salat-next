@@ -4,6 +4,7 @@ import cities from '../../../public/data/cities.json';
 import { Spinner } from '../../common/';
 import { AppContext } from '../../context/AppContext';
 import { KEYS } from '../../i18n';
+import { TIMEZONE } from '../../settings';
 import { parseTime } from '../../utils/dates';
 import Clock from '../Clock';
 import { Table, Tbody, Td, Thead, Tr } from './styles';
@@ -23,16 +24,39 @@ const Monthly = ({ prayers, date }) => {
   const NAMES = Object.keys(prayers[0]).splice(0, 6);
 
   const georgianMonths = getGeorgianMonths(prayers, formatDate);
+  const today = prayers.find((p) => isToday(p));
   const currentHijriMonth = formatMessage({
-    id: `HIJRI_MONTH_${prayers[0].hijri.month}`,
+    id: `HIJRI_MONTH_${today.hijri.month}`,
   });
+  //FIXME: refactor this mess 🤦, maybe use a data service for cities
   const city = cities.find((e) => e.slug === slug).names[
     isRTL ? 'ar-ma' : 'fr-fr'
   ];
+
+  const georgian = formatMessage(
+    { id: KEYS.GEORGIAN_DATE },
+    {
+      day: new Date(today.day).getDate(),
+      month: formatDate(today.day, { month: 'long', timeStyle: TIMEZONE }),
+      year: new Date(today.day).getFullYear(),
+    }
+  );
+
+  const hijri = formatMessage(
+    { id: KEYS.FULL_DATE },
+    {
+      day: formatDate(new Date(), { weekday: 'long' }),
+      date: today.hijri.day,
+      month: currentHijriMonth,
+      year: today.hijri.year,
+      georgian,
+    }
+  );
+
   const table = (
     <>
-      <Clock hijri={date} />
-      <h1 className="text-center py-2 text-2xl">
+      <Clock hijri={hijri} />
+      <h1 className="text-center py-1 text-2xl">
         <FormattedMessage
           id={KEYS.MONTHLY_TITLE}
           values={{
@@ -41,8 +65,11 @@ const Monthly = ({ prayers, date }) => {
           }}
         />
       </h1>
+      <h2 className="text-center  text-lg text-gray-600">
+        <FormattedMessage id={KEYS.MONTHLY_SUBTITLE} />
+      </h2>
 
-      <Table>
+      <Table className="py-2">
         <Thead>
           <Tr isRTL={isRTL} className="header">
             <Td className="first">

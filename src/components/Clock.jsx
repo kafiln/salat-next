@@ -6,15 +6,6 @@ const Clock = ({ displayTime = false, day, time, hijri }) => {
   return (
     <div className="my-2">
       <h2 className="text-center capitalize p-2">{hijri}</h2>
-      <h2 className="text-center capitalize p-2">
-        {formatDate(day, {
-          year: 'numeric',
-          month: 'long',
-          timeZone: TIMEZONE,
-          day: 'numeric',
-          weekday: 'long',
-        })}
-      </h2>
       {displayTime && (
         <h3 suppressHydrationWarning className="text-center">
           {formatTime(time, {

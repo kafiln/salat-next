@@ -30,7 +30,10 @@ export default {
     [KEYS.HIJRI_MONTH_10]: 'Shawwal',
     [KEYS.HIJRI_MONTH_11]: 'Thul Qiâdah',
     [KEYS.HIJRI_MONTH_12]: 'Thul Hijjah',
-    [KEYS.MONTHLY_TITLE]:
-      'Prayers times for {month} in {city} according to the Moroccan ministry of Habous and Islamic Affairs',
+    [KEYS.MONTHLY_TITLE]: 'Prayers times for {month} in {city}',
+    [KEYS.MONTHLY_SUBTITLE]:
+      'According to the ministry of Habous and Islamic Affairs in Morocco',
+    [KEYS.FULL_DATE]: '{day}, {date} {month} {year} / {georgian}',
+    [KEYS.GEORGIAN_DATE]: '{day} {month} {year}',
   },
 };

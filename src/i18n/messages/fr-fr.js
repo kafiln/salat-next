@@ -11,6 +11,8 @@ export default {
     [KEYS.SPINNER_LOADING]: 'Chargement en cours ...',
 
     [KEYS.MONTHLY_TITLE]:
-      'Horaires de prières pour le mois de {month} à {city} selon le ministère des habous et des affaires islamiques',
+      'Horaires de prières pour le mois de {month} à {city} ',
+    [KEYS.MONTHLY_SUBTITLE]:
+      'Selon le ministère des habous et des affaires islamiques au Maroc',
   },
 };

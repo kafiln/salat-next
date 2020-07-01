@@ -1,6 +1,6 @@
 import LOCALES from '../locales';
 import ENGLISH from '../messages/en';
-import keys from './keys';
+import KEYS from './keys';
 
 export default {
   [LOCALES.ARABIC.id]: {
@@ -9,35 +9,38 @@ export default {
 
     // Settings
 
-    [keys.MONTH]: 'الشهر',
-    [keys.DAY]: 'الأيام',
-    [keys.LIGHT]: 'لون فاتح',
-    [keys.DARK]: 'لون غامق',
-    [keys.SPINNER_LOADING]: '... جار التحميل',
+    [KEYS.MONTH]: 'الشهر',
+    [KEYS.DAY]: 'الأيام',
+    [KEYS.LIGHT]: 'لون فاتح',
+    [KEYS.DARK]: 'لون غامق',
+    [KEYS.SPINNER_LOADING]: '... جار التحميل',
 
     // Prayer names
-    [keys.PRAYER_FAJR]: 'الفجر',
-    [keys.PRAYER_CHOROUQ]: 'الشروق',
-    [keys.PRAYER_DHUHR]: 'الظهر',
-    [keys.PRAYER_ASR]: 'العصر',
-    [keys.PRAYER_MAGHRIB]: 'المغرب',
-    [keys.PRAYER_ISHAE]: 'العشاء',
+    [KEYS.PRAYER_FAJR]: 'الفجر',
+    [KEYS.PRAYER_CHOROUQ]: 'الشروق',
+    [KEYS.PRAYER_DHUHR]: 'الظهر',
+    [KEYS.PRAYER_ASR]: 'العصر',
+    [KEYS.PRAYER_MAGHRIB]: 'المغرب',
+    [KEYS.PRAYER_ISHAE]: 'العشاء',
 
     // Hijri Months names
-    [keys.HIJRI_MONTH_1]: 'محرم',
-    [keys.HIJRI_MONTH_2]: 'صفر',
-    [keys.HIJRI_MONTH_3]: 'ربيع الأول',
-    [keys.HIJRI_MONTH_4]: 'ربيع الثاني',
-    [keys.HIJRI_MONTH_5]: 'جمادى الأولى',
-    [keys.HIJRI_MONTH_6]: 'جمادى الثانية',
-    [keys.HIJRI_MONTH_7]: 'رجب',
-    [keys.HIJRI_MONTH_8]: 'شعبان',
-    [keys.HIJRI_MONTH_9]: 'رمضان',
-    [keys.HIJRI_MONTH_10]: 'شوّال',
-    [keys.HIJRI_MONTH_11]: 'ذو القعدة',
-    [keys.HIJRI_MONTH_12]: 'ذو الحجة',
+    [KEYS.HIJRI_MONTH_1]: 'محرم',
+    [KEYS.HIJRI_MONTH_2]: 'صفر',
+    [KEYS.HIJRI_MONTH_3]: 'ربيع الأول',
+    [KEYS.HIJRI_MONTH_4]: 'ربيع الثاني',
+    [KEYS.HIJRI_MONTH_5]: 'جمادى الأولى',
+    [KEYS.HIJRI_MONTH_6]: 'جمادى الثانية',
+    [KEYS.HIJRI_MONTH_7]: 'رجب',
+    [KEYS.HIJRI_MONTH_8]: 'شعبان',
+    [KEYS.HIJRI_MONTH_9]: 'رمضان',
+    [KEYS.HIJRI_MONTH_10]: 'شوّال',
+    [KEYS.HIJRI_MONTH_11]: 'ذو القعدة',
+    [KEYS.HIJRI_MONTH_12]: 'ذو الحجة',
 
-    [keys.MONTHLY_TITLE]:
-      'مواقيت الصلاة لشهر {month} لمدينة {city} حسب توقيت وزارة الاوقاف والشؤون الاسلامية بالمغرب',
+    [KEYS.MONTHLY_TITLE]: 'مواقيت الصلاة لشهر {month} بمدينة {city}',
+    [KEYS.MONTHLY_SUBTITLE]:
+      'حسب توقيت وزارة الاوقاف والشؤون الاسلامية بالمغرب',
+    [KEYS.FULL_DATE]: '{day} {date} {month} {year}هــ {georgian}',
+    [KEYS.GEORGIAN_DATE]: 'الموافق لـ {day} {month} {year}',
   },
 };

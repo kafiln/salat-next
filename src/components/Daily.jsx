@@ -2,13 +2,12 @@ import moment from 'moment';
 import React, { useContext, useEffect, useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { ThemeContext } from 'styled-components';
-import { Spinner } from '../../common';
-import { AppContext } from '../../context/';
-import { useTime } from '../../hooks';
-import { DEFAULT_TIME_FORMAT } from '../../settings';
-import { parseTime } from '../../utils/dates';
-import Clock from '../Clock';
-import { Li, Ul } from './styles';
+import { Spinner } from '../common';
+import { AppContext } from '../context/';
+import { useTime } from '../hooks';
+import { DEFAULT_TIME_FORMAT } from '../settings';
+import { parseTime } from '../utils/dates';
+import Clock from './Clock';
 
 const Daily = ({ prayers, date }) => {
   const { isRTL } = useContext(AppContext);
@@ -40,13 +39,15 @@ const Daily = ({ prayers, date }) => {
     <>
       <Clock displayTime time={time} today={prayer} />
 
-      <Ul>
+      <ul className="flex flex-col justify-between mx-auto w-2/3">
         {NAMES.map((name) => {
           return (
-            <Li
+            <li
               key={name}
-              isRTL={isRTL}
-              className={name === next ? 'next' : ''}
+              className={`my-2 p-2 flex justify-between ${
+                name === next &&
+                'font-semibold text-gray-900 bg-gray-200 rounded'
+              } ${isRTL && 'flex-row-reverse'}`}
             >
               <div>
                 <FormattedMessage
@@ -57,10 +58,10 @@ const Daily = ({ prayers, date }) => {
                 <div className={`${theme.daily.difference}`}>{diff}</div>
               )}
               <div>{parseTime(prayer[name])}</div>
-            </Li>
+            </li>
           );
         })}
-      </Ul>
+      </ul>
     </>
   ) : (
     <Spinner />

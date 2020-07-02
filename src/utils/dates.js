@@ -15,12 +15,13 @@ const localTime = (time) => moment.utc(time).utcOffset(TIME_OFFSET);
  *
  * @param {*} prayers
  * @param {*} fn
- * @returns
+ * @param {String} separator
+ * @returns {String
  */
-export const getGeorgianMonths = (prayers, fn) => {
+export const getGeorgianMonths = (prayers, fn, separator = '/') => {
   const results = new Set();
   prayers.forEach((prayer) => results.add(fn(prayer.day, { month: 'long' })));
-  return Array.from(results).join('/');
+  return Array.from(results).join(separator);
 };
 
 /**

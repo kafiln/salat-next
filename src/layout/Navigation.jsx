@@ -19,13 +19,9 @@ function Navigation() {
   };
 
   return (
-    <section className="text-gray-700 body-font ">
-      <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-        <a className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-          <Logo />
-          <span className="ml-3 text-xl">Salat</span>
-        </a>
-        <nav className="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex items-center text-base justify-center">
+    <header>
+      <div class="container mx-auto flex flex-wrap py-5 flex-col md:flex-row items-center">
+        <nav class="flex lg:w-2/5 flex-wrap items-center text-base md:ml-auto">
           {periods.map((p) => (
             <Link key={p} href="/[periodicity]/[slug]" as={`/${p}/${slug}`}>
               <a
@@ -45,8 +41,18 @@ function Navigation() {
             </a>
           </Link>
         </nav>
+        <a class="flex order-first lg:order-none lg:w-1/5 title-font font-medium items-center text-gray-900 lg:items-center lg:justify-center mb-4 md:mb-0">
+          <Logo />
+          <span class="ml-3 text-xl">Salat</span>
+        </a>
+        <div class="lg:w-2/5 inline-flex lg:justify-end ml-5 lg:ml-0">
+          {/* <button class="inline-flex items-center bg-gray-200 border-0 py-1 px-3 focus:outline-none hover:bg-gray-300 rounded text-base mt-4 md:mt-0">
+            Button
+          </button>
+          <LocationInput /> */}
+        </div>
       </div>
-    </section>
+    </header>
   );
 }
 

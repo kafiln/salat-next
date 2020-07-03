@@ -33,7 +33,7 @@ export default {
     [KEYS.MONTHLY_TITLE]: 'Prayers times for {month} in {city}',
     [KEYS.MONTHLY_SUBTITLE]:
       'According to the ministry of Habous and Islamic Affairs in Morocco',
-    [KEYS.FULL_DATE]: '{day}, {date} {month} {year} / {georgian}',
+    [KEYS.FULL_DATE]: '{day}, {date} {month} {year}, {georgian}',
     [KEYS.GEORGIAN_DATE]: '{day} {month} {year}',
   },
 };

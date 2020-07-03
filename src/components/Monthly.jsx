@@ -5,6 +5,8 @@ import { AppContext } from '../context';
 import { KEYS } from '../i18n';
 import { getCity } from '../utils/dataService';
 import { getGeorgianMonths, parseTime } from '../utils/dates';
+import Clock from './Clock';
+import MonthTitle from './MonthTitle';
 
 const Monthly = ({ prayers }) => {
   const { isRTL, slug } = useContext(AppContext);
@@ -22,21 +24,8 @@ const Monthly = ({ prayers }) => {
 
   const table = (
     <>
-      {/* <Clock today={today} /> */}
-      {/* <Clock today={today} />
-
-      <h1 className="text-center py-1 text-2xl ">
-        <FormattedMessage
-          id={KEYS.MONTHLY_TITLE}
-          values={{
-            month: hijriMonth,
-            city,
-          }}
-        />
-      </h1>
-      <h2 className="text-center  text-lg text-gray-600">
-        <FormattedMessage id={KEYS.MONTHLY_SUBTITLE} />
-      </h2> */}
+      <Clock today={today} />
+      <MonthTitle city={city} month={hijriMonth} />
 
       <table className={` border-2 mt-4`}>
         <thead className="bg-gray-400 text-gray-800 font-semibold">

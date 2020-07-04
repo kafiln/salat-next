@@ -1,3 +1,4 @@
+import { action } from '@storybook/addon-actions';
 import Text from './Text';
 
 export default {
@@ -6,5 +7,7 @@ export default {
 };
 
 export const Default = () => (
-  <Text>السبت 12 ذو القعدة 1441هــ الموافق لـ 4 يوليوز 2020</Text>
+  <Text onClick={action('Text clicked')}>
+    السبت 12 ذو القعدة 1441هــ الموافق لـ 4 يوليوز 2020
+  </Text>
 );

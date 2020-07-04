@@ -7,8 +7,8 @@ const Layout = styled.div`
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
     Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   transition: all 0.5s ease;
-  background-color: ${(props) => props.theme.backgroundColor};
-  color: ${(props) => props.theme.color};
+  background-color: ${({ theme }) => theme.backgroundColor};
+  color: ${({ theme }) => theme.color};
 `;
 
 function DefaultLayout({ children }) {

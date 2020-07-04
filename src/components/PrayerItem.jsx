@@ -1,5 +1,5 @@
 import React from 'react';
-import PrayerIcon from './PrayerIcon';
+import PrayerName from './PrayerName';
 
 const PrayerItem = ({ icon, name, time, next, isRTL, ...props }) => {
   return (
@@ -10,7 +10,7 @@ const PrayerItem = ({ icon, name, time, next, isRTL, ...props }) => {
           : ''
       }`}
     >
-      <PrayerIcon icon={icon} name={name} isRTL={isRTL} />
+      <PrayerName icon={icon} name={name} isRTL={isRTL} />
       <h2>{time}</h2>
     </div>
   );

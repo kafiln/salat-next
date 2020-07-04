@@ -32,7 +32,7 @@ const Daily = ({ prayers }) => {
       const nextOnes = Object.keys(prayer).filter((t) =>
         time.utc().isBefore(moment.utc(prayer[t]))
       );
-      const next = nextOnes.length === 0 ? NAMES[0] : nextOnes[0];
+      const next = nextOnes.length === 0 ? Object.keys(names)[0] : nextOnes[0];
       const diff = moment
         .utc(moment.utc(prayer[next]).diff(time.utc()))
         .format(DEFAULT_TIME_FORMAT);
@@ -44,19 +44,19 @@ const Daily = ({ prayers }) => {
 
   return next ? (
     <>
-      <Clock time={time} today={prayer} />
       <div className="flex">
-        <div className="w-1/4 rounded-lg hidden sm:flex">
+        <div className="w-1/3 rounded-lg hidden sm:flex">
           <img className="rounded-md" src="/images/mosque-1.jpg" alt="Mosque" />
         </div>
-        <div className="sm:mx-4 w-full sm:w-3/4 mx-auto">
+        <div className="sm:mx-4 w-full sm:w-2/3 mx-auto flex flex-col justify-around">
+          <Clock time={time} today={prayer} />
           <TimeCard
+            className="flex-grow"
             time={prayer[next]}
             remaining={diff}
             name={names[next]}
             isRTL={isRTL}
           />
-
           <PrayerList data={prayer} next={next} names={names} isRTL={isRTL} />
         </div>
       </div>

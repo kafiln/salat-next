@@ -1,13 +1,13 @@
 import React from 'react';
 import { SubTitle, Titling } from '../components/dsl';
 import { parseTime } from '../utils/dates';
-import PrayerIcon from './PrayerIcon';
+import PrayerName from './PrayerName';
 
 const TimeCard = ({ name, remaining, time, isRTL }) => {
   return (
     <div className="bg-gray-300">
       <SubTitle>
-        <PrayerIcon name={name} isRTL={isRTL} />
+        <PrayerName name={name} isRTL={isRTL} />
       </SubTitle>
       <Titling title={`-${remaining}`} subtitle={parseTime(time)}></Titling>
     </div>

@@ -1,7 +1,11 @@
 import React from 'react';
 
-const Text = ({ children }) => {
-  return <span className="text-xs">{children}</span>;
+const Text = ({ children, ...props }) => {
+  return (
+    <span {...props} className="text-xs cursor-pointer">
+      {children}
+    </span>
+  );
 };
 
 export default Text;

@@ -1,9 +1,9 @@
 import { useRouter } from 'next/router';
 import React, { useContext } from 'react';
 import { FaMapMarkerAlt } from 'react-icons/fa';
-import cities from '../../public/data/cities.json';
-import SelectList from '../components/SelectList';
-import { AppContext } from '../context/AppContext';
+import cities from '../../../public/data/cities.json';
+import { AppContext } from '../../context/AppContext';
+import SelectList from '../SelectList';
 
 const LocationInput = ({}) => {
   const { slug, lang, periodicity, isRTL } = useContext(AppContext);

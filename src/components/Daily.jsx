@@ -2,7 +2,7 @@ import moment from 'moment';
 import React, { useContext, useEffect, useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { ThemeContext } from 'styled-components';
-import { Spinner } from '../common';
+import { Spinner } from '../components/common';
 import { AppContext } from '../context/';
 import { useTime } from '../hooks';
 import { DEFAULT_TIME_FORMAT } from '../settings';

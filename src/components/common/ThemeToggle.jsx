@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import { FaMoon, FaSun } from 'react-icons/fa';
 import { ThemeContext } from 'styled-components';
-import { AppContext } from '../context/AppContext';
-import { CHANGE_THEME, DARK } from '../context/constants';
-import { getClasses } from '../themes';
+import { AppContext } from '../../context/AppContext';
+import { CHANGE_THEME, DARK } from '../../context/constants';
+import { getClasses } from '../../themes';
 
 const ThemeToggle = () => {
   const { dispatch, theme } = useContext(AppContext);

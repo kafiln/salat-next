@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useContext } from 'react';
-import Logo from '../common/Logo';
-import { AppContext } from '../context/AppContext';
-import { DAILY, MONTHLY } from '../context/constants';
+import { AppContext } from '../../context/AppContext';
+import { DAILY, MONTHLY } from '../../context/constants';
+import { Logo } from '../common';
 
 function Navigation() {
   const router = useRouter();

@@ -1,5 +1,5 @@
 import { useIntl } from 'react-intl';
-import { KEYS } from '../i18n';
+import { KEYS } from '../../i18n';
 
 function FullDate({ today, children }) {
   const { formatDate, formatMessage } = useIntl();

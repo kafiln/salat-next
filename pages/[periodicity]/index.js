@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import { useContext, useEffect } from 'react';
-import { Spinner } from '../../src/common';
+import { Spinner } from '../../src/components/common';
 import { AppContext } from '../../src/context/AppContext';
 
 export default () => {

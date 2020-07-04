@@ -1,27 +1,26 @@
 import { useIntl } from 'react-intl';
-import { FullDate } from '../common';
+import { FullDate } from '../components/common';
+import { Titling } from '../components/dsl';
 import { TIMEZONE } from '../settings';
 
-const Clock = ({ displayTime = false, today, time }) => {
-  const { formatDate, formatTime } = useIntl();
+const Clock = ({ today, displayTime = false, time }) => {
+  const { formatTime } = useIntl();
+  const formattedTime = formatTime(time, {
+    hour: 'numeric',
+    minute: 'numeric',
+    second: 'numeric',
+    timeZone: TIMEZONE,
+  });
   return (
-    <div className="my-2">
-      <FullDate today={today}>
-        {(fullDate) => (
-          <h2 className="text-center capitalize p-2">{fullDate}</h2>
-        )}
-      </FullDate>
-      {displayTime && (
-        <h3 suppressHydrationWarning className="text-center">
-          {formatTime(time, {
-            hour: 'numeric',
-            minute: 'numeric',
-            second: 'numeric',
-            timeZone: TIMEZONE,
-          })}
-        </h3>
+    <FullDate today={today}>
+      {(fullDate) => (
+        <Titling
+          className="capitalize"
+          title={fullDate}
+          subtitle={displayTime && formattedTime}
+        ></Titling>
       )}
-    </div>
+    </FullDate>
   );
 };
 

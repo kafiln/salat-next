@@ -4,6 +4,7 @@ import NProgress from 'nprogress'; //nprogress module
 import 'nprogress/nprogress.css'; //styles of nprogress
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
+import { Layout } from '../src/components/layout';
 import {
   AppContext,
   AppReducer,
@@ -12,7 +13,6 @@ import {
 } from '../src/context';
 import { DARK } from '../src/context/';
 import { I18nProvider } from '../src/i18n';
-import { Layout } from '../src/layout';
 import { dark, GlobalStyles, light } from '../src/themes';
 import '../styles/main.css';
 

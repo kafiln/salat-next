@@ -1,7 +1,7 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import styled, { keyframes } from 'styled-components';
-import { KEYS } from '../i18n';
+import { KEYS } from '../../i18n';
 
 const spin = keyframes`
   0% {

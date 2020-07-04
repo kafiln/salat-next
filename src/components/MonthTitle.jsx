@@ -1,5 +1,5 @@
 import { useIntl } from 'react-intl';
-import { Titling } from '../dsl';
+import { Titling } from '../components/dsl';
 import { KEYS } from '../i18n';
 
 const MonthTitle = ({ city, month }) => {

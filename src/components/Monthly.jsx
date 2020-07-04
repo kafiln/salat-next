@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { FormattedDate, FormattedMessage, useIntl } from 'react-intl';
-import { Spinner } from '../common/';
+import { Spinner } from '../components/common/';
 import { AppContext } from '../context';
 import { KEYS } from '../i18n';
 import { getCity } from '../utils/dataService';

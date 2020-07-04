@@ -1,21 +1,28 @@
 import moment from 'moment';
 import React, { useContext, useEffect, useState } from 'react';
-import { FormattedMessage } from 'react-intl';
+import { useIntl } from 'react-intl';
 import { ThemeContext } from 'styled-components';
 import { Spinner } from '../components/common';
 import { AppContext } from '../context/';
 import { useTime } from '../hooks';
 import { DEFAULT_TIME_FORMAT } from '../settings';
-import { parseTime } from '../utils/dates';
 import Clock from './Clock';
+import PrayerList from './PrayerList';
+import TimeCard from './TimeCard';
 
-const Daily = ({ prayers, date }) => {
+const Daily = ({ prayers }) => {
   const { isRTL } = useContext(AppContext);
   const theme = useContext(ThemeContext);
+  const { formatMessage } = useIntl();
 
   let prayer = (prayers || [])[0];
 
-  const NAMES = Object.keys(prayer).splice(0, 6);
+  let names = {};
+  Object.keys(prayer)
+    .splice(0, 6)
+    .forEach((name) => {
+      names[name] = formatMessage({ id: `PRAYER_${name.toUpperCase()}` });
+    });
 
   const [state, setState] = useState({});
   const time = useTime();
@@ -35,36 +42,22 @@ const Daily = ({ prayers, date }) => {
 
   const { next, diff } = state;
 
-  return prayer ? (
+  return next ? (
     <>
-      <Clock displayTime time={time} today={prayer} />
+      <Clock time={time} today={prayer} />
 
-      <ul className="flex flex-col justify-between mx-auto w-2/3">
-        {NAMES.map((name) => {
-          return (
-            <li
-              key={name}
-              className={`my-2 p-2 flex justify-between ${
-                name === next &&
-                'font-semibold text-gray-900 bg-gray-200 rounded'
-              } ${isRTL && 'flex-row-reverse'}`}
-            >
-              <div>
-                <FormattedMessage
-                  id={`PRAYER_${name.toUpperCase()}`}
-                ></FormattedMessage>
-              </div>
-              {name === next && (
-                <div className={`${theme.daily.difference}`}>{diff}</div>
-              )}
-              <div>{parseTime(prayer[name])}</div>
-            </li>
-          );
-        })}
-      </ul>
+      <TimeCard
+        time={prayer[next]}
+        remaining={diff}
+        name={names[next]}
+        isRTL={isRTL}
+      />
+
+      <PrayerList data={prayer} next={next} names={names} isRTL={isRTL} />
     </>
   ) : (
     <Spinner />
   );
 };
+
 export default Daily;

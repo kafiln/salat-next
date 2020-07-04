@@ -3,12 +3,12 @@ import { TIME_OFFSET } from '../settings';
 
 export const parseTime = (time) => localTime(time).format('HH:mm');
 
-export /**
+/**
  *
  *
  * @param {*} time
  */
-const localTime = (time) => moment.utc(time).utcOffset(TIME_OFFSET);
+export const localTime = (time) => moment.utc(time).utcOffset(TIME_OFFSET);
 
 /**
  *

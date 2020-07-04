@@ -13,7 +13,7 @@ import {
 } from '../src/context';
 import { DARK } from '../src/context/';
 import { I18nProvider } from '../src/i18n';
-import { dark, GlobalStyles, light } from '../src/themes';
+import { dark, GlobalStyle, light } from '../src/styles';
 import '../styles/main.css';
 
 //Binding events.
@@ -39,7 +39,7 @@ export default class MyApp extends App {
         }}
       >
         <ThemeProvider theme={this.state.theme === DARK ? dark : light}>
-          <GlobalStyles />
+          <GlobalStyle />
           <I18nProvider locale={this.state.lang}>
             <Layout>
               <Component {...pageProps} />

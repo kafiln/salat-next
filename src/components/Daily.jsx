@@ -45,15 +45,21 @@ const Daily = ({ prayers }) => {
   return next ? (
     <>
       <Clock time={time} today={prayer} />
+      <div className="flex">
+        <div className="w-1/4 rounded-lg hidden sm:flex">
+          <img className="rounded-md" src="/images/mosque-1.jpg" alt="Mosque" />
+        </div>
+        <div className="sm:mx-4 w-full sm:w-3/4 mx-auto">
+          <TimeCard
+            time={prayer[next]}
+            remaining={diff}
+            name={names[next]}
+            isRTL={isRTL}
+          />
 
-      <TimeCard
-        time={prayer[next]}
-        remaining={diff}
-        name={names[next]}
-        isRTL={isRTL}
-      />
-
-      <PrayerList data={prayer} next={next} names={names} isRTL={isRTL} />
+          <PrayerList data={prayer} next={next} names={names} isRTL={isRTL} />
+        </div>
+      </div>
     </>
   ) : (
     <Spinner />

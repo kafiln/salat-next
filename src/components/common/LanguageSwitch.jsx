@@ -3,7 +3,7 @@ import { ThemeContext } from 'styled-components';
 import { AppContext } from '../../context/AppContext';
 import { CHANGE_LANGUAGE } from '../../context/constants';
 import { LOCALES as languages } from '../../i18n';
-import { getClasses } from '../../themes';
+import { getClasses } from '../../styles';
 
 function LanguageSwitch() {
   const { dispatch, lang } = useContext(AppContext);

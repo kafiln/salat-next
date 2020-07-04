@@ -27,7 +27,9 @@ const Monthly = ({ prayers }) => {
       <Clock today={today} />
       <MonthTitle city={city} month={hijriMonth} />
 
-      <table className={` border-2 mt-4`}>
+      <table
+        className={`border-2 mt-8 w-full text-xs sm:text-sm mx-auto  lg:text-lg md:text-md lg:w-3/4`}
+      >
         <thead className="bg-gray-400 text-gray-800 font-semibold">
           <tr
             className={`p-1 ${
@@ -53,15 +55,15 @@ const Monthly = ({ prayers }) => {
           {Object.entries(prayers || []).map(([_, prayer], i) => {
             return (
               <tr
-                className={`p-1 ${
-                  isRTL && arClasses
+                className={`${
+                  isRTL ? arClasses : ''
                 } border-t flex justify-center ${
-                  prayer.isToday && 'bg-blue-600 text-white'
+                  prayer.isToday ? 'bg-blue-600 text-white' : ''
                 }`}
                 key={i}
               >
                 <td className="flex-1 capitalize">
-                  <FormattedDate value={new Date(prayer.day)} weekday="long" />
+                  <FormattedDate value={new Date(prayer.day)} weekday="short" />
                 </td>
                 <td className="flex-1">{prayer.hijri.day}</td>
                 <td className="flex-1">

@@ -18,9 +18,9 @@ const ThemeToggle = () => {
       onClick={toggleTheme}
     >
       {theme === DARK ? (
-        <FaSun size="1.5rem" color={`${themeToggle.icon}`} />
+        <FaSun size="1.5em" color={`${themeToggle.icon}`} />
       ) : (
-        <FaMoon size="1.5rem" color={`${themeToggle.icon}`} />
+        <FaMoon size="1.5em" color={`${themeToggle.icon}`} />
       )}
     </div>
   );

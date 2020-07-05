@@ -3,9 +3,9 @@ import React from 'react';
 import { GlobalStyle } from '../src/styles';
 import '../styles/main.css';
 
-addDecorator((story) => (
+addDecorator(story => (
   <>
     <GlobalStyle />
-    {story()}
+    <div style={{ padding: '1rem' }}>{story()}</div>
   </>
 ));

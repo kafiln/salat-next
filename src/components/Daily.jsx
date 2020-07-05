@@ -20,7 +20,7 @@ const Daily = ({ prayers }) => {
   let names = {};
   Object.keys(prayer)
     .splice(0, 6)
-    .forEach((name) => {
+    .forEach(name => {
       names[name] = formatMessage({ id: `PRAYER_${name.toUpperCase()}` });
     });
 
@@ -29,7 +29,7 @@ const Daily = ({ prayers }) => {
 
   useEffect(() => {
     if (prayer) {
-      const nextOnes = Object.keys(prayer).filter((t) =>
+      const nextOnes = Object.keys(prayer).filter(t =>
         time.utc().isBefore(moment.utc(prayer[t]))
       );
       const next = nextOnes.length === 0 ? Object.keys(names)[0] : nextOnes[0];
@@ -54,7 +54,8 @@ const Daily = ({ prayers }) => {
             className="flex-grow"
             time={prayer[next]}
             remaining={diff}
-            name={names[next]}
+            icon={next}
+            title={names[next]}
             isRTL={isRTL}
           />
           <PrayerList data={prayer} next={next} names={names} isRTL={isRTL} />

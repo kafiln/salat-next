@@ -3,11 +3,11 @@ import { SubTitle, Titling } from '../components/dsl';
 import { parseTime } from '../utils/dates';
 import PrayerName from './PrayerName';
 
-const TimeCard = ({ name, remaining, time, isRTL }) => {
+const TimeCard = ({ title, icon, remaining, time, isRTL }) => {
   return (
     <div className="bg-gray-300">
       <SubTitle>
-        <PrayerName name={name} isRTL={isRTL} />
+        <PrayerName isRTL={isRTL} title={title} name={icon} />
       </SubTitle>
       <Titling title={`-${remaining}`} subtitle={parseTime(time)}></Titling>
     </div>

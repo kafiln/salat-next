@@ -8,12 +8,15 @@ export default {
     ...ENGLISH[LOCALES.ENGLISH.id],
 
     // Settings
-
     [KEYS.MONTH]: 'الشهر',
     [KEYS.DAY]: 'الأيام',
     [KEYS.LIGHT]: 'لون فاتح',
     [KEYS.DARK]: 'لون غامق',
     [KEYS.SPINNER_LOADING]: '... جار التحميل',
+
+    // Navigation:
+    [KEYS.DAILY]: 'الأوقات اليوم',
+    [KEYS.MONTHLY]: 'الحصة الشهرية',
 
     // Prayer names
     [KEYS.PRAYER_FAJR]: 'الفجر',
@@ -41,6 +44,6 @@ export default {
     [KEYS.MONTHLY_SUBTITLE]:
       'حسب توقيت وزارة الاوقاف والشؤون الاسلامية بالمغرب',
     [KEYS.FULL_DATE]: '{day} {date} {month} {year}هــ {georgian}',
-    [KEYS.GEORGIAN_DATE]: 'الموافق لـ {day} {month} {year}',
-  },
+    [KEYS.GEORGIAN_DATE]: 'الموافق لـ {day} {month} {year}'
+  }
 };

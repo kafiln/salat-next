@@ -4,7 +4,7 @@ import { AppContext } from '../../context/AppContext';
 import { CHANGE_LANGUAGE } from '../../context/constants';
 import { LOCALES as languages } from '../../i18n';
 import { getClasses } from '../../styles';
-import { Text } from '../dsl';
+import { Pill, Text } from '../dsl';
 
 function LanguageSwitch() {
   const { dispatch, lang } = useContext(AppContext);
@@ -12,15 +12,13 @@ function LanguageSwitch() {
   const { languageSwitch } = useContext(ThemeContext);
 
   const buttons = otherLanguages.map(language => (
-    <Text
+    <Pill
       key={language.id}
-      className={`${getClasses(languageSwitch)} 
-      border border-gray-500
-      cursor-pointer mr-2  px-2 py-1 rounded-full`}
+      className={`${getClasses(languageSwitch)} mr-2 px-2`}
       onClick={() => dispatch({ type: CHANGE_LANGUAGE, payload: language.id })}
     >
-      <a>{language.abbr}</a>
-    </Text>
+      <Text>{language.abbr}</Text>
+    </Pill>
   ));
 
   return (

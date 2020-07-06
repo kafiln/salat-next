@@ -4,6 +4,7 @@ import { ThemeContext } from 'styled-components';
 import { AppContext } from '../../context/AppContext';
 import { CHANGE_THEME, DARK } from '../../context/constants';
 import { getClasses } from '../../styles';
+import { Pill } from '../dsl';
 
 const ThemeToggle = () => {
   const { dispatch, theme } = useContext(AppContext);
@@ -11,18 +12,13 @@ const ThemeToggle = () => {
 
   const toggleTheme = () => dispatch({ type: CHANGE_THEME });
   return (
-    <div
-      className={`${getClasses(
-        themeToggle
-      )} p-2 cursor-pointer  border border-gray-500 focus:outline-none rounded-full`}
-      onClick={toggleTheme}
-    >
+    <Pill className={`${getClasses(themeToggle)} p-2`} onClick={toggleTheme}>
       {theme === DARK ? (
         <FaSun size="1.5em" color={`${themeToggle.icon}`} />
       ) : (
         <FaMoon size="1.5em" color={`${themeToggle.icon}`} />
       )}
-    </div>
+    </Pill>
   );
 };
 

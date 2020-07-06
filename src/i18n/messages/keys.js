@@ -7,6 +7,10 @@ export default {
   DARK: 'DARK',
   SPINNER_LOADING: 'SPINNER_LOADING',
 
+  // Navigation:
+  DAILY: 'daily',
+  MONTHLY: 'monthly',
+
   // Prayer names
   PRAYER_FAJR: 'PRAYER_FAJR',
   PRAYER_CHOROUQ: 'PRAYER_CHOROUQ',
@@ -33,5 +37,5 @@ export default {
   MONTHLY_TITLE: 'MONTHLY_TITLE',
   MONTHLY_SUBTITLE: 'MONTHLY_SUBTITLE',
   FULL_DATE: 'HIJRI_DATE',
-  GEORGIAN_DATE: 'GEORGIAN_DATE',
+  GEORGIAN_DATE: 'GEORGIAN_DATE'
 };

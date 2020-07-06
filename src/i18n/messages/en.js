@@ -9,6 +9,9 @@ export default {
     [KEYS.DARK]: 'Dark',
     [KEYS.SPINNER_LOADING]: 'Loading ...',
 
+    // Navigation:
+    [KEYS.DAILY]: 'Today',
+    [KEYS.MONTHLY]: 'This Month',
     // Prayer names
     [KEYS.PRAYER_FAJR]: 'Fajr',
     [KEYS.PRAYER_CHOROUQ]: 'Chorouq',
@@ -34,6 +37,6 @@ export default {
     [KEYS.MONTHLY_SUBTITLE]:
       'According to the ministry of Habous and Islamic Affairs in Morocco',
     [KEYS.FULL_DATE]: '{day}, {date} {month} {year}, {georgian}',
-    [KEYS.GEORGIAN_DATE]: '{day} {month} {year}',
-  },
+    [KEYS.GEORGIAN_DATE]: '{day} {month} {year}'
+  }
 };

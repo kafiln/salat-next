@@ -1,14 +1,10 @@
 import React from 'react';
+import Base from './Base';
 
-const Text = ({ children, ...props }) => {
-  return (
-    <span
-      {...props}
-      className={`text-xs sm:text-md md:text-lg ${props.className}`}
-    >
-      {children}
-    </span>
-  );
+const Text = ({ ...props }) => {
+  const classes = 'text-xs sm:text-md md:text-lg';
+
+  return <Base {...props} tag="h1" baseClasses={classes} />;
 };
 
 export default Text;

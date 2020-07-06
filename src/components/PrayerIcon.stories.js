@@ -8,14 +8,11 @@ export default {
 
 export const Default = () => (
   <PrayerIcon
-    name={select('Name', [
-      'fajr',
-      'chorouq',
-      'dhuhr',
-      'asr',
-      'maghrib',
-      'ishae'
-    ])}
+    name={select(
+      'Name',
+      ['fajr', 'chorouq', 'dhuhr', 'asr', 'maghrib', 'ishae'],
+      'fajr'
+    )}
   />
 );
 

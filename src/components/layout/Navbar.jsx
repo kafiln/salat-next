@@ -3,7 +3,7 @@ import SettingHeader from './SettingHeader';
 
 function Navbar() {
   return (
-    <header>
+    <header className="">
       <SettingHeader />
       <Navigation />
     </header>

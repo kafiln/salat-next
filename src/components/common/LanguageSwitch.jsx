@@ -15,10 +15,11 @@ function LanguageSwitch() {
     <Text
       key={language.id}
       className={`${getClasses(languageSwitch)} 
-      cursor-pointer mx-2`}
+      border border-gray-500
+      cursor-pointer mr-2  px-2 py-1 rounded-full`}
       onClick={() => dispatch({ type: CHANGE_LANGUAGE, payload: language.id })}
     >
-      {language.displayName}
+      <a>{language.abbr}</a>
     </Text>
   ));
 

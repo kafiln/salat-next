@@ -14,7 +14,7 @@ const ThemeToggle = () => {
     <div
       className={`${getClasses(
         themeToggle
-      )} p-2 cursor-pointer  border border-gray-700 focus:outline-none rounded-full`}
+      )} p-2 cursor-pointer  border border-gray-500 focus:outline-none rounded-full`}
       onClick={toggleTheme}
     >
       {theme === DARK ? (

@@ -15,9 +15,9 @@ const Monthly = ({ prayers }) => {
   const NAMES = Object.keys(prayers[0]).splice(0, 6);
   const city = getCity(slug, isRTL);
   const georgianMonths = getGeorgianMonths(prayers, formatDate);
-  const today = prayers.find((p) => p.isToday);
+  const today = prayers.find(p => p.isToday);
   const hijriMonth = formatMessage({
-    id: `HIJRI_MONTH_${today.hijri.month}`,
+    id: `HIJRI_MONTH_${today.hijri.month}`
   });
 
   const arClasses = 'flex-row-reverse text-right';
@@ -32,9 +32,8 @@ const Monthly = ({ prayers }) => {
       >
         <thead className="bg-gray-400 text-gray-800 font-semibold">
           <tr
-            className={`p-1 ${
-              isRTL && arClasses
-            } header border-t flex justify-center`}
+            className={`p-1 ${isRTL &&
+              arClasses} header border-t flex justify-center`}
           >
             <td className="flex-1 capitalize">
               <FormattedMessage id={KEYS.DAY} />

@@ -1,14 +1,17 @@
 export default {
   ARABIC: {
-    id: "ar-ma",
-    displayName: "العربية",
+    id: 'ar-ma',
+    abbr: 'ع',
+    displayName: 'العربية'
   },
   FRENCH: {
-    id: "fr-fr",
-    displayName: "Français",
+    id: 'fr-fr',
+    abbr: 'Fr',
+    displayName: 'Français'
   },
   ENGLISH: {
-    id: "en",
-    displayName: "English",
-  },
+    id: 'en',
+    abbr: 'En',
+    displayName: 'English'
+  }
 };

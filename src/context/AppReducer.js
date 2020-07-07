@@ -10,7 +10,7 @@ import {
   LIGHT,
   PERIODICITY,
   SLUG,
-  THEME,
+  THEME
 } from './constants';
 
 const reducer = (state, action) => {
@@ -19,7 +19,7 @@ const reducer = (state, action) => {
       localStorage.setItem(SLUG, action.payload);
       return {
         ...state,
-        slug: action.payload,
+        slug: action.payload
       };
     case INITIAL_INIT:
       return {
@@ -28,7 +28,7 @@ const reducer = (state, action) => {
         theme: action.payload.theme || state.theme,
         lang: action.payload.lang || state.lang,
         periodicity: action.payload.periodicity || state.periodicity,
-        isRTL: action.payload.isRTL || state.isRTL,
+        isRTL: action.payload.isRTL
       };
     case CHANGE_LANGUAGE:
       const lang = action.payload;
@@ -36,21 +36,21 @@ const reducer = (state, action) => {
       return {
         ...state,
         lang,
-        isRTL: isRTL(lang),
+        isRTL: isRTL(lang)
       };
     case CHANGE_PERIOD:
       const periodicity = action.payload;
       localStorage.setItem(PERIODICITY, periodicity);
       return {
         ...state,
-        periodicity,
+        periodicity
       };
     case CHANGE_THEME:
       const theme = state.theme === LIGHT ? DARK : LIGHT;
       localStorage.setItem(THEME, theme);
       return {
         ...state,
-        theme,
+        theme
       };
     default:
       return state;

@@ -5,20 +5,22 @@ import { useRouter } from 'next/router';
 import { useContext, useEffect } from 'react';
 import cities from '../../public/data/cities.json';
 import { Daily, Monthly } from '../../src/components';
+import { FullDate } from '../../src/components/common';
+import { Title } from '../../src/components/dsl';
 import {
   AppContext,
   DAILY,
   initState,
   MONTHLY,
   PERIODICITY,
-  SLUG,
+  SLUG
 } from '../../src/context';
 import { getPrayers, getPrayersForPeriod } from '../../src/utils/dataService';
 import { isToday } from '../../src/utils/dates';
 
 const CACHEJSON = 'cache.json';
 
-const PeriodicitySwitch = ({ prayers }) => {
+const AppContainer = ({ prayers }) => {
   const router = useRouter();
 
   let { periodicity, slug } = router.query;
@@ -32,10 +34,22 @@ const PeriodicitySwitch = ({ prayers }) => {
     router.push(`/[periodicity]/[slug]`, redirect);
   }, [periodicity, slug]);
 
-  return periodicity === DAILY ? (
-    <Daily prayers={prayers} />
-  ) : (
-    <Monthly prayers={prayers} />
+  const todayPrayer =
+    periodicity === DAILY ? prayers[0] : prayers.find(p => p.isToday);
+  const periodComponent =
+    periodicity === DAILY ? (
+      <Daily prayer={todayPrayer} />
+    ) : (
+      <Monthly prayers={prayers} />
+    );
+
+  return (
+    <>
+      <FullDate today={todayPrayer}>
+        {hijri => <Title className="py-2 capitalize">{hijri}</Title>}
+      </FullDate>
+      {periodComponent}
+    </>
   );
 };
 
@@ -47,7 +61,7 @@ export async function getStaticPaths() {
     fs.writeFileSync(
       CACHEJSON,
       JSON.stringify({
-        month,
+        month
       })
     );
 
@@ -55,20 +69,20 @@ export async function getStaticPaths() {
   }
 
   let paths = [];
-  [DAILY, MONTHLY].forEach((p) =>
-    cities.forEach((c) => {
+  [DAILY, MONTHLY].forEach(p =>
+    cities.forEach(c => {
       paths.push({
         params: {
           slug: c.slug,
-          periodicity: p,
-        },
+          periodicity: p
+        }
       });
     })
   );
 
   return {
     paths,
-    fallback: false,
+    fallback: false
   };
 }
 
@@ -87,11 +101,11 @@ export async function getStaticProps({ params }) {
           month[month.length - 1].gregorianDate
         );
 
-  prayers.forEach((p) => {
+  prayers.forEach(p => {
     //FIXME: refactor this mess
     // Add hijri field
     const hijri = month.find(
-      (e) => e.gregorianDate === moment.utc(p.day).format('YYYY-MM-DD')
+      e => e.gregorianDate === moment.utc(p.day).format('YYYY-MM-DD')
     );
     if (hijri) {
       p.hijri = hijri;
@@ -103,10 +117,10 @@ export async function getStaticProps({ params }) {
 
   return {
     props: {
-      prayers,
+      prayers
     },
-    unstable_revalidate: 1,
+    unstable_revalidate: 1
   };
 }
 
-export default PeriodicitySwitch;
+export default AppContainer;

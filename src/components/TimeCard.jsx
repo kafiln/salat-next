@@ -5,9 +5,9 @@ import PrayerName from './PrayerName';
 
 const TimeCard = ({ title, icon, remaining, time, isRTL }) => {
   return (
-    <div className="bg-gray-300">
+    <div className="bg-gray-300 rounded-lg py-2 my-2">
       <SubTitle>
-        <PrayerName isRTL={isRTL} title={title} name={icon} />
+        <PrayerName className="py-2" isRTL={isRTL} title={title} name={icon} />
       </SubTitle>
       <Titling title={`-${remaining}`} subtitle={parseTime(time)}></Titling>
     </div>

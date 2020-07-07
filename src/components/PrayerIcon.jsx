@@ -1,11 +1,10 @@
 import React from 'react';
 import { FaBug, FaSun } from 'react-icons/fa';
 import { FiSun, FiSunrise, FiSunset } from 'react-icons/fi';
-import { RiMoonClearLine } from 'react-icons/ri';
-import { WiSunrise } from 'react-icons/wi';
+import { RiHazeLine, RiMoonClearLine } from 'react-icons/ri';
 
 const iconList = {
-  fajr: WiSunrise,
+  fajr: RiHazeLine,
   chorouq: FiSunrise,
   dhuhr: FiSun,
   asr: FaSun,

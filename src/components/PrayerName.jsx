@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
 import PrayerIcon from './PrayerIcon';
 
-const PrayerName = ({ name, title, isRTL }) => {
+const PrayerName = ({ name, title, isRTL, ...props }) => {
   return (
     <div
       className={`flex items-center justify-center ${
         isRTL ? 'flex-row-reverse' : ''
-      }`}
+      } ${props.className} `}
     >
       <PrayerIcon name={name} />
       <span className="capitalize mx-1">{title}</span>

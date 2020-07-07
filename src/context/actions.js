@@ -1,4 +1,4 @@
-import { isRTL } from '../i18n';
+import { isRTL as isRtl } from '../i18n/utils';
 import {
   CHANGE_CITY,
   CHANGE_PERIOD,
@@ -6,10 +6,10 @@ import {
   LANG,
   PERIODICITY,
   SLUG,
-  THEME,
+  THEME
 } from './constants';
 
-export const initState = (dispatch) => {
+export const initState = dispatch => {
   const slug = localStorage.getItem(SLUG);
   const theme = localStorage.getItem(THEME);
   const lang = localStorage.getItem(LANG);
@@ -21,21 +21,21 @@ export const initState = (dispatch) => {
       theme,
       lang,
       periodicity,
-      isRTL: isRTL(lang),
-    },
+      isRTL: isRtl(lang)
+    }
   });
 };
 
 export const updateCity = (dispatch, slug) => {
   dispatch({
     type: CHANGE_CITY,
-    payload: slug,
+    payload: slug
   });
 };
 
 export const updatePeriodicity = (dispatch, periodicity) => {
   dispatch({
     type: CHANGE_PERIOD,
-    payload: periodicity,
+    payload: periodicity
   });
 };

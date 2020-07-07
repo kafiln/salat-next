@@ -7,6 +7,7 @@ export const initialState = {
   theme: LIGHT,
   periodicity: DAILY,
   slug: 'casablanca',
+  isRTL: true
 };
 
 export const AppContext = React.createContext(initialState);

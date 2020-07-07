@@ -13,7 +13,7 @@ function Navigation() {
   const { formatMessage } = useIntl();
   const { slug } = useContext(AppContext);
 
-  const active = 'underline';
+  const active = 'font-semibold text-blue-900';
 
   const periods = [DAILY, MONTHLY];
   // const pages = ['contact', 'about'];
@@ -24,7 +24,7 @@ function Navigation() {
   };
 
   return (
-    <header className=" container mx-auto flex flex-wrap py-5 flex-col md:flex-row items-center">
+    <header className=" container mx-auto flex flex-wrap py-2 flex-col md:flex-row items-center">
       <nav className="flex lg:w-2/5 flex-wrap items-center text-base md:ml-auto">
         {periods.map(period => (
           <Link
@@ -32,11 +32,7 @@ function Navigation() {
             href="/[periodicity]/[slug]"
             as={`/${period}/${slug}`}
           >
-            <a
-              className={`mr-5 hover:text-gray-900 capitalize ${isActive(
-                period
-              )}`}
-            >
+            <a className={`mr-5 capitalize ${isActive(period)}`}>
               <Text>
                 {formatMessage({
                   id: period

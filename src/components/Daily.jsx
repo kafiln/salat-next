@@ -1,21 +1,16 @@
 import moment from 'moment';
 import React, { useContext, useEffect, useState } from 'react';
 import { useIntl } from 'react-intl';
-import { ThemeContext } from 'styled-components';
 import { Spinner } from '../components/common';
 import { AppContext } from '../context/';
 import { useTime } from '../hooks';
 import { DEFAULT_TIME_FORMAT } from '../settings';
-import Clock from './Clock';
 import PrayerList from './PrayerList';
 import TimeCard from './TimeCard';
 
-const Daily = ({ prayers }) => {
+const Daily = ({ prayer }) => {
   const { isRTL } = useContext(AppContext);
-  const theme = useContext(ThemeContext);
   const { formatMessage } = useIntl();
-
-  let prayer = (prayers || [])[0];
 
   let names = {};
   Object.keys(prayer)
@@ -43,25 +38,19 @@ const Daily = ({ prayers }) => {
   const { next, diff } = state;
 
   return next ? (
-    <>
-      <div className="flex">
-        <div className="w-1/3 rounded-lg hidden sm:flex">
-          <img className="rounded-md" src="/images/mosque-1.jpg" alt="Mosque" />
-        </div>
-        <div className="sm:mx-4 w-full sm:w-2/3 mx-auto flex flex-col justify-around">
-          <Clock time={time} today={prayer} />
-          <TimeCard
-            className="flex-grow"
-            time={prayer[next]}
-            remaining={diff}
-            icon={next}
-            title={names[next]}
-            isRTL={isRTL}
-          />
-          <PrayerList data={prayer} next={next} names={names} isRTL={isRTL} />
-        </div>
+    <div className="w-full max-w-sm sm:w-1/2  lg:w-1/4 mx-auto">
+      <div className="flex flex-col pt-3">
+        <TimeCard
+          className="flex-grow"
+          time={prayer[next]}
+          remaining={diff}
+          icon={next}
+          title={names[next]}
+          isRTL={isRTL}
+        />
+        <PrayerList data={prayer} next={next} names={names} isRTL={isRTL} />
       </div>
-    </>
+    </div>
   ) : (
     <Spinner />
   );

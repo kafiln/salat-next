@@ -5,7 +5,6 @@ import { AppContext } from '../context';
 import { KEYS } from '../i18n';
 import { getCity } from '../utils/dataService';
 import { getGeorgianMonths, parseTime } from '../utils/dates';
-import Clock from './Clock';
 import MonthTitle from './MonthTitle';
 
 const Monthly = ({ prayers }) => {
@@ -14,7 +13,7 @@ const Monthly = ({ prayers }) => {
 
   const NAMES = Object.keys(prayers[0]).splice(0, 6);
   const city = getCity(slug, isRTL);
-  const georgianMonths = getGeorgianMonths(prayers, formatDate);
+  const georgianMonths = getGeorgianMonths(prayers, formatDate, ' ');
   const today = prayers.find(p => p.isToday);
   const hijriMonth = formatMessage({
     id: `HIJRI_MONTH_${today.hijri.month}`
@@ -24,17 +23,13 @@ const Monthly = ({ prayers }) => {
 
   const table = (
     <>
-      <Clock today={today} />
       <MonthTitle city={city} month={hijriMonth} />
 
       <table
         className={`border-2 mt-8 w-full text-xs sm:text-sm mx-auto  lg:text-lg md:text-md lg:w-3/4`}
       >
-        <thead className="bg-gray-400 text-gray-800 font-semibold">
-          <tr
-            className={`p-1 ${isRTL &&
-              arClasses} header border-t flex justify-center`}
-          >
+        <thead className="bg-gray-400 text-gray-800">
+          <tr className={`p-1 ${isRTL ? arClasses : ''} border-t flex`}>
             <td className="flex-1 capitalize">
               <FormattedMessage id={KEYS.DAY} />
             </td>
@@ -54,9 +49,7 @@ const Monthly = ({ prayers }) => {
           {Object.entries(prayers || []).map(([_, prayer], i) => {
             return (
               <tr
-                className={`${
-                  isRTL ? arClasses : ''
-                } border-t flex justify-center ${
+                className={`${isRTL ? arClasses : ''} border-t flex  ${
                   prayer.isToday ? 'bg-blue-600 text-white' : ''
                 }`}
                 key={i}

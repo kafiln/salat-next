@@ -49,7 +49,7 @@ const Monthly = ({ prayers }) => {
           {Object.entries(prayers || []).map(([_, prayer], i) => {
             return (
               <tr
-                className={`${isRTL ? arClasses : ''} border-t flex  ${
+                className={`${isRTL ? arClasses : ''} p-1 border-t flex  ${
                   prayer.isToday ? 'bg-blue-600 text-white' : ''
                 }`}
                 key={i}

@@ -63,7 +63,9 @@ const Monthly = ({ prayers }) => {
               <tr
                 className={`${isRTL ? arClasses : ''} px-1 border-t flex  ${
                   prayer.isToday ? 'bg-blue-600 text-white' : ''
-                }`}
+                }
+                ${new Date(prayer.day).getDay() === 5 ? 'bg-green-200' : ''}  
+                `}
                 key={i}
               >
                 <td
@@ -76,7 +78,7 @@ const Monthly = ({ prayers }) => {
                 <td className="flex-1 border-r px-1 text-center">
                   {prayer.hijri.day}
                 </td>
-                <td className="flex-1 border-r px-1 text-center">
+                <td className={`flex-1 border-r px-1 text-center `}>
                   <FormattedDate value={new Date(prayer.day)} day="numeric" />
                 </td>
                 {NAMES.map((name, j) => (

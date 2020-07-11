@@ -1,4 +1,3 @@
-import { isRTL as isRtl } from '../i18n/utils';
 import {
   CHANGE_CITY,
   CHANGE_PERIOD,
@@ -20,8 +19,7 @@ export const initState = dispatch => {
       slug,
       theme,
       lang,
-      periodicity,
-      isRTL: isRtl(lang)
+      periodicity
     }
   });
 };

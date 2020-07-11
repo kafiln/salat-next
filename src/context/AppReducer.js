@@ -22,13 +22,14 @@ const reducer = (state, action) => {
         slug: action.payload
       };
     case INITIAL_INIT:
+      const language = action.payload.lang || state.lang;
       return {
         ...state,
         slug: action.payload.slug || state.slug,
         theme: action.payload.theme || state.theme,
-        lang: action.payload.lang || state.lang,
+        lang: language,
         periodicity: action.payload.periodicity || state.periodicity,
-        isRTL: action.payload.isRTL
+        isRTL: isRTL(language)
       };
     case CHANGE_LANGUAGE:
       const lang = action.payload;

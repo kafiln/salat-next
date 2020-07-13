@@ -3,7 +3,6 @@ import { getCurrentMonth } from 'hijri-ma';
 import moment from 'moment';
 import { useRouter } from 'next/router';
 import { useContext, useEffect } from 'react';
-import cities from '../../public/data/cities.json';
 import { Daily, Monthly } from '../../src/components';
 import { FullDate } from '../../src/components/common';
 import { Title } from '../../src/components/dsl';
@@ -15,8 +14,12 @@ import {
   PERIODICITY,
   SLUG
 } from '../../src/context';
-import { getPrayers, getPrayersForPeriod } from '../../src/utils/dataService';
-import { isToday } from '../../src/utils/dates';
+import {
+  getAllCities,
+  getPrayers,
+  getPrayersForPeriod,
+  isToday
+} from '../../src/utils';
 
 const CACHEJSON = 'cache.json';
 
@@ -66,14 +69,16 @@ export async function getStaticPaths() {
     );
 
     console.log('Done 🥳🥳');
+  } else {
+    console.log('Using cache data 😊');
   }
 
   let paths = [];
   [DAILY, MONTHLY].forEach(p =>
-    cities.forEach(c => {
+    getAllCities().forEach(c => {
       paths.push({
         params: {
-          slug: c.slug,
+          slug: c.value,
           periodicity: p
         }
       });

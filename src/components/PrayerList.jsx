@@ -1,5 +1,5 @@
 import React from 'react';
-import { parseTime } from '../utils/dates';
+import { parseTime } from '../utils';
 import PrayerItem from './PrayerItem';
 
 const PrayerList = ({ data, next, names, isRTL }) => {

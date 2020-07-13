@@ -3,8 +3,7 @@ import { FormattedDate, FormattedMessage, useIntl } from 'react-intl';
 import { Spinner } from '../components/common/';
 import { AppContext } from '../context';
 import { KEYS } from '../i18n';
-import { getCity } from '../utils/dataService';
-import { getGeorgianMonths, parseTime } from '../utils/dates';
+import { getCity, getGeorgianMonths, parseTime } from '../utils';
 import MonthTitle from './MonthTitle';
 
 const Monthly = ({ prayers }) => {

@@ -2,29 +2,18 @@ import { useRouter } from 'next/router';
 import React, { useContext, useRef } from 'react';
 import { FaMapMarkerAlt } from 'react-icons/fa';
 import Select from 'react-select';
-import cities from '../../../public/data/cities.json';
-import { AppContext } from '../../context/AppContext';
-
-const orderBy = field => (a, b) =>
-  a[field] > b[field] ? 1 : b[field] > a[field] ? -1 : 0;
+import { AppContext } from '../../context';
+import { getAllCities, orderBy } from '../../utils';
 
 const LocationInput = ({}) => {
   const { slug, lang, periodicity, isRTL } = useContext(AppContext);
-  const options = cities
-    ? cities
-        .map(e => ({
-          value: e.slug,
-          label: e.names[isRTL ? 'ar-ma' : 'fr-fr']
-        }))
-        .sort(orderBy('label'))
-    : [];
+  const options = getAllCities(isRTL).sort(orderBy('label'));
 
   const value = options.find(e => e.value == slug);
   const router = useRouter();
   const selectRef = useRef();
   const handleClick = () => {
     selectRef.current.focus();
-    console.log(selectRef);
   };
   return (
     <div

@@ -3,8 +3,8 @@ import cities from '../../public/data/cities.json';
 import prayers from '../../public/data/prayers.json';
 import { LOCALES } from '../i18n';
 
-const utcMonth = (day) => new Date(day).getUTCMonth();
-const utcDate = (day) => new Date(day).getUTCDate();
+const utcMonth = day => new Date(day).getUTCMonth();
+const utcDate = day => new Date(day).getUTCDate();
 
 /**
  *
@@ -12,9 +12,9 @@ const utcDate = (day) => new Date(day).getUTCDate();
  * @param {*} slug
  * @param {*} isRTL
  */
-export const getCity = (slug, isRTL) => {
+export const getCity = (slug, isRTL = false) => {
   const locale = isRTL ? LOCALES.ARABIC.id : LOCALES.FRENCH.id;
-  return cities.find((e) => e.slug === slug).names[locale];
+  return cities.find(e => e.slug === slug).names[locale];
 };
 
 /**
@@ -51,13 +51,13 @@ export const getPrayers = (slug, month, day) => {
   let result = [...prayers];
 
   if (slug) {
-    result = result.filter((e) => e.id === idFromSlug(slug));
+    result = result.filter(e => e.id === idFromSlug(slug));
   }
   if (month) {
-    result = result.filter((e) => utcMonth(e.day) === month);
+    result = result.filter(e => utcMonth(e.day) === month);
   }
   if (day) {
-    result = result.filter((e) => utcDate(e.day) === day);
+    result = result.filter(e => utcDate(e.day) === day);
   }
   return result;
 };
@@ -67,4 +67,15 @@ export const getPrayers = (slug, month, day) => {
  *
  * @param {*} slug
  */
-export const idFromSlug = (slug) => cities.find((c) => c.slug === slug).id;
+export const idFromSlug = slug => cities.find(c => c.slug === slug).id;
+
+/**
+ *
+ *
+ * @param {boolean} [isRTL=false]
+ */
+export const getAllCities = (isRTL = false) =>
+  cities.map(e => ({
+    value: e.slug,
+    label: e.names[isRTL ? LOCALES.ARABIC.id : LOCALES.FRENCH.id]
+  }));

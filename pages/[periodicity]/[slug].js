@@ -16,13 +16,12 @@ import {
 } from '../../src/context';
 import {
   getAllCities,
+  getDataFromCache,
   getPrayers,
   getPrayersForPeriod,
-  isToday
+  isToday,
+  storeInCache
 } from '../../src/utils';
-
-const CACHEJSON = 'cache.json';
-
 const AppContainer = ({ prayers }) => {
   const router = useRouter();
 
@@ -57,22 +56,7 @@ const AppContainer = ({ prayers }) => {
 };
 
 export async function getStaticPaths() {
-  if (!fs.existsSync(CACHEJSON)) {
-    console.log('Creating cache data');
-    const month = await getCurrentMonth();
-
-    fs.writeFileSync(
-      CACHEJSON,
-      JSON.stringify({
-        month
-      })
-    );
-
-    console.log('Done 🥳🥳');
-  } else {
-    console.log('Using cache data 😊');
-  }
-
+  storeInCache(fs, await getCurrentMonth());
   let paths = [];
   [DAILY, MONTHLY].forEach(p =>
     getAllCities().forEach(c => {
@@ -92,7 +76,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const { month } = JSON.parse(fs.readFileSync(CACHEJSON));
+  const { month } = getDataFromCache(fs);
   const prayers =
     params.periodicity === DAILY
       ? getPrayers(

@@ -1,5 +1,7 @@
-import moment from 'moment';
+import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc';
 import { TIME_OFFSET } from '../settings';
+dayjs.extend(utc)
 
 export const parseTime = (time) => localTime(time).format('HH:mm');
 
@@ -8,8 +10,8 @@ export const parseTime = (time) => localTime(time).format('HH:mm');
  *
  * @param {*} time
  */
-export const localTime = (time) => moment.utc(time).utcOffset(TIME_OFFSET);
-
+export const localTime = time => UTC(time).utcOffset(TIME_OFFSET);
+export const UTC = time => dayjs(time).utc();
 /**
  *
  *

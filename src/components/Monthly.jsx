@@ -23,7 +23,7 @@ const Monthly = ({ prayers }) => {
 
   const table = (
     <>
-      <MonthTitle city={city} month={hijriMonth} />
+      
 
       <table
         className={`border-2 mt-8 w-full text-xs sm:text-sm mx-auto  lg:text-lg md:text-md lg:w-3/4`}
@@ -95,6 +95,8 @@ const Monthly = ({ prayers }) => {
           })}
         </tbody>
       </table>
+
+      <MonthTitle city={city} month={hijriMonth} />
     </>
   );
 

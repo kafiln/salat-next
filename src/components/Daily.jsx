@@ -1,10 +1,10 @@
-import moment from 'moment';
 import React, { useContext, useEffect, useState } from 'react';
 import { useIntl } from 'react-intl';
 import { Spinner } from '../components/common';
 import { AppContext } from '../context/';
 import { useTime } from '../hooks';
 import { DEFAULT_TIME_FORMAT } from '../settings';
+import { localTime } from '../utils';
 import PrayerList from './PrayerList';
 import TimeCard from './TimeCard';
 
@@ -25,13 +25,12 @@ const Daily = ({ prayer }) => {
   useEffect(() => {
     if (prayer) {
       const nextOnes = Object.keys(prayer).filter(t =>
-        time.utc().isBefore(moment.utc(prayer[t]))
+        localTime().isBefore(localTime(prayer[t]))
       );
       const next = nextOnes.length === 0 ? Object.keys(names)[0] : nextOnes[0];
-      const diff = moment
-        .utc(moment.utc(prayer[next]).diff(time.utc()))
-        .format(DEFAULT_TIME_FORMAT);
-      setState({ next, diff });
+      const diffInSeconds = localTime(prayer[next]).diff(time)
+      // .format(DEFAULT_TIME_FORMAT);
+      setState({ next, diff: localTime(diffInSeconds).format(DEFAULT_TIME_FORMAT) });
     }
   }, [prayer, time]);
 
@@ -52,8 +51,8 @@ const Daily = ({ prayer }) => {
       </div>
     </div>
   ) : (
-    <Spinner />
-  );
+      <Spinner />
+    );
 };
 
 export default Daily;

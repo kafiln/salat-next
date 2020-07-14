@@ -1,6 +1,5 @@
 import fs from 'fs';
 import { getCurrentMonth } from 'hijri-ma';
-import moment from 'moment';
 import { useRouter } from 'next/router';
 import { useContext, useEffect } from 'react';
 import { Daily, Monthly } from '../../src/components';
@@ -20,7 +19,8 @@ import {
   getPrayers,
   getPrayersForPeriod,
   isToday,
-  storeInCache
+  storeInCache,
+  UTC
 } from '../../src/utils';
 const AppContainer = ({ prayers }) => {
   const router = useRouter();
@@ -48,7 +48,7 @@ const AppContainer = ({ prayers }) => {
   return (
     <>
       <FullDate today={todayPrayer}>
-        {hijri => <Title className="py-2 capitalize">{hijri}</Title>}
+        {hijri => <Title className="py-1 capitalize">{hijri}</Title>}
       </FullDate>
       {periodComponent}
     </>
@@ -56,14 +56,16 @@ const AppContainer = ({ prayers }) => {
 };
 
 export async function getStaticPaths() {
-  storeInCache(fs, await getCurrentMonth());
+  // Cache this value to use in all getStatic props
+  storeInCache(fs, { month: await getCurrentMonth() });
+
   let paths = [];
-  [DAILY, MONTHLY].forEach(p =>
-    getAllCities().forEach(c => {
+  [DAILY, MONTHLY].forEach(periodicity =>
+    getAllCities().forEach(city => {
       paths.push({
         params: {
-          slug: c.value,
-          periodicity: p
+          slug: city.value,
+          periodicity
         }
       });
     })
@@ -94,7 +96,7 @@ export async function getStaticProps({ params }) {
     //FIXME: refactor this mess
     // Add hijri field
     const hijri = month.find(
-      e => e.gregorianDate === moment.utc(p.day).format('YYYY-MM-DD')
+      e => e.gregorianDate === UTC(p.day).format('YYYY-MM-DD')
     );
     if (hijri) {
       p.hijri = hijri;

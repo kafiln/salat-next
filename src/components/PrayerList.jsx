@@ -1,5 +1,5 @@
 import React from 'react';
-import { parseTime } from '../utils';
+import { formatTime } from '../utils';
 import PrayerItem from './PrayerItem';
 
 const PrayerList = ({ data, next, names, isRTL }) => {
@@ -11,7 +11,7 @@ const PrayerList = ({ data, next, names, isRTL }) => {
         key={key}
         name={{ title: names[key], icon: key }}
         next={next === key}
-        time={parseTime(prayers[key])}
+        time={formatTime(prayers[key])}
         isRTL={isRTL}
       />
     );

@@ -1,9 +1,9 @@
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 import { TIME_OFFSET } from '../settings';
-dayjs.extend(utc)
+dayjs.extend(utc);
 
-export const parseTime = (time) => localTime(time).format('HH:mm');
+export const formatTime = time => localTime(time).format('HH:mm');
 
 /**
  *
@@ -11,6 +11,11 @@ export const parseTime = (time) => localTime(time).format('HH:mm');
  * @param {*} time
  */
 export const localTime = time => UTC(time).utcOffset(TIME_OFFSET);
+/**
+ *
+ *
+ * @param {*} time
+ */
 export const UTC = time => dayjs(time).utc();
 /**
  *
@@ -22,7 +27,7 @@ export const UTC = time => dayjs(time).utc();
  */
 export const getGeorgianMonths = (prayers, fn, separator = '/') => {
   const results = new Set();
-  prayers.forEach((prayer) => results.add(fn(prayer.day, { month: 'long' })));
+  prayers.forEach(prayer => results.add(fn(prayer.day, { month: 'long' })));
   return Array.from(results).join(separator);
 };
 
@@ -31,4 +36,4 @@ export const getGeorgianMonths = (prayers, fn, separator = '/') => {
  *
  * @param {*} prayer
  */
-export const isToday = (day) => localTime(day).date() === localTime().date();
+export const isToday = day => localTime(day).date() === localTime().date();

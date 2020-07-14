@@ -3,7 +3,7 @@ import { FormattedDate, FormattedMessage, useIntl } from 'react-intl';
 import { Spinner } from '../components/common/';
 import { AppContext } from '../context';
 import { KEYS } from '../i18n';
-import { getCity, getGeorgianMonths, parseTime } from '../utils';
+import { formatTime, getCity, getGeorgianMonths } from '../utils';
 import MonthTitle from './MonthTitle';
 
 const Monthly = ({ prayers }) => {
@@ -23,8 +23,6 @@ const Monthly = ({ prayers }) => {
 
   const table = (
     <>
-      
-
       <table
         className={`border-2 mt-8 w-full text-xs sm:text-sm mx-auto  lg:text-lg md:text-md lg:w-3/4`}
       >
@@ -87,7 +85,7 @@ const Monthly = ({ prayers }) => {
                     } `}
                     key={j}
                   >
-                    {parseTime(prayer[name])}
+                    {formatTime(prayer[name])}
                   </td>
                 ))}
               </tr>

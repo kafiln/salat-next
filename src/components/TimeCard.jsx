@@ -1,6 +1,6 @@
 import React from 'react';
 import { SubTitle, Titling } from '../components/dsl';
-import { parseTime } from '../utils';
+import { formatTime } from '../utils';
 import PrayerName from './PrayerName';
 
 const TimeCard = ({ title, icon, remaining, time, isRTL }) => {
@@ -9,7 +9,7 @@ const TimeCard = ({ title, icon, remaining, time, isRTL }) => {
       <SubTitle>
         <PrayerName className="py-2" isRTL={isRTL} title={title} name={icon} />
       </SubTitle>
-      <Titling title={`-${remaining}`} subtitle={parseTime(time)}></Titling>
+      <Titling title={`-${remaining}`} subtitle={formatTime(time)}></Titling>
     </div>
   );
 };

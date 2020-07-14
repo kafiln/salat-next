@@ -1,7 +1,7 @@
-import moment from 'moment';
 import cities from '../../public/data/cities.json';
 import prayers from '../../public/data/prayers.json';
 import { LOCALES } from '../i18n';
+import { localTime } from './dates';
 
 const utcMonth = day => new Date(day).getUTCMonth();
 const utcDate = day => new Date(day).getUTCDate();
@@ -27,13 +27,13 @@ export const getCity = (slug, isRTL = false) => {
  */
 export const getPrayersForPeriod = (slug, first, last) => {
   const results = [];
-  const firstDay = moment.utc(first);
-  const lastDay = moment.utc(last).add(1, 'day');
+  let firstDay = localTime(first);
+  const lastDay = localTime(last).add(1, 'day');
 
-  while (firstDay.toISOString() !== lastDay.toISOString()) {
+  while (!firstDay.isSame(lastDay)) {
     const prayer = getPrayers(slug, firstDay.month(), firstDay.date());
     results.push(prayer[0]);
-    firstDay.add(1, 'day');
+    firstDay = firstDay.add(1, 'd');
   }
 
   return results;

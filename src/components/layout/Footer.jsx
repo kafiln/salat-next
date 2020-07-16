@@ -6,7 +6,7 @@ function Footer() {
   return (
     <footer className="bg-gray-300 border-t border-gray-500">
       <div className="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
-        <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+        <a className="hidden sm:visible sm:flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
           <Logo />
           <span className="ml-3 text-xl">{APPLICATION_NAME}</span>
         </a>

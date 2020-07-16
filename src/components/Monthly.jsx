@@ -24,26 +24,26 @@ const Monthly = ({ prayers }) => {
   const table = (
     <>
       <table
-        className={`border-2 mt-8 w-full text-xs sm:text-sm mx-auto  lg:text-lg md:text-md lg:w-3/4`}
+        className={`border-2 my-4 w-full lg:w-3/4 mx-auto  text-xs sm:text-md md:text-lg  lg:text-xl `}
       >
         <thead className="bg-gray-400 text-gray-800">
-          <tr className={`px-1 ${isRTL ? arClasses : ''} flex`}>
+          <tr className={` ${isRTL ? arClasses : ''} flex`}>
             <td
               className={`flex-1 ${
                 isRTL ? '' : 'border-r'
-              } px-1 text-center capitalize`}
+              }  text-center capitalize`}
             >
               <FormattedMessage id={KEYS.DAY} />
             </td>
-            <td className="flex-1 border-r px-1 text-center">{hijriMonth}</td>
-            <td className="flex-1 border-r px-1 text-center capitalize">
+            <td className="flex-1 border-r  text-center">{hijriMonth}</td>
+            <td className="flex-1 border-r  text-center capitalize">
               {georgianMonths}
             </td>
             {NAMES.map((name, i) => {
               return (
                 <td
                   key={name}
-                  className={`flex-1 px-1 text-center ${
+                  className={`flex-1  text-center ${
                     i !== lastItem ? 'border-r border-l' : ''
                   } `}
                 >
@@ -58,7 +58,7 @@ const Monthly = ({ prayers }) => {
           {Object.entries(prayers || []).map(([_, prayer], i) => {
             return (
               <tr
-                className={`${isRTL ? arClasses : ''} px-1 border-t flex  ${
+                className={`${isRTL ? arClasses : ''} border-t flex  ${
                   prayer.isToday ? 'bg-blue-600 text-white' : ''
                 }
                 ${new Date(prayer.day).getDay() === 5 ? 'bg-green-200' : ''}  
@@ -66,21 +66,21 @@ const Monthly = ({ prayers }) => {
                 key={i}
               >
                 <td
-                  className={`flex-1 px-1 text-center capitalize ${
+                  className={`flex-1  text-center capitalize ${
                     isRTL ? '' : 'border-r'
                   }`}
                 >
                   <FormattedDate value={new Date(prayer.day)} weekday="short" />
                 </td>
-                <td className="flex-1 border-r px-1 text-center">
+                <td className="flex-1 border-r  text-center">
                   {prayer.hijri.day}
                 </td>
-                <td className={`flex-1 border-r px-1 text-center `}>
+                <td className={`flex-1 border-r  text-center `}>
                   <FormattedDate value={new Date(prayer.day)} day="numeric" />
                 </td>
                 {NAMES.map((name, j) => (
                   <td
-                    className={`flex-1 px-1 text-center ${
+                    className={`flex-1  text-center ${
                       j !== lastItem ? 'border-r border-l' : ''
                     } `}
                     key={j}

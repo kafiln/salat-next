@@ -5,8 +5,7 @@ import { AppContext } from '../context/';
 import { useTime } from '../hooks';
 import { DEFAULT_TIME_FORMAT } from '../settings';
 import { localTime } from '../utils';
-import PrayerList from './PrayerList';
-import TimeCard from './TimeCard';
+import PrayerCard from './PrayerCard';
 
 const Daily = ({ prayer }) => {
   const { isRTL } = useContext(AppContext);
@@ -28,31 +27,31 @@ const Daily = ({ prayer }) => {
         localTime().isBefore(localTime(prayer[t]))
       );
       const next = nextOnes.length === 0 ? Object.keys(names)[0] : nextOnes[0];
-      const diffInSeconds = localTime(prayer[next]).diff(time)
+      const diffInSeconds = localTime(prayer[next]).diff(time);
       // .format(DEFAULT_TIME_FORMAT);
-      setState({ next, diff: localTime(diffInSeconds).format(DEFAULT_TIME_FORMAT) });
+      setState({
+        next,
+        diff: localTime(diffInSeconds).format(DEFAULT_TIME_FORMAT)
+      });
     }
   }, [prayer, time]);
 
   const { next, diff } = state;
 
   return next ? (
-    <div className="w-full max-w-sm sm:w-1/2  lg:w-1/4 mx-auto">
-      <div className="flex flex-col pt-3">
-        <TimeCard
-          className="flex-grow"
-          time={prayer[next]}
-          remaining={diff}
-          icon={next}
-          title={names[next]}
-          isRTL={isRTL}
-        />
-        <PrayerList data={prayer} next={next} names={names} isRTL={isRTL} />
-      </div>
+    <div className="flex flex-1 w-full max-w-sm sm:w-1/2 lg:w-1/4 mx-auto">
+      <PrayerCard
+        className=""
+        diff={diff}
+        next={next}
+        prayer={prayer}
+        names={names}
+        isRTL={isRTL}
+      />
     </div>
   ) : (
-      <Spinner />
-    );
+    <Spinner />
+  );
 };
 
 export default Daily;

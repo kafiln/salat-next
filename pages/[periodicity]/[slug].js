@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { useContext, useEffect } from 'react';
 import { Daily, Monthly } from '../../src/components';
 import { FullDate } from '../../src/components/common';
-import { Title } from '../../src/components/dsl';
+import { SubTitle } from '../../src/components/dsl';
 import {
   AppContext,
   DAILY,
@@ -48,7 +48,7 @@ const AppContainer = ({ prayers }) => {
   return (
     <>
       <FullDate today={todayPrayer}>
-        {hijri => <Title className="py-1 capitalize">{hijri}</Title>}
+        {hijri => <SubTitle className="py-1 capitalize">{hijri}</SubTitle>}
       </FullDate>
       {periodComponent}
     </>

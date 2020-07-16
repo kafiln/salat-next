@@ -2,7 +2,7 @@ import React from 'react';
 import { formatTime } from '../utils';
 import PrayerItem from './PrayerItem';
 
-const PrayerList = ({ data, next, names, isRTL }) => {
+const PrayerList = ({ data, next, names, isRTL, className }) => {
   const { id, day, hijri, isToday, ...prayers } = data;
   const list = Object.keys(prayers).map(key => {
     return (
@@ -16,7 +16,7 @@ const PrayerList = ({ data, next, names, isRTL }) => {
       />
     );
   });
-  return <div className="">{list}</div>;
+  return <div className={className}>{list}</div>;
 };
 
 export default PrayerList;

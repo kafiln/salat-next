@@ -6,14 +6,14 @@ import { AppContext } from '../../context/AppContext';
 import { DAILY, MONTHLY } from '../../context/constants';
 import { APPLICATION_NAME } from '../../settings';
 import { Logo } from '../common';
-import { Text } from '../dsl';
+import { Text, Title } from '../dsl';
 
 function Navigation() {
   const router = useRouter();
   const { formatMessage } = useIntl();
   const { slug } = useContext(AppContext);
 
-  const active = 'font-semibold text-blue-900';
+  const active = 'font-bold rounded-md bg-gray-200 px-4 py-2';
 
   const periods = [DAILY, MONTHLY];
   // const pages = ['contact', 'about'];
@@ -24,8 +24,8 @@ function Navigation() {
   };
 
   return (
-    <header className=" container mx-auto flex flex-wrap py-2 flex-col md:flex-row items-center">
-      <nav className="flex lg:w-2/5 flex-wrap items-center text-base md:ml-auto">
+    <header className=" container mx-auto flex flex-wrap py-2 flex-col  items-center">
+      <nav className="flex  flex-wrap items-center text-base">
         {periods.map(period => (
           <Link
             key={period}
@@ -33,20 +33,20 @@ function Navigation() {
             as={`/${period}/${slug}`}
           >
             <a className={`mr-5 capitalize ${isActive(period)}`}>
-              <Text>
+              <Title>
                 {formatMessage({
                   id: period
                 })}
-              </Text>
+              </Title>
             </a>
           </Link>
         ))}
       </nav>
-      <a className="flex order-first lg:order-none lg:w-1/5 title-font font-medium items-center text-gray-900 lg:items-center lg:justify-center mb-4 md:mb-0">
+      <a className="flex order-first  title-font font-medium items-center text-gray-900 mb-4 ">
         <Logo size={48} />
         <span className="ml-3 text-xl">{APPLICATION_NAME}</span>
       </a>
-      <nav className="lg:w-2/5 inline-flex lg:justify-end ml-5 lg:ml-0">
+      <nav className="inline-flex ml-5">
         {pages.map(page => (
           <Link key={page} href={`/${page}`}>
             <a

@@ -6,7 +6,7 @@ const PrayerItem = ({ name: { title, icon }, time, next, isRTL, ...props }) => {
   return (
     <div
       className={`flex justify-between px-2 ${props.className} ${
-        next ? 'py-2 rounded-md bg-green-200 font-semibold text-lg' : ''
+        next ? 'py-2 rounded-md  bg-gray-300 font-bold text-lg' : ''
       }`}
     >
       <PrayerName name={icon} title={title} isRTL={isRTL} />

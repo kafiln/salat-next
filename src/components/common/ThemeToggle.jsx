@@ -14,9 +14,9 @@ const ThemeToggle = () => {
   return (
     <Pill className={`${getClasses(themeToggle)} p-2`} onClick={toggleTheme}>
       {theme === DARK ? (
-        <FaSun size="1.5em" color={`${themeToggle.icon}`} />
+        <FaSun size="2em" color={`${themeToggle.icon}`} />
       ) : (
-        <FaMoon size="1.5em" color={`${themeToggle.icon}`} />
+        <FaMoon size="2em" color={`${themeToggle.icon}`} />
       )}
     </Pill>
   );

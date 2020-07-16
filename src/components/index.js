@@ -1,6 +1,7 @@
 export { default as Daily } from './Daily';
 export { default as Monthly } from './Monthly';
 export { default as MonthTitle } from './MonthTitle';
+export { default as PrayerCard } from './PrayerCard';
 export { default as PrayerIcon } from './PrayerIcon';
 export { default as PrayerItem } from './PrayerItem';
 export { default as PrayerList } from './PrayerList';

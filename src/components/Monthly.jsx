@@ -26,7 +26,7 @@ const Monthly = ({ prayers }) => {
       <table
         className={`border-2 my-4 w-full lg:w-3/4 mx-auto  text-xs sm:text-md md:text-lg  lg:text-xl `}
       >
-        <thead className="bg-gray-400 text-gray-800">
+        <thead className="bg-yellow-300 text-gray-800">
           <tr className={` ${isRTL ? arClasses : ''} flex`}>
             <td
               className={`flex-1 ${
@@ -58,10 +58,9 @@ const Monthly = ({ prayers }) => {
           {Object.entries(prayers || []).map(([_, prayer], i) => {
             return (
               <tr
-                className={`${isRTL ? arClasses : ''} border-t flex  ${
-                  prayer.isToday ? 'bg-blue-600 text-white' : ''
-                }
+                className={`${isRTL ? arClasses : ''} border-t flex  
                 ${new Date(prayer.day).getDay() === 5 ? 'bg-green-200' : ''}  
+                ${prayer.isToday ? 'font-bold text-white bg-green-600' : ''}
                 `}
                 key={i}
               >

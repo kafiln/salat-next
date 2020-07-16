@@ -6,7 +6,7 @@ import { AppContext } from '../../context/AppContext';
 import { DAILY, MONTHLY } from '../../context/constants';
 import { APPLICATION_NAME } from '../../settings';
 import { Logo } from '../common';
-import { Text, Title } from '../dsl';
+import { SubTitle, Title } from '../dsl';
 
 function Navigation() {
   const router = useRouter();
@@ -25,7 +25,13 @@ function Navigation() {
 
   return (
     <header className=" container mx-auto flex flex-wrap py-2 flex-col  items-center">
-      <nav className="flex  flex-wrap items-center text-base">
+      <a className="flex  title-font font-medium items-center text-gray-900 mb-4 ">
+        <Logo size={48} />
+        <span className="ml-3 text-xl">{APPLICATION_NAME}</span>
+      </a>
+
+      <SubTitle>الخميس 24 ذو القعدة 1441هــ الموافق لـ 16 يوليوز 2020</SubTitle>
+      <nav className="flex py-4 flex-wrap items-center text-base">
         {periods.map(period => (
           <Link
             key={period}
@@ -42,11 +48,8 @@ function Navigation() {
           </Link>
         ))}
       </nav>
-      <a className="flex order-first  title-font font-medium items-center text-gray-900 mb-4 ">
-        <Logo size={48} />
-        <span className="ml-3 text-xl">{APPLICATION_NAME}</span>
-      </a>
-      <nav className="inline-flex ml-5">
+
+      {/* <nav className="inline-flex ml-5">
         {pages.map(page => (
           <Link key={page} href={`/${page}`}>
             <a
@@ -58,7 +61,7 @@ function Navigation() {
             </a>
           </Link>
         ))}
-      </nav>
+      </nav> */}
     </header>
   );
 }

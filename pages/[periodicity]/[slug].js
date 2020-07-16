@@ -3,8 +3,6 @@ import { getCurrentMonth } from 'hijri-ma';
 import { useRouter } from 'next/router';
 import { useContext, useEffect } from 'react';
 import { Daily, Monthly } from '../../src/components';
-import { FullDate } from '../../src/components/common';
-import { SubTitle } from '../../src/components/dsl';
 import {
   AppContext,
   DAILY,
@@ -47,9 +45,9 @@ const AppContainer = ({ prayers }) => {
 
   return (
     <>
-      <FullDate today={todayPrayer}>
+      {/* <FullDate today={todayPrayer}>
         {hijri => <SubTitle className="py-1 capitalize">{hijri}</SubTitle>}
-      </FullDate>
+      </FullDate> */}
       {periodComponent}
     </>
   );

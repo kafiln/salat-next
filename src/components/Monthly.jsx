@@ -31,7 +31,7 @@ const Monthly = ({ prayers }) => {
             <td
               className={`flex-1 ${
                 isRTL ? '' : 'border-r'
-              }  text-center capitalize`}
+                }  text-center capitalize`}
             >
               <FormattedMessage id={KEYS.DAY} />
             </td>
@@ -45,7 +45,7 @@ const Monthly = ({ prayers }) => {
                   key={name}
                   className={`flex-1  text-center ${
                     i !== lastItem ? 'border-r border-l' : ''
-                  } `}
+                    } `}
                 >
                   <FormattedMessage id={`PRAYER_${name.toUpperCase()}`} />
                 </td>
@@ -58,17 +58,16 @@ const Monthly = ({ prayers }) => {
           {Object.entries(prayers || []).map(([_, prayer], i) => {
             return (
               <tr
-                className={`${isRTL ? arClasses : ''} border-t flex  ${
-                  prayer.isToday ? 'bg-blue-600 text-white' : ''
-                }
+                className={`${isRTL ? arClasses : ''} border-t flex  
                 ${new Date(prayer.day).getDay() === 5 ? 'bg-green-200' : ''}  
+                ${prayer.isToday ? 'font-bold text-white bg-green-600' : ''}
                 `}
                 key={i}
               >
                 <td
                   className={`flex-1  text-center capitalize ${
                     isRTL ? '' : 'border-r'
-                  }`}
+                    }`}
                 >
                   <FormattedDate value={new Date(prayer.day)} weekday="short" />
                 </td>
@@ -82,7 +81,7 @@ const Monthly = ({ prayers }) => {
                   <td
                     className={`flex-1  text-center ${
                       j !== lastItem ? 'border-r border-l' : ''
-                    } `}
+                      } `}
                     key={j}
                   >
                     {formatTime(prayer[name])}

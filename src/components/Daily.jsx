@@ -4,7 +4,7 @@ import { Spinner } from '../components/common';
 import { AppContext } from '../context/';
 import { useTime } from '../hooks';
 import { DEFAULT_TIME_FORMAT } from '../settings';
-import { localTime } from '../utils';
+import { localTime, UTC } from '../utils';
 import PrayerCard from './PrayerCard';
 
 const Daily = ({ prayer }) => {
@@ -27,11 +27,11 @@ const Daily = ({ prayer }) => {
         localTime().isBefore(localTime(prayer[t]))
       );
       const next = nextOnes.length === 0 ? Object.keys(names)[0] : nextOnes[0];
-      const diffInSeconds = localTime(prayer[next]).diff(time);
+      const diffInSeconds = UTC(prayer[next]).diff(UTC(time));
       // .format(DEFAULT_TIME_FORMAT);
       setState({
         next,
-        diff: localTime(diffInSeconds).format(DEFAULT_TIME_FORMAT)
+        diff: UTC(diffInSeconds).format(DEFAULT_TIME_FORMAT)
       });
     }
   }, [prayer, time]);

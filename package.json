@@ -10,6 +10,7 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "@react-pdf/renderer": "^1.6.9",
     "dayjs": "^1.8.29",
     "hijri-ma": "^0.1.1",
     "next": "^9.3.3",

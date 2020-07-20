@@ -1,3 +1,4 @@
+import dynamic from 'next/dynamic';
 import React, { useContext } from 'react';
 import { FormattedDate, FormattedMessage, useIntl } from 'react-intl';
 import { Spinner } from '../components/common/';
@@ -5,6 +6,14 @@ import { AppContext } from '../context';
 import { KEYS } from '../i18n';
 import { formatTime, getCity, getGeorgianMonths } from '../utils';
 import MonthTitle from './MonthTitle';
+import MyDocument from './MyDocument';
+
+const PDFDownloadLink = dynamic(
+  import('@react-pdf/renderer').then(m => m.PDFDownloadLink),
+  { ssr: false }
+);
+
+// const MyDocument = dynamic(import('./MyDocument'), { ssr: false });
 
 const Monthly = ({ prayers }) => {
   const { isRTL, slug } = useContext(AppContext);
@@ -23,6 +32,13 @@ const Monthly = ({ prayers }) => {
 
   const table = (
     <>
+      <div>
+        <PDFDownloadLink document={MyDocument} fileName="somename.pdf">
+          {({ blob, url, loading, error }) =>
+            loading ? 'Loading document...' : 'Download now!'
+          }
+        </PDFDownloadLink>
+      </div>
       <table
         className={`border-2 my-4 w-full lg:w-3/4 mx-auto  text-xs sm:text-md md:text-lg  lg:text-xl `}
       >
@@ -31,7 +47,7 @@ const Monthly = ({ prayers }) => {
             <td
               className={`flex-1 ${
                 isRTL ? '' : 'border-r'
-                }  text-center capitalize`}
+              }  text-center capitalize`}
             >
               <FormattedMessage id={KEYS.DAY} />
             </td>
@@ -45,7 +61,7 @@ const Monthly = ({ prayers }) => {
                   key={name}
                   className={`flex-1  text-center ${
                     i !== lastItem ? 'border-r border-l' : ''
-                    } `}
+                  } `}
                 >
                   <FormattedMessage id={`PRAYER_${name.toUpperCase()}`} />
                 </td>
@@ -67,7 +83,7 @@ const Monthly = ({ prayers }) => {
                 <td
                   className={`flex-1  text-center capitalize ${
                     isRTL ? '' : 'border-r'
-                    }`}
+                  }`}
                 >
                   <FormattedDate value={new Date(prayer.day)} weekday="short" />
                 </td>
@@ -81,7 +97,7 @@ const Monthly = ({ prayers }) => {
                   <td
                     className={`flex-1  text-center ${
                       j !== lastItem ? 'border-r border-l' : ''
-                      } `}
+                    } `}
                     key={j}
                   >
                     {formatTime(prayer[name])}

@@ -20,7 +20,9 @@ import {
   getPrayersForPeriod,
   isToday,
   storeInCache,
-  UTC
+  UTC,
+  utcDate,
+  utcMonth
 } from '../../src/utils';
 const AppContainer = ({ prayers }) => {
   const router = useRouter();
@@ -56,7 +58,6 @@ const AppContainer = ({ prayers }) => {
 };
 
 export async function getStaticPaths() {
-  // Cache this value to use in all getStatic props
   storeInCache(fs, { month: await getCurrentMonth() });
 
   let paths = [];
@@ -81,11 +82,7 @@ export async function getStaticProps({ params }) {
   const { month } = getDataFromCache(fs);
   const prayers =
     params.periodicity === DAILY
-      ? getPrayers(
-          params.slug,
-          new Date().getUTCMonth(),
-          new Date().getUTCDate()
-        )
+      ? getPrayers(params.slug, utcMonth(), utcDate())
       : getPrayersForPeriod(
           params.slug,
           month[0].gregorianDate,
@@ -94,7 +91,6 @@ export async function getStaticProps({ params }) {
 
   prayers.forEach(p => {
     //FIXME: refactor this mess
-    // Add hijri field
     const hijri = month.find(
       e => e.gregorianDate === UTC(p.day).format('YYYY-MM-DD')
     );
@@ -102,7 +98,6 @@ export async function getStaticProps({ params }) {
       p.hijri = hijri;
     }
 
-    //add isToday boolean
     if (isToday(p.day)) p.isToday = true;
   });
 

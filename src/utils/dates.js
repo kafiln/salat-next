@@ -37,3 +37,6 @@ export const getGeorgianMonths = (prayers, fn, separator = '/') => {
  * @param {*} prayer
  */
 export const isToday = day => localTime(day).date() === localTime().date();
+
+export const utcMonth = day => UTC(day).month();
+export const utcDate = day => UTC(day).date();

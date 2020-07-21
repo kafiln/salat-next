@@ -1,10 +1,7 @@
 import cities from '../../public/data/cities.json';
 import prayers from '../../public/data/prayers.json';
 import { LOCALES } from '../i18n';
-import { localTime } from './dates';
-
-const utcMonth = day => new Date(day).getUTCMonth();
-const utcDate = day => new Date(day).getUTCDate();
+import { localTime, utcDate, utcMonth } from './dates';
 
 /**
  *

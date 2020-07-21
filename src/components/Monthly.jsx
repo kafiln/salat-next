@@ -1,119 +1,102 @@
-import dynamic from 'next/dynamic';
 import React, { useContext } from 'react';
 import { FormattedDate, FormattedMessage, useIntl } from 'react-intl';
-import { Spinner } from '../components/common/';
+import styled from 'styled-components';
 import { AppContext } from '../context';
 import { KEYS } from '../i18n';
-import { formatTime, getCity, getGeorgianMonths } from '../utils';
+import { formatTime, getCity, getGeorgianMonths, localTime } from '../utils';
 import MonthTitle from './MonthTitle';
-import MyDocument from './MyDocument';
-
-const PDFDownloadLink = dynamic(
-  import('@react-pdf/renderer').then(m => m.PDFDownloadLink),
-  { ssr: false }
-);
-
-// const MyDocument = dynamic(import('./MyDocument'), { ssr: false });
 
 const Monthly = ({ prayers }) => {
   const { isRTL, slug } = useContext(AppContext);
   const { formatDate, formatMessage } = useIntl();
 
+  const isFriday = date => localTime(date).day() === 5;
+
   const NAMES = Object.keys(prayers[0]).splice(0, 6);
   const city = getCity(slug, isRTL);
   const georgianMonths = getGeorgianMonths(prayers, formatDate, ' ');
-  const today = prayers.find(p => p.isToday);
+
   const hijriMonth = formatMessage({
-    id: `HIJRI_MONTH_${today.hijri.month}`
+    id: `HIJRI_MONTH_${prayers[0].hijri.month}`
   });
 
-  const arClasses = 'flex-row-reverse text-right';
-  const lastItem = 5;
+  const Table = styled.table.attrs(_ => ({
+    className:
+      'border-2 my-4 w-full lg:w-3/4 mx-auto  text-xs sm:text-md md:text-lg lg:text-xl '
+  }))`
+    direction: ${({ isRTL }) => (isRTL ? 'rtl' : 'ltr')};
+    & .day {
+      text-align: ${({ isRTL }) => (isRTL ? 'right' : 'left')};
+      padding: 0 0.5rem;
+    }
+  `;
 
-  const table = (
+  const Thead = styled.thead.attrs(props => ({
+    className: `bg-gray-400 text-gray-800`
+  }))``;
+
+  const Tr = styled.tr.attrs(props => ({
+    className: `flex border-t 
+    ${props.isToday ? 'font-bold text-white bg-green-600' : ''}
+    ${props.isFriday ? 'bg-green-200' : ''}`
+  }))``;
+
+  const Td = styled.td.attrs(props => ({
+    className: `flex-1 border-r text-center capitalize`
+  }))``;
+
+  return (
     <>
-      <div>
-        <PDFDownloadLink document={MyDocument} fileName="somename.pdf">
-          {({ blob, url, loading, error }) =>
-            loading ? 'Loading document...' : 'Download now!'
-          }
-        </PDFDownloadLink>
-      </div>
-      <table
-        className={`border-2 my-4 w-full lg:w-3/4 mx-auto  text-xs sm:text-md md:text-lg  lg:text-xl `}
-      >
-        <thead className="bg-gray-400 text-gray-800">
-          <tr className={` ${isRTL ? arClasses : ''} flex`}>
-            <td
-              className={`flex-1 ${
-                isRTL ? '' : 'border-r'
-              }  text-center capitalize`}
-            >
+      <Table isRTL={isRTL}>
+        <Thead>
+          <Tr>
+            <Td className="day">
               <FormattedMessage id={KEYS.DAY} />
-            </td>
-            <td className="flex-1 border-r  text-center">{hijriMonth}</td>
-            <td className="flex-1 border-r  text-center capitalize">
-              {georgianMonths}
-            </td>
-            {NAMES.map((name, i) => {
+            </Td>
+            <Td>{hijriMonth}</Td>
+            <Td>{georgianMonths}</Td>
+            {NAMES.map(name => {
               return (
-                <td
-                  key={name}
-                  className={`flex-1  text-center ${
-                    i !== lastItem ? 'border-r border-l' : ''
-                  } `}
-                >
+                <Td key={name}>
                   <FormattedMessage id={`PRAYER_${name.toUpperCase()}`} />
-                </td>
+                </Td>
               );
             })}
-          </tr>
-        </thead>
+          </Tr>
+        </Thead>
 
         <tbody>
-          {Object.entries(prayers || []).map(([_, prayer], i) => {
+          {prayers.map((prayer, i) => {
             return (
-              <tr
-                className={`${isRTL ? arClasses : ''} border-t flex  
-                ${new Date(prayer.day).getDay() === 5 ? 'bg-green-200' : ''}  
-                ${prayer.isToday ? 'font-bold text-white bg-green-600' : ''}
-                `}
+              <Tr
+                isFriday={isFriday(prayer.day)}
+                isToday={prayer.isToday}
                 key={i}
               >
-                <td
-                  className={`flex-1  text-center capitalize ${
-                    isRTL ? '' : 'border-r'
-                  }`}
-                >
-                  <FormattedDate value={new Date(prayer.day)} weekday="short" />
-                </td>
-                <td className="flex-1 border-r  text-center">
-                  {prayer.hijri.day}
-                </td>
-                <td className={`flex-1 border-r  text-center `}>
-                  <FormattedDate value={new Date(prayer.day)} day="numeric" />
-                </td>
-                {NAMES.map((name, j) => (
-                  <td
-                    className={`flex-1  text-center ${
-                      j !== lastItem ? 'border-r border-l' : ''
-                    } `}
-                    key={j}
-                  >
-                    {formatTime(prayer[name])}
-                  </td>
+                <Td className="day hidden sm:block">
+                  <FormattedDate value={localTime(prayer.day)} weekday="long" />
+                </Td>
+                <Td className="day sm:hidden">
+                  <FormattedDate
+                    value={localTime(prayer.day)}
+                    weekday="short"
+                  />
+                </Td>
+                <Td>{prayer.hijri.day}</Td>
+                <Td>
+                  <FormattedDate value={localTime(prayer.day)} day="numeric" />
+                </Td>
+                {NAMES.map(name => (
+                  <Td key={name}>{formatTime(prayer[name])}</Td>
                 ))}
-              </tr>
+              </Tr>
             );
           })}
         </tbody>
-      </table>
-
+      </Table>
       <MonthTitle city={city} month={hijriMonth} />
     </>
   );
-
-  return (prayers || []).length > 0 ? table : <Spinner />;
 };
 
 export default Monthly;

@@ -1,5 +1,6 @@
 import { FaFacebookF, FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 import { APPLICATION_NAME } from '../../settings';
+import { localTime } from '../../utils';
 import { Logo } from '../common';
 
 function Footer() {
@@ -11,7 +12,7 @@ function Footer() {
           <span className="ml-3 text-xl">{APPLICATION_NAME}</span>
         </a>
         <p className="text-sm  sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">
-          © {new Date().getFullYear()} {APPLICATION_NAME} —
+          © {localTime().year()} {APPLICATION_NAME} —
           <a
             href="https://twitter.com/kaaafiiil"
             className=" ml-1"

@@ -38,5 +38,11 @@ export const getGeorgianMonths = (prayers, fn, separator = '/') => {
  */
 export const isToday = day => localTime(day).date() === localTime().date();
 
+/**
+ * @returns {boolean} true if the given date is Friday, false otherwise
+ * @param {Date} date
+ */
+export const isFriday = date => localTime(date).day() === 5;
+
 export const utcMonth = day => UTC(day).month();
 export const utcDate = day => UTC(day).date();

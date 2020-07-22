@@ -3,14 +3,18 @@ import { FormattedDate, FormattedMessage, useIntl } from 'react-intl';
 import styled from 'styled-components';
 import { AppContext } from '../context';
 import { KEYS } from '../i18n';
-import { formatTime, getCity, getGeorgianMonths, localTime } from '../utils';
+import {
+  formatTime,
+  getCity,
+  getGeorgianMonths,
+  isFriday,
+  localTime
+} from '../utils';
 import MonthTitle from './MonthTitle';
 
 const Monthly = ({ prayers }) => {
   const { isRTL, slug } = useContext(AppContext);
   const { formatDate, formatMessage } = useIntl();
-
-  const isFriday = date => localTime(date).day() === 5;
 
   const NAMES = Object.keys(prayers[0]).splice(0, 6);
   const city = getCity(slug, isRTL);
@@ -33,7 +37,11 @@ const Monthly = ({ prayers }) => {
 
   const Thead = styled.thead.attrs(props => ({
     className: `bg-gray-400 text-gray-800`
-  }))``;
+  }))`
+    @media (max-width: 380px) {
+      font-size: 0.6rem;
+    }
+  `;
 
   const Tr = styled.tr.attrs(props => ({
     className: `flex border-t 

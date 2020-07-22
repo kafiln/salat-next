@@ -3,7 +3,7 @@ import { LanguageSwitch, LocationInput, ThemeToggle } from '../common';
 
 function SettingHeader() {
   return (
-    <section className="bg-gray-300 py-1 sm:py-2 border-b border-gray-500">
+    <section className="bg-gray-300 py-1 px-2 sm:py-2 border-b border-gray-500">
       <nav className="flex container mx-auto items-center">
         <div className="py-2 flex justify-center">
           <ThemeToggle />

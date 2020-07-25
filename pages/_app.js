@@ -1,4 +1,5 @@
 import App from 'next/app';
+import Head from 'next/head';
 import Router from 'next/router';
 import NProgress from 'nprogress'; //nprogress module
 import 'nprogress/nprogress.css'; //styles of nprogress
@@ -35,25 +36,33 @@ export default class MyApp extends App {
   render() {
     const { Component, pageProps } = this.props;
     return (
-      <AppContext.Provider
-        value={{
-          ...this.state,
-          dispatch: this.dispatch
-        }}
-      >
-        <ThemeProvider theme={this.state.theme === DARK ? dark : light}>
-          <GlobalStyle />
-          <I18nProvider locale={this.state.lang}>
-            {this.isloaded ? (
-              <Component {...pageProps} />
-            ) : (
-              <CenteredLayout>
-                <Spinner />
-              </CenteredLayout>
-            )}
-          </I18nProvider>
-        </ThemeProvider>
-      </AppContext.Provider>
+      <>
+        <Head>
+          <meta
+            name="google-site-verification"
+            content="7TfdRHVbKRbDzcDXbzz07SmgWY2akphdvsxgqQaN00s"
+          />
+        </Head>
+        <AppContext.Provider
+          value={{
+            ...this.state,
+            dispatch: this.dispatch
+          }}
+        >
+          <ThemeProvider theme={this.state.theme === DARK ? dark : light}>
+            <GlobalStyle />
+            <I18nProvider locale={this.state.lang}>
+              {this.isloaded ? (
+                <Component {...pageProps} />
+              ) : (
+                <CenteredLayout>
+                  <Spinner />
+                </CenteredLayout>
+              )}
+            </I18nProvider>
+          </ThemeProvider>
+        </AppContext.Provider>
+      </>
     );
   }
 }

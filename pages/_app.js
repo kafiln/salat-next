@@ -4,6 +4,8 @@ import NProgress from 'nprogress'; //nprogress module
 import 'nprogress/nprogress.css'; //styles of nprogress
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
+import { Spinner } from '../src/components/common';
+import { CenteredLayout } from '../src/components/layout';
 import {
   AppContext,
   AppReducer,
@@ -22,10 +24,12 @@ Router.events.on('routeChangeError', () => NProgress.done());
 
 export default class MyApp extends App {
   state = { ...initialState };
+  isloaded = false;
   dispatch = action => this.setState(AppReducer(this.state, action));
 
   componentDidMount() {
     initState(this.dispatch);
+    this.isloaded = true;
   }
 
   render() {
@@ -40,7 +44,14 @@ export default class MyApp extends App {
         <ThemeProvider theme={this.state.theme === DARK ? dark : light}>
           <GlobalStyle />
           <I18nProvider locale={this.state.lang}>
-            <Component {...pageProps} />
+            {this.isloaded ? (
+              <Component {...pageProps} />
+            ) : (
+              <CenteredLayout>
+                <Spinner />
+              </CenteredLayout>
+            )}
+            Ò
           </I18nProvider>
         </ThemeProvider>
       </AppContext.Provider>

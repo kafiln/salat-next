@@ -1,5 +1,5 @@
 import LOCALES from '../locales';
-import ENGLISH from '../messages/en';
+import ENGLISH from './en';
 import KEYS from './keys';
 
 export default {

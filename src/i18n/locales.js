@@ -5,7 +5,7 @@ export default {
     displayName: 'العربية'
   },
   FRENCH: {
-    id: 'fr-fr',
+    id: 'fr',
     abbr: 'Fr',
     displayName: 'Français'
   },

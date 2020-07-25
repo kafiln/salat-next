@@ -37,11 +37,7 @@ const Monthly = ({ prayers }) => {
 
   const Thead = styled.thead.attrs(props => ({
     className: `bg-gray-400 text-gray-800`
-  }))`
-    @media (max-width: 380px) {
-      font-size: 0.6rem;
-    }
-  `;
+  }))``;
 
   const Tr = styled.tr.attrs(props => ({
     className: `flex border-t 

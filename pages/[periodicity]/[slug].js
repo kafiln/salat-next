@@ -5,6 +5,7 @@ import { useContext, useEffect } from 'react';
 import { Daily, Monthly } from '../../src/components';
 import { FullDate } from '../../src/components/common';
 import { SubTitle } from '../../src/components/dsl';
+import { Layout } from '../../src/components/layout';
 import {
   AppContext,
   DAILY,
@@ -48,12 +49,12 @@ const AppContainer = ({ prayers }) => {
     );
 
   return (
-    <>
+    <Layout>
       <FullDate today={todayPrayer}>
         {hijri => <SubTitle className="py-1 capitalize">{hijri}</SubTitle>}
       </FullDate>
       {periodComponent}
-    </>
+    </Layout>
   );
 };
 

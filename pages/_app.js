@@ -4,12 +4,11 @@ import NProgress from 'nprogress'; //nprogress module
 import 'nprogress/nprogress.css'; //styles of nprogress
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
-import { Layout } from '../src/components/layout';
 import {
   AppContext,
   AppReducer,
   initialState,
-  initState,
+  initState
 } from '../src/context';
 import { DARK } from '../src/context/';
 import { I18nProvider } from '../src/i18n';
@@ -23,7 +22,7 @@ Router.events.on('routeChangeError', () => NProgress.done());
 
 export default class MyApp extends App {
   state = { ...initialState };
-  dispatch = (action) => this.setState(AppReducer(this.state, action));
+  dispatch = action => this.setState(AppReducer(this.state, action));
 
   componentDidMount() {
     initState(this.dispatch);
@@ -35,15 +34,13 @@ export default class MyApp extends App {
       <AppContext.Provider
         value={{
           ...this.state,
-          dispatch: this.dispatch,
+          dispatch: this.dispatch
         }}
       >
         <ThemeProvider theme={this.state.theme === DARK ? dark : light}>
           <GlobalStyle />
           <I18nProvider locale={this.state.lang}>
-            <Layout>
-              <Component {...pageProps} />
-            </Layout>
+            <Component {...pageProps} />
           </I18nProvider>
         </ThemeProvider>
       </AppContext.Provider>

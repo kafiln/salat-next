@@ -1,6 +1,8 @@
 import { useRouter } from 'next/router';
 import { useContext, useEffect } from 'react';
 import { Spinner } from '../../src/components/common';
+import { CenteredLayout } from '../../src/components/layout';
+import { DAILY, MONTHLY } from '../../src/context';
 import { AppContext } from '../../src/context/AppContext';
 
 export default () => {
@@ -10,8 +12,16 @@ export default () => {
 
   useEffect(() => {
     const redirect = `/${periodicity}/${slug}`;
-    router.push(`/[periodicity]/[slug]`, redirect);
+    if (periodicity === DAILY || periodicity === MONTHLY) {
+      router.push(`/[periodicity]/[slug]`, redirect);
+    } else {
+      router.push('/404');
+    }
   }, [periodicity]);
 
-  return <Spinner />;
+  return (
+    <CenteredLayout>
+      <Spinner />;
+    </CenteredLayout>
+  );
 };

@@ -51,7 +51,6 @@ export default class MyApp extends App {
                 <Spinner />
               </CenteredLayout>
             )}
-            Ò
           </I18nProvider>
         </ThemeProvider>
       </AppContext.Provider>

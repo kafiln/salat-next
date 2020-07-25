@@ -1,4 +1,4 @@
-import { FaFacebookF, FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { FaGithub } from 'react-icons/fa';
 import { APPLICATION_NAME } from '../../settings';
 import { localTime } from '../../utils';
 import { Logo } from '../common';
@@ -23,17 +23,12 @@ function Footer() {
           </a>
         </p>
         <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
-          <a className="cursor ">
-            <FaFacebookF />
-          </a>
-          <a className="ml-3 cursor ">
-            <FaTwitter />
-          </a>
-          <a className="ml-3 cursor ">
-            <FaGithub />
-          </a>
-          <a className="ml-3 cursor ">
-            <FaLinkedin />
+          <a
+            className="cursor-pointer"
+            href="https://github.com/kafiil/salat-next"
+          >
+            {/* TODO Make the size reponsive */}
+            <FaGithub size={18} />
           </a>
         </span>
       </div>

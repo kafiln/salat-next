@@ -12,6 +12,31 @@ import {
 } from '../utils';
 import MonthTitle from './MonthTitle';
 
+const Table = styled.table.attrs(_ => ({
+  className:
+    'border-2 my-4 w-full lg:w-3/4 mx-auto  text-xs sm:text-md md:text-lg lg:text-xl '
+}))`
+  direction: ${({ isRTL }) => (isRTL ? 'rtl' : 'ltr')};
+  & .day {
+    text-align: ${({ isRTL }) => (isRTL ? 'right' : 'left')};
+    padding: 0 0.5rem;
+  }
+`;
+
+const Thead = styled.thead.attrs(props => ({
+  className: `bg-gray-400 text-gray-800`
+}))``;
+
+const Tr = styled.tr.attrs(props => ({
+  className: `flex border-t 
+  ${props.isToday ? 'font-bold text-white bg-green-600' : ''}
+  ${props.isFriday ? 'bg-green-200' : ''}`
+}))``;
+
+const Td = styled.td.attrs(props => ({
+  className: `flex-1 border-r text-center capitalize`
+}))``;
+
 const Monthly = ({ prayers }) => {
   const { isRTL, slug } = useContext(AppContext);
   const { formatDate, formatMessage } = useIntl();
@@ -23,31 +48,6 @@ const Monthly = ({ prayers }) => {
   const hijriMonth = formatMessage({
     id: `HIJRI_MONTH_${prayers[0].hijri.month}`
   });
-
-  const Table = styled.table.attrs(_ => ({
-    className:
-      'border-2 my-4 w-full lg:w-3/4 mx-auto  text-xs sm:text-md md:text-lg lg:text-xl '
-  }))`
-    direction: ${({ isRTL }) => (isRTL ? 'rtl' : 'ltr')};
-    & .day {
-      text-align: ${({ isRTL }) => (isRTL ? 'right' : 'left')};
-      padding: 0 0.5rem;
-    }
-  `;
-
-  const Thead = styled.thead.attrs(props => ({
-    className: `bg-gray-400 text-gray-800`
-  }))``;
-
-  const Tr = styled.tr.attrs(props => ({
-    className: `flex border-t 
-    ${props.isToday ? 'font-bold text-white bg-green-600' : ''}
-    ${props.isFriday ? 'bg-green-200' : ''}`
-  }))``;
-
-  const Td = styled.td.attrs(props => ({
-    className: `flex-1 border-r text-center capitalize`
-  }))``;
 
   return (
     <>

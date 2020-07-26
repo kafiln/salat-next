@@ -23,12 +23,10 @@ Router.events.on('routeChangeError', () => NProgress.done());
 
 export default class MyApp extends App {
   state = { ...initialState };
-  isloaded = false;
   dispatch = action => this.setState(AppReducer(this.state, action));
 
   componentDidMount() {
     initState(this.dispatch);
-    this.isloaded = true;
   }
 
   render() {
@@ -45,7 +43,7 @@ export default class MyApp extends App {
           <ThemeProvider theme={this.state.theme === DARK ? dark : light}>
             <GlobalStyle />
             <I18nProvider locale={this.state.lang}>
-              {this.isloaded ? <Component {...pageProps} /> : <Splash />}
+             <Component {...pageProps} /> 
             </I18nProvider>
           </ThemeProvider>
         </AppContext.Provider>

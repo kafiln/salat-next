@@ -1,7 +1,6 @@
 import { useRouter } from 'next/router';
 import { useContext, useEffect } from 'react';
-import { Spinner } from '../src/components/common';
-import { CenteredLayout } from '../src/components/layout';
+import { Splash } from '../src/components/layout';
 import { AppContext } from '../src/context/AppContext';
 
 const Index = () => {
@@ -13,11 +12,7 @@ const Index = () => {
     router.push(`/[periodicity]/[slug]`, redirect);
   }, [periodicity, slug]);
 
-  return (
-    <CenteredLayout>
-      <Spinner />;
-    </CenteredLayout>
-  );
+  return <Splash />;
 };
 
 export default Index;

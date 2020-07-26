@@ -1,8 +1,10 @@
 import React from 'react';
 
-function CenteredLayout({ children }) {
+function CenteredLayout({ children, className }) {
   return (
-    <div className="flex items-center justify-center h-screen">{children}</div>
+    <div className={`flex items-center justify-center h-screen ${className} `}>
+      {children}
+    </div>
   );
 }
 

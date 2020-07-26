@@ -1,12 +1,10 @@
 import App from 'next/app';
-import Head from 'next/head';
 import Router from 'next/router';
-import NProgress from 'nprogress'; //nprogress module
-import 'nprogress/nprogress.css'; //styles of nprogress
+import NProgress from 'nprogress';
+import 'nprogress/nprogress.css';
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
-import { Spinner } from '../src/components/common';
-import { CenteredLayout } from '../src/components/layout';
+import { Seo, Splash } from '../src/components/layout';
 import {
   AppContext,
   AppReducer,
@@ -37,12 +35,7 @@ export default class MyApp extends App {
     const { Component, pageProps } = this.props;
     return (
       <>
-        <Head>
-          <meta
-            name="google-site-verification"
-            content="7TfdRHVbKRbDzcDXbzz07SmgWY2akphdvsxgqQaN00s"
-          />
-        </Head>
+        <Seo />
         <AppContext.Provider
           value={{
             ...this.state,
@@ -52,13 +45,7 @@ export default class MyApp extends App {
           <ThemeProvider theme={this.state.theme === DARK ? dark : light}>
             <GlobalStyle />
             <I18nProvider locale={this.state.lang}>
-              {this.isloaded ? (
-                <Component {...pageProps} />
-              ) : (
-                <CenteredLayout>
-                  <Spinner />
-                </CenteredLayout>
-              )}
+              {this.isloaded ? <Component {...pageProps} /> : <Splash />}
             </I18nProvider>
           </ThemeProvider>
         </AppContext.Provider>

@@ -25,6 +25,7 @@ import {
   utcDate,
   utcMonth
 } from '../../src/utils';
+
 const AppContainer = ({ prayers }) => {
   const router = useRouter();
 

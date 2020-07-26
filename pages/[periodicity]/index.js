@@ -1,7 +1,6 @@
 import { useRouter } from 'next/router';
 import { useContext, useEffect } from 'react';
-import { Spinner } from '../../src/components/common';
-import { CenteredLayout } from '../../src/components/layout';
+import { Splash } from '../../src/components/layout';
 import { DAILY, MONTHLY } from '../../src/context';
 import { AppContext } from '../../src/context/AppContext';
 
@@ -19,9 +18,5 @@ export default () => {
     }
   }, [periodicity]);
 
-  return (
-    <CenteredLayout>
-      <Spinner />;
-    </CenteredLayout>
-  );
+  return <Splash />;
 };

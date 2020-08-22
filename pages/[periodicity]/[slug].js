@@ -14,6 +14,7 @@ import {
   PERIODICITY,
   SLUG
 } from '../../src/context';
+import { HIJRI_YEAR } from '../../src/settings';
 import {
   getAllCities,
   getDataFromCache,
@@ -60,7 +61,7 @@ const AppContainer = ({ prayers }) => {
 };
 
 export async function getStaticPaths() {
-  storeInCache(fs, { month: await getCurrentMonth() });
+  storeInCache(fs, { month: await getCurrentMonth({ year: HIJRI_YEAR }) });
 
   let paths = [];
   [DAILY, MONTHLY].forEach(periodicity =>

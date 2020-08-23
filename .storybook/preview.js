@@ -1,11 +1,12 @@
 import { addDecorator } from '@storybook/react';
 import React from 'react';
-import { GlobalStyle } from '../src/styles';
+import { ThemeProvider } from 'styled-components';
+import { GlobalStyle, light } from '../src/styles';
 import '../styles/main.css';
 
 addDecorator(story => (
-  <>
+  <ThemeProvider theme={light}>
     <GlobalStyle />
-    <div style={{ padding: '1rem' }}>{story()}</div>
-  </>
+    <div style={{ padding: '1rem', zoom: 3 }}>{story()}</div>
+  </ThemeProvider>
 ));

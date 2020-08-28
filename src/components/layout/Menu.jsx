@@ -14,7 +14,7 @@ function Menu() {
 
   const active = 'font-bold rounded-md bg-gray-200 px-4 py-2';
 
-  const periods = [DAILY, MONTHLY];
+  const periods = [MONTHLY, DAILY];
   // const pages = ['contact', 'about'];
   const pages = [];
 

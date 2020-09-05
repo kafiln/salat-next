@@ -14,18 +14,18 @@ function Footer() {
         <p className="text-sm  sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">
           © {localTime().year()} {APPLICATION_NAME} —
           <a
-            href="https://twitter.com/kaaafiiil"
+            href="https://twitter.com/kafiiil"
             className=" ml-1"
             rel="noopener noreferrer"
             target="_blank"
           >
-            @kaaafiiil
+            @kafiiil
           </a>
         </p>
         <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
           <a
             className="cursor-pointer"
-            href="https://github.com/kafiil/salat-next"
+            href="https://github.com/kafiln/salat-next"
           >
             {/* TODO Make the size reponsive */}
             <FaGithub size={18} />

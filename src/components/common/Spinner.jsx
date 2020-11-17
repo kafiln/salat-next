@@ -38,7 +38,7 @@ const Wrapper = styled.div`
   flex: 1;
 `;
 
-export default () => {
+const customSpinner = () => {
   return (
     <Wrapper>
       <Spinner />
@@ -48,3 +48,5 @@ export default () => {
     </Wrapper>
   );
 };
+
+export default customSpinner;

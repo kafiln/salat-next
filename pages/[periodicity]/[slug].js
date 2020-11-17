@@ -108,7 +108,7 @@ export async function getStaticProps({ params }) {
     props: {
       prayers
     },
-    unstable_revalidate: 1
+    revalidate: 1
   };
 }
 

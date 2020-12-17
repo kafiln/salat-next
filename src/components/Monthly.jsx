@@ -86,7 +86,7 @@ const Monthly = ({ prayers }) => {
                     weekday="short"
                   />
                 </Td>
-                <Td>{prayer.hijri.day}</Td>
+                {prayer.hijri && <Td>{prayer.hijri.day}</Td>}
                 <Td>
                   <FormattedDate value={localTime(prayer.day)} day="numeric" />
                 </Td>

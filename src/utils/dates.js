@@ -46,3 +46,4 @@ export const isFriday = date => localTime(date).day() === 5;
 
 export const utcMonth = day => UTC(day).month();
 export const utcDate = day => UTC(day).date();
+export const utcYear = day => UTC(day).year();

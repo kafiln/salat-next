@@ -1,7 +1,7 @@
 import cities from '../../public/data/cities.json';
 import prayers from '../../public/data/prayers.json';
 import { LOCALES } from '../i18n';
-import { localTime, utcDate, utcMonth } from './dates';
+import { localTime, utcDate, utcMonth, utcYear } from './dates';
 
 /**
  *
@@ -28,7 +28,12 @@ export const getPrayersForPeriod = (slug, first, last) => {
   const lastDay = localTime(last).add(1, 'day');
 
   while (!firstDay.isSame(lastDay)) {
-    const prayer = getPrayers(slug, firstDay.month(), firstDay.date());
+    const prayer = getPrayers(
+      slug,
+      firstDay.month(),
+      firstDay.date(),
+      firstDay.year()
+    );
     results.push(prayer[0]);
     firstDay = firstDay.add(1, 'd');
   }
@@ -44,11 +49,14 @@ export const getPrayersForPeriod = (slug, first, last) => {
  * @param {*} day
  * @returns
  */
-export const getPrayers = (slug, month, day) => {
+export const getPrayers = (slug, month, day, year) => {
   let result = [...prayers];
 
   if (slug) {
     result = result.filter(e => e.id === idFromSlug(slug));
+  }
+  if (year) {
+    result = result.filter(e => utcYear(e.day) === year);
   }
   if (month) {
     result = result.filter(e => utcMonth(e.day) === month);
@@ -56,6 +64,7 @@ export const getPrayers = (slug, month, day) => {
   if (day) {
     result = result.filter(e => utcDate(e.day) === day);
   }
+
   return result;
 };
 

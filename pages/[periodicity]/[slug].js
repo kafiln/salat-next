@@ -24,7 +24,8 @@ import {
   storeInCache,
   UTC,
   utcDate,
-  utcMonth
+  utcMonth,
+  utcYear
 } from '../../src/utils';
 
 const AppContainer = ({ prayers }) => {
@@ -85,7 +86,7 @@ export async function getStaticProps({ params }) {
   const { month } = getDataFromCache(fs);
   const prayers =
     params.periodicity === DAILY
-      ? getPrayers(params.slug, utcMonth(), utcDate())
+      ? getPrayers(params.slug, utcMonth(), utcDate(), utcYear())
       : getPrayersForPeriod(
           params.slug,
           month[0].gregorianDate,
@@ -94,9 +95,8 @@ export async function getStaticProps({ params }) {
 
   prayers.forEach(p => {
     //FIXME: refactor this mess
-    const hijri = month.find(
-      e => e.gregorianDate === UTC(p.day).format('YYYY-MM-DD')
-    );
+    const day = UTC(p.day).format('YYYY-MM-DD');
+    const hijri = month.find(e => e.gregorianDate === day);
     if (hijri) {
       p.hijri = hijri;
     }

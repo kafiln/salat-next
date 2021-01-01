@@ -3,11 +3,11 @@ import { LOCALES } from '../i18n';
 import { DAILY, LIGHT } from './constants';
 
 export const initialState = {
-  lang: LOCALES.ARABIC.id,
+  lang: LOCALES.ENGLISH.id,
   theme: LIGHT,
   periodicity: DAILY,
   slug: 'casablanca',
-  isRTL: true
+  isRTL: false
 };
 
 export const AppContext = React.createContext(initialState);

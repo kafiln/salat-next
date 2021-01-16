@@ -5707,10 +5707,10 @@ highlight.js@~9.13.0:
   resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-9.13.1.tgz#054586d53a6863311168488a0f58d6c505ce641e"
   integrity sha512-Sc28JNQNDzaH6PORtRLMvif9RSn1mYuOoX3omVjnb0+HbpPygU2ALBI0R/wsiqCb4/fcp07Gdo8g+fhtFrQl6A==
 
-hijri-ma@^0.2.3:
-  version "0.2.3"
-  resolved "https://registry.yarnpkg.com/hijri-ma/-/hijri-ma-0.2.3.tgz#21f524260e9d95095871e1318ce29e2be137c86e"
-  integrity sha512-5vhfD6Q8FBDDS/yXbwsNMn2nfmXHYT687umhMMha5AbZPtT4BMxxsjo2yE7nqf3U8fkMR/x+YaV7HQev22BRqg==
+hijri-ma@^0.2.4:
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/hijri-ma/-/hijri-ma-0.2.4.tgz#c3f810b474d3beef43aeb304cb4ca3c53a338a22"
+  integrity sha512-haEixq2duhSDL5LrcDLZp3GU+8sKgYDFnPSw7QiwJxGRB4bl8fvEYg7jW0vTGkHRsK7rctvEJ7WXiK0Ca5L32g==
   dependencies:
     "@types/jest" "^26.0.0"
     dayjs "^1.8.28"

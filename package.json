@@ -12,7 +12,7 @@
   "dependencies": {
     "@react-pdf/renderer": "^1.6.9",
     "dayjs": "^1.8.29",
-    "hijri-ma": "^0.2.4",
+    "hijri-ma": "^0.2.6",
     "next": "^10.0.1",
     "nprogress": "^0.2.0",
     "prop-types": "^15.7.2",

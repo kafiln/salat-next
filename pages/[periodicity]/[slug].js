@@ -95,6 +95,7 @@ export async function getStaticProps({ params }) {
 
   prayers.forEach(p => {
     //FIXME: refactor this mess
+    if(!p) return;
     const day = UTC(p.day).format('YYYY-MM-DD');
     const hijri = month.find(e => e.gregorianDate === day);
     if (hijri) {
@@ -106,7 +107,7 @@ export async function getStaticProps({ params }) {
 
   return {
     props: {
-      prayers
+      prayers:prayers.filter(p => !!p)
     },
     revalidate: 1
   };

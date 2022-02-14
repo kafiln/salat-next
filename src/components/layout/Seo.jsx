@@ -20,7 +20,7 @@ const Seo = ({ title, description }) => {
       <meta name="author" content="Kafil Nasdami" />
       <meta
         name="google-site-verification"
-        content="7TfdRHVbKRbDzcDXbzz07SmgWY2akphdvsxgqQaN00s"
+        content="gcK78Ff9pNR_ZgaxlWCyd0AM8-eonTsBm50eq-jtIGg"
       />
     </Head>
   );
